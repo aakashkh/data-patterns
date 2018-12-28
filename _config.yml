@@ -1,11 +1,11 @@
-title: Stack Problems
-description: My Personal Stack Problems
-author: Agus Makmun
-github: https://github.com/agusmakmun
-about: I am freelance developer. Currently doing more in backend, focused in Python and Django.
-disqus_shortname: stackproblems
-google_analytics: UA-XXXXXXXX-Y
-avatar_url: /static/img/avatar.jpg
+title: Data Analysis Blog
+description: Notes on Python and R on data cleaning and transformation
+author: Aakash Khandelwal
+github: https://github.com/aakashkh
+about: I am Data Analyst. Currently learning about NLTK.
+disqus_shortname:
+google_analytics:
+avatar_url: /static/img/avatar.png
 
 enableTags: true
 tagarray: []
@@ -17,27 +17,27 @@ collections:
 
 social:
     - icon: fa-facebook
-      link: "#"
+      link: "https://www.facebook.com/aakashkh284"
     - icon: fa-twitter
-      link: "https://twitter.com/agusmakmun6"
+      link: "https://twitter.com/aakashkh284"
     - icon: fa-linkedin
-      link: "https://www.linkedin.com/in/summonagus"
-    - icon: fa-stack-exchange
-      link: "#"
+      link: "https://www.linkedin.com/in/aakashkh284"
+#    - icon: fa-stack-exchange
+#      link: "#"
     - icon: fa-github
-      link: "https://github.com/agusmakmun"
+      link: "https://github.com/aakashkh"
 
 share:
-  twitter_username: agusmakmun6
-  fb_appid: 1749788565247320
+  twitter_username: aakashkh284
+#  fb_appid: 1749788565247320
 
 urls:
     - text: About Me
       url: /about/
     - text: My Projects
       url: /projects/
-    - text: XML Feed
-      url: /feed.xml
+    - text: Archive
+      url: /category/azure.html
 
 url: "https://aakashkh.github.io"
 baseurl: ""
@@ -45,7 +45,7 @@ paginate: 20
 per_page: 20
 paginate_path: "/page/:num/"
 markdown: kramdown
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-gist
 
