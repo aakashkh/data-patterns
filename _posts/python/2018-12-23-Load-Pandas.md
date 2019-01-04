@@ -1,9 +1,12 @@
 ---
 layout : post
 title : Read data into pandas
-subtitle : Provide column names while reading a dataset in pandas
 categories: [python]
+tags: [pandas, python, column names, data, csv, read]
 ---
+
+#### Provide column names while reading a dataset in pandas  
+
 ```python
 # Import the required modules
 import pandas as pd

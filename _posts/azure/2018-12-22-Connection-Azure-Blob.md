@@ -1,9 +1,10 @@
 ---
 layout : post
 title : Connect to azure storage (blob) using python
-subtitle : Connection to Azure Blob and upload/download operations
 categories : [azure, python]
+tags: [azure, python, blob, azure storage, connect, pandas, blob service]
 ---
+#### Connection to Azure Blob and upload/download operations  
 
 The following code snippets are on creating a connection to Azure Blob Storage using Python with account access key.  
 For more details on Azure Blob Storage and generating the access key, visit :  

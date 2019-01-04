@@ -1,11 +1,11 @@
 ---
 layout : post
 title : "Connect to azure datalake store using python"
-subtitle : "Connection to ADLS and file read/write operations using Python"
 date:   2018-12-20
 categories : [azure, python]
+tags: [azure, python, datalake, data lake store, connect, pandas]  
 ---
-
+#### Connection to ADLS and file read/write operations using Python  
 The following code snippets are on creating a connection to Azure Data Lake Storage Gen1 using Python with with Service-to-Service authentication with client secret and client id.
 
 For more details on different ways to connect to Azure Data Lake Storage Gen1, visit -
