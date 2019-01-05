@@ -17,15 +17,15 @@ Reading the dataset using read.csv() function with mentioning column names in na
 data = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data",
                    header = None,
                    index_col = False,
-                   names = ['sepal_length','sepal_width','petal_length','petal_width','class'])
+                   names = ['sepal_length','sepal_width','petal_length','petal_width','iris_class'])
 ```
 Returing the first 10 rows of the dataset using head() function
 ```python
 # Displaying the first ten rows of the data
 data.head(n=10)
 ```
-<div class="table-responsive">
-<table class="table table-hover table-striped table-condensed">
+<div class="table-responsive-sm">
+<table class="table-sm table-hover table-striped table-condensed">
   <thead>
     <tr>
       <th></th>
@@ -33,7 +33,7 @@ data.head(n=10)
       <th>sepal_width</th>
       <th>petal_length</th>
       <th>petal_width</th>
-      <th>class</th>
+      <th>irsi_class</th>
     </tr>
   </thead>
   <tbody>
