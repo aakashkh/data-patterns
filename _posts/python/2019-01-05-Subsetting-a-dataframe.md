@@ -109,7 +109,7 @@ data_setosa.describe().T
 </table>
 </div>
 <br>
-<br>
+
 ```python
 data_versicolor.describe().T
 ```
@@ -177,7 +177,7 @@ data_versicolor.describe().T
 </table>
 </div>
 <br>
-<br>
+
 ```python
 data_virginica.describe().T
 ```
@@ -245,5 +245,5 @@ data_virginica.describe().T
 </table>
 </div>
 <br>
-<br>
+
 One can come up with multiple insights like mentioned above and begin with the exploratory data analysis on any dataset
