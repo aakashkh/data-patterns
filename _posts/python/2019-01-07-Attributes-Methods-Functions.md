@@ -4,7 +4,7 @@ title : Attributes, Methods and Functions in python
 categories: [python]
 tags: [attributes, methods, functions, python, pandas, dataframe]
 ---
-
+### Understand the concept of attributes, methods and functions under the context of a dataframe  
 ### Attributes  
 **Attributes** are the features of any object. They can be accessed by following a dot and the name of the following attribute.
 - **For example**: person.age, person.height  
