@@ -4,7 +4,7 @@ author: Aakash Khandelwal
 github: https://github.com/aakashkh
 about: I am Data Analyst. Currently learning about NLTK.
 disqus_shortname: dataanalysisblog
-google_analytics: UA-131791203-1
+google_analytics:
 avatar_url: /static/img/avatar.png
 google_verify: HrKO33FEPDJorqrLqhnJ80bnOhaT8AdVErCZV4BUFdE
 
@@ -30,7 +30,7 @@ social:
 
 share:
   twitter_username: aakashkh284
-# fb_appid: 
+#  fb_appid: 1749788565247320
 
 urls:
     - text: About Me
