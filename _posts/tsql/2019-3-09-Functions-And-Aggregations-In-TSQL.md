@@ -5,8 +5,13 @@ categories: [tsql]
 tags: [tsql,  sql, data, sql server, database, AdventureWorks, Functions, Logical, window, group by, groupby, aggregate, sum, rank, order]
 ---
 ## Functions in TSQL  
-We can use multiple inbuilt functions in TSQL to achieve complex tasks in a very simpler manner. The first one in this category is -
+We can use multiple inbuilt functions in TSQL to achieve complex tasks in a very simpler manner. We'll discuss the following -
+* [Scalar Functions](#scalar-functions)
+* [Logical Functions](#logical-functions)
+* [Window Functions](#window-functions)
+* [Group By](#group-by)
 
+The first one in this category is - 
 ### Scalar functions
 These functions returns a single value, for example - Year(), Day(), Upper()  
 Go to following link, to more details regarding built in functions in TSQL -  
