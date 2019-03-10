@@ -222,7 +222,7 @@ from
 Select
   Name,
   Case
-	When SellEndDate IS NULL Then 'On Sale' Else 'Discontinued'
+    When SellEndDate IS NULL Then 'On Sale' Else 'Discontinued'
   End AS SaleStatus
 From
   SalesLT.Product -- Simple Case
