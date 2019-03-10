@@ -221,14 +221,22 @@ from
 ``` sql
 Select
   Name,
-  Case When SellEndDate IS NULL Then 'On Sale' Else 'Discontinued' End AS SaleStatus
+  Case
+	When SellEndDate IS NULL Then 'On Sale' Else 'Discontinued'
+  End AS SaleStatus
 From
   SalesLT.Product -- Simple Case
 ```
 ``` sql
 Select
   Name,
-  Case Size When 'S' Then 'Small' When 'M' Then 'Medium' When 'L' Then 'Large' when 'XL' Then 'Extra - Large' Else IsNULL(Size, 'n/a') End As ProductSize
+  Case Size
+	When 'S' Then 'Small'
+	When 'M' Then 'Medium'
+	When 'L' Then 'Large'
+	when 'XL' Then 'Extra - Large'
+	Else IsNULL(Size, 'n/a')
+   End As ProductSize
 from
   SalesLT.Product ```
 ```
