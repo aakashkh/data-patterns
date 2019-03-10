@@ -2,13 +2,14 @@
 layout : post
 title : Using Functions and aggregating data in TSQL
 categories: [tsql]
-tags: [tsql,  sql, data, sql server, database, AdventureWorks, Functions, Logical, window, grou by, groupby, aggregate]
+tags: [tsql,  sql, data, sql server, database, AdventureWorks, Functions, Logical, window, group by, groupby, aggregate, sum, rank, order]
 ---
 ## Functions in TSQL  
 We can use multiple inbuilt functions in TSQL to achieve complex tasks in a very simpler manner. The first one in this category is -
 
 ### Scalar functions
-These functions returns a single value, for example - Year(), Day(), Upper()
+These functions returns a single value, for example - Year(), Day(), Upper()  
+Go to following link, to more details regarding built in functions in TSQL -  
 https://docs.microsoft.com/en-us/sql/t-sql/functions/functions?view=sql-server-2017
 
 The following query will give Year of the SellStartDate, and the scalar function used here is Year().
@@ -124,7 +125,7 @@ from
 ### Logical functions
 The are used to work on True, False situations.
 * IsNumeric - check whether value is numeric or not
-*
+
 ```sql
 --1 is TRUE, 0 is FALSE
 Select
