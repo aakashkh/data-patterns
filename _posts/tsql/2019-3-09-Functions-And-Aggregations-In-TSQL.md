@@ -5,19 +5,21 @@ categories: [tsql]
 tags: [tsql,  sql, data, sql server, database, AdventureWorks, Functions, Logical, window, group by, groupby, aggregate, sum, rank, order]
 ---
 ## Functions in TSQL  
-We can use multiple inbuilt functions in TSQL to achieve complex tasks in a very simpler manner. We'll discuss the following -
+We can use multiple inbuilt functions in TSQL to achieve complex tasks in a very simpler manner.
+We'll discuss the following -
 * [Scalar Functions](#scalar-functions)
 * [Logical Functions](#logical-functions)
 * [Window Functions](#window-functions)
 * [Group By](#group-by)
 
-The first one in this category is - 
-### Scalar functions
-These functions returns a single value, for example - Year(), Day(), Upper()  
-Go to following link, to more details regarding built in functions in TSQL -  
+For more details regarding built in functions in TSQL, please visit -    
 https://docs.microsoft.com/en-us/sql/t-sql/functions/functions?view=sql-server-2017
 
-The following query will give Year of the SellStartDate, and the scalar function used here is Year().
+The first one in this category is -
+### Scalar functions
+These functions returns a single value, for example - Year(), Day(), Upper()  
+- The following query will give **Year** of the SellStartDate, and the scalar function used here is Year().
+
 ```sql
 Select
   Year(SellStartDate) as SellStartYear,
@@ -28,11 +30,11 @@ From
 Order BY
   SellStartYear
 ```
-The following query will give -
-* Year of SellStartDate
-* Month (as 'DATENAME' takes parameter 'MM' according to the output required) of SellStartDate
-* Day of SellStartDate
-* WeekDay of SellStartDate
+- The following query will give -
+  - **Year** of SellStartDate
+  - **Month** (as 'DATENAME' takes parameter 'MM' according to the output required) of SellStartDate
+  - **Day** of SellStartDate
+  - **WeekDay** of SellStartDate
 and other required columns.
 
 ```sql
@@ -48,7 +50,7 @@ From
 order by
   SellStartYear
 ```
-The following query will give the difference between two dates - SellStartDate and Today's date and the difference here is shown in no. of years which is set by the parameter 'YY' in 'DATEDIFF' function.
+- The following query will give the difference between two dates - SellStartDate and Today's date and the difference here is shown in no. of years which is set by the parameter 'YY' in 'DATEDIFF' function.
 
 ```sql
 Select
@@ -64,21 +66,24 @@ from
 Order By
   ProductID
 ```
-This is simple one, and will return ProductName in Upper Case
+- This is simple one, and will return ProductName in Upper Case
+
 ```sql
 Select
   UPPER(Name) as ProductName
 from
   SalesLT.Product
 ```
-This one will return FirstName and Last Name, separated by a space
+* This one will return FirstName and Last Name, separated by a space
+
 ```sql
 Select
   CONCAT(FirstName, ' ', LastName) As FullName
 from
   SalesLT.Customer
 ```
-Multiple substring functions can also be used like LEFT(), which is used to extract the leftmost number of characters by passing the parameter accordingly.
+- Multiple substring functions can also be used like LEFT(), which is used to extract the leftmost number of characters by passing the parameter accordingly.
+
 ```sql
 Select
   Name,
@@ -89,8 +94,8 @@ from
 ```
 #### <u> Spltiing by Delimitter  </u>
 
-The following query is a complex one and each operations is explained as -
-For Example - the Product Number is 'FR-R92B-58'
+The following query is a complex one and each operations is explained as :  
+For Example - Consider the Product Number is 'FR-R92B-58', then
 * ProductType = FR
   - Simplest one, first two digits
 * ModelCode = R92B
@@ -265,7 +270,7 @@ where
 ### Group By
 Group By statement is used to group the data at some categories and then display the associated aggregations for each group. Grouping can be done at multiple levels as well.
 
-For example the following query group at SalesPerson and for each sales person shows the total revenue in descending order
+For example - the following query group at SalesPerson and for each sales person shows the total revenue in descending order
 
 ```sql
 Select
