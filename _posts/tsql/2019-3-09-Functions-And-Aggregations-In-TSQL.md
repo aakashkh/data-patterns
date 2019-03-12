@@ -4,6 +4,14 @@ title : Using Functions and aggregating data in TSQL
 categories: [tsql]
 tags: [tsql,  sql, data, sql server, database, AdventureWorks, Functions, Logical, window, group by, groupby, aggregate, sum, rank, order]
 ---
+<hr>
+<hr>
+``Note : The following scripts are the part of the course on edx titled as: Querying Data with Transact-SQL``
+[Querying Data with Transact-SQL](https://www.edx.org/course/querying-data-with-transact-sql-0)  
+`` These queries works on AdventureWorks database and information regarding the same can be accessed by visiting following link - ``
+[AdventureWorks Installation and configuration](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-2017)
+<hr>
+<hr>
 ## Functions in TSQL  
 We can use multiple inbuilt functions in TSQL to achieve complex tasks in a very simpler manner.
 We'll discuss the following -
