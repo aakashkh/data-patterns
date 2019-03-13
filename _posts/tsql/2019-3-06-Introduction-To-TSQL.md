@@ -2,13 +2,14 @@
 layout : post
 title : Introduction to Transact-SQL - Part 1
 categories: [tsql]
-tags: [tsql, select, sql, data, sql server, database, AdventureWorks, null, select, datetime]
+tags: [tsql, select, sql, data, sql server, database, AdventureWorks, null, isnull, nullif, case, end, cast, convert, try_cast, select, datetime]
 ---
 <hr />
 <hr />
-``Note : The following scripts are the part of the course on edx titled as: Querying Data with Transact-SQL``
+``Note : The following scripts are the part of the course on edx titled as: Querying Data with Transact-SQL - ``  
 [Querying Data with Transact-SQL](https://www.edx.org/course/querying-data-with-transact-sql-0)  
-`` These queries works on AdventureWorks database and information regarding the same can be accessed by visiting following link - ``
+`` These queries works on AdventureWorks database and information regarding the same ``  
+`` can be accessed by visiting following link - ``  
 [AdventureWorks Installation and configuration](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-2017)
 <hr />
 <hr />
@@ -210,10 +211,11 @@ For example -  2+NULL = NULL
 Comparison of two NULL values, hence will return False as we don't know what those two values can be - meaning to say that 'NULL = NULL is <b>False</b>'
 
 There are some SQL functions which are used to handle nulls. These are -
-* ISNUll - Return value if column is null, can be used to check Nulls, as it will return TRUE for NUll Values
-* NullIf - Return null if column is value, explicitly marked certain values as NULL
-* Coalesce - Returns first non null column in the list
+* <b>ISNUll</b> - Return value if column is null, can be used to check Nulls, as it will return TRUE for NUll Values
+* <b>NullIf</b> - Return null if column is value, explicitly marked certain values as NULL
+* <b>Coalesce</b> - Returns first non null column in the list
 
+These functions can be used as -
 * Wherever Size is null, replace it with 0
 
 ``` sql
@@ -258,7 +260,8 @@ from
 * Return the first non-null column among these three columns -
   - DiscontinuedDate
   - SellEndDate
-  - SellStartDate
+  - SellStartDate  
+
 in a new column called LastActivity
 
 ``` sql
@@ -300,5 +303,5 @@ Select
 	Else IsNULL(Size, 'n/a')
    End As ProductSize
 from
-  SalesLT.Product ```
+  SalesLT.Product
 ```
