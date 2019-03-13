@@ -47,6 +47,7 @@ order by
   Color
 ```
 * This one will do the same, sorting the output in alphabetical manner by column color of the output returned. Here we are bringing distinct values of color with replacing *null* by *None* in Color column and for each color bringing the size associated with them where *null* values are replaced by *-* character.
+
 ```sql
 select
   distinct isnull(Color, 'None') as Color,
@@ -56,38 +57,20 @@ from
 order by
   Color
 ```
-
-
-
-
-Limiting Results
-```sql
-Select Category from catTable Order By Catgeory Desc
-
-Select Top 10 Color from Color_Table
-Sleect top 10 percent color from color_table
-select top 10 with ties color from color_table ( display all which are same color -
-By default top 10 only give 1 where it found confict in duplicates use with ties to resolve this issue)
-Top 10 order by desc will give you bottom
-```
-
-what if row no 50-60, then paginate the results
-```sql
-Order by list_items
-offset 10 Rows/Row       # skip no. of rows (row for single row but both works)
-fetch first/next 20 row/rows only # fetch (next 20 or first 20 after skipping, both works)
-````
-
+### Paging Sorted Results
+* Displaying top n rows - <b>Top N</b> command, where N is the no. of rows you want -
 
 ```sql
 select
-  top 100 Name,
+  top 10 Name,
   ListPrice
 from
   SalesLT.Product
 order by
-  ListPrice Desc
+  ProductNumber
 ```
+* Displaying last n rows -  <b>Top N command with Order By Desc <b>, to get bottom N rows -
+
 ``` sql
 select
   top 10 Name,
@@ -95,9 +78,62 @@ select
 from
   SalesLT.Product
 order by
-  ProductNumber -- offset 0 means from top
+  ProductNumber Desc
 ```
+* We can also get the percentage of data, by using <b>Top N percent</b> -
+
+```sql
+select
+  top 10 percent Name,
+  ListPrice
+from
+  SalesLT.Product
+order by
+  ProductNumber
+```
+* <b>Top N with ties</b> - Top N will always return you the top N rows, doesn't matter if they are duplicate or not. Whereas, Top N with ties will return all rows that have same values associated, will do it for all 10 distinct values -
+
+<b>As per Microsoft documentation - </b> [With Ties](https://docs.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql?view=sql-server-2017)  
+``Return two or more rows that tie for last place in the limited results set.``
+``You must use this argument with the ORDER BY clause. ``
+``WITH TIES might cause more rows to be returned than the value specified in expression.``
+``For example, if expression is set to 5 but two additional rows match the values of the ORDER BY columns in row 5,``
+``the result set will contain seven rows.``  
+
+```sql
+-- return only top 10 rows
+SELECT
+  TOP 10 SalesOrderID, OrderQty
+FROM
+  SalesLT.SalesOrderDetail
+ORDER BY
+  OrderQty
+
+-- return around 128 rows, all rows associated with where OrderQty is same is returned
+SELECT
+  TOP 10 with ties SalesOrderID, OrderQty
+FROM
+  SalesLT.SalesOrderDetail
+ORDER BY
+  OrderQty
+```
+* <b>Offset and Fetch</b> are used to implement a [query paging solutions](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-2017#using-offset-and-fetch-to-limit-the-rows-returned)
+  - Offset - no. of rows to ignore
+  - Fetch Next - next set of rows to bring  
+
+  The following query will bring rows no. 11-20 and not first 10 rows -
+
 ``` sql
+-- fetch rows 11-20
+select
+  Name,
+  ListPrice
+from
+  SalesLT.Product
+order by
+  ProductNumber offset 10 Rows Fetch Next 10 Rows Only
+
+-- offset is 0, hence fetch first 10 rows
 select
   Name,
   ListPrice
@@ -106,24 +142,12 @@ from
 order by
   ProductNumber offset 0 Rows Fetch Next 10 Rows Only
 ```
+
+### Filtering Data
+* Not equal to can be implemented by <b><></b> -
+
 ``` sql
-select
-  Name,
-  ListPrice
-from
-  SalesLT.Product
-order by
-  ProductNumber offset 10 Rows Fetch Next 10 Rows Only
-```
-  /*
-  =<>
-  In - matches value in a list
-  Between - inclusive both, i.e., betweenn 100 and 200 include 100 and 200
-  Like - string pattern
-  And
-  Or
-  Not
-``` sql
+-- Prodcut Id not equal to 6
 Select
   Name,
   Color,
@@ -131,29 +155,9 @@ Select
 from
   SalesLT.Product
 where
-  ProductModelID <> 6 -- Start with FR
+  ProductModelID <> 6
 ```
-``` sql
-select
-  productnumber,
-  Name,
-  ListPrice
-from
-  SalesLT.Product
-where
-  ProductNumber like 'FR%' -- _ means fix number of any digit but fixed where % is variable
-```
-
-``` sql
-select
-  Name,
-  ListPrice,
-  ProductNumber
-from
-  SalesLT.Product
-where
-  ProductNumber Like 'FR-_[5-6][5-9]_-[0-9][0-9]'
-```
+* <b>Is Not Null</b> - Return not null values only -
 ``` sql
 Select
   Name
@@ -162,6 +166,7 @@ from
 where
   SellEndDate Is Not Null;
 ```
+* <b>Between and And </b> - both the ranges are inclusive -
 ``` sql
 Select
   Name,
@@ -172,7 +177,9 @@ where
   SellEndDate Between '2006/1/1'
   and '2006/12/31'
 ```
+* <b>In</b> - values matches in the particular list -
 ``` sql
+-- Only those results where ProductCategoryID is 5,6 or 7
 Select
   Name,
   ProductCategoryID
@@ -182,8 +189,8 @@ where
   ProductCategoryID in (5, 6, 7)
 order by
   ProductCategoryID Desc
-```
-``` sql
+
+-- ProductCategoryID is 5, 6 or 7 and SellEndDate is not null
 Select
   ProductCategoryID,
   Name,
@@ -194,7 +201,36 @@ where
   ProductCategoryID in (5, 6, 7)
   and SellEndDate Is Null
 ```
+* <b>Like</b> is used to match string pattern -
+  - <b> % </b> - anything string of 0 or more characters
+  - <b> _ </b> - any single character
+For more details - [Wildcard Characters](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql?view=sql-server-2017)
+
 ``` sql
+-- ProductNumber starts with FR
+select
+  productnumber,
+  Name,
+  ListPrice
+from
+  SalesLT.Product
+where
+  ProductNumber like 'FR%'
+
+-- ProductNumber starts with FR-,
+-- then contains any single character followed by two single character in range 5-6 and 5-9 (both inclusive)
+-- then conatins any single character followed by -
+-- and finally any with two number ranging from 0-9
+select
+  Name,
+  ListPrice,
+  ProductNumber
+from
+  SalesLT.Product
+where
+  ProductNumber Like 'FR-_[5-6][5-9]_-[0-9][0-9]'
+
+-- ProductNumber starts with FR or ProductCategoryID is 5,6,or 7
 select
   Name,
   ProductCategoryID,
@@ -204,5 +240,4 @@ From
 where
   ProductNumber like 'FR%'
   or ProductCategoryID IN (5, 6, 7)
-
 ```
