@@ -144,6 +144,7 @@ order by
 ```
 
 ### Filtering Data
+Filtering data can be done using multiple ways - like, equal to, not equal to, between, and, in, like, is null, not null etc. Some of these can be implemented with multiple combinations as well. Following queries explore them in more details.
 * Not equal to can be implemented by <b><></b> -
 
 ``` sql
@@ -158,6 +159,7 @@ where
   ProductModelID <> 6
 ```
 * <b>Is Not Null</b> - Return not null values only -
+
 ``` sql
 Select
   Name
@@ -167,6 +169,7 @@ where
   SellEndDate Is Not Null;
 ```
 * <b>Between and And </b> - both the ranges are inclusive -
+
 ``` sql
 Select
   Name,
@@ -177,7 +180,9 @@ where
   SellEndDate Between '2006/1/1'
   and '2006/12/31'
 ```
+
 * <b>In</b> - values matches in the particular list -
+
 ``` sql
 -- Only those results where ProductCategoryID is 5,6 or 7
 Select
@@ -201,6 +206,7 @@ where
   ProductCategoryID in (5, 6, 7)
   and SellEndDate Is Null
 ```
+
 * <b>Like</b> is used to match string pattern -
   - <b> % </b> - anything string of 0 or more characters
   - <b> _ </b> - any single character
