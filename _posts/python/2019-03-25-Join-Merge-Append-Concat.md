@@ -8,13 +8,13 @@ Working with multiple data frames often involves joining two or more tables to i
 <hr>
 Example of append data -> monthly files of revenue sheets of a company and wee need at end of the year to be clubbed into single table.    
 
-![alt text](https://github.com/aakashkh/aakashkh.github.io/tree/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T1.png "Table 1")
+![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T1.PNG "Table 1")
 
-![alt text](https://github.com/aakashkh/aakashkh.github.io/tree/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T2.png "Table 2")
+![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T2.PNG "Table 2")
 
-![alt text](https://github.com/aakashkh/aakashkh.github.io/tree/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T3.png "Merge Table")
+![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T3.PNG "Merge Table")
 
-![alt text](https://github.com/aakashkh/aakashkh.github.io/tree/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T4.png "Appended Table")
+![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T4.PNG "Appended Table")
 
 <hr>
 Example of merging -> multiple files regarding employee education, compensation, performance all linked to each other in some identifier in each one of them which maps to employee master table and for doing analysis we need data from each of these tables in the same which can be achieved by merging.
