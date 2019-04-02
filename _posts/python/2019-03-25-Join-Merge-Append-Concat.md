@@ -7,18 +7,15 @@ tags: [pandas, python, column names, data, csv, read]
 Working with multiple data frames often involves joining two or more tables to in bring out more no. of columns from another table by joining on some sort of relationship which exists within a table or appending two tables which is adding one or more table over another table with keeping the same order of columns.  
 <hr>
 Example of append data -> monthly files of revenue sheets of a company and wee need at end of the year to be clubbed into single table.    
-<p align="center">
-![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T1.PNG "Table 1") &nbsp;&nbsp;&nbsp;&nbsp;
-![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T2.PNG "Table 2")
-</p>
 
-<p align="center">
-![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T3.PNG "Merge Table")
-</p>
+![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T1.jpg "Table 1") &nbsp;&nbsp;&nbsp;&nbsp;
+![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T2.jpg "Table 2")
 
-<p align="center">
-![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T4.PNG "Appended Table")
-</p>
+
+![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T3.jpg "Merge Table")
+
+![alt text](https://raw.githubusercontent.com/aakashkh/aakashkh.github.io/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T4.jpg "Appended Table")
+
 
 <hr>
 Example of merging -> multiple files regarding employee education, compensation, performance all linked to each other in some identifier in each one of them which maps to employee master table and for doing analysis we need data from each of these tables in the same which can be achieved by merging.

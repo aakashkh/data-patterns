@@ -56,3 +56,7 @@ compress_html:
   endings: all
   ignore:
     envs: ['development']
+
+exclude:
+  - static/img/_posts/**/*.jpg
+  - static/img/_posts/**/*.png
