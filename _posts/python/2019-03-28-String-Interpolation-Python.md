@@ -10,20 +10,22 @@ tags: [pandas, python, String, Interpolation, format, f-strings, str.format()]
  * String interpolation
  * str.format()
 
-Declaring Python and Django under some variables -
+Declaring some variables -
 
 ```python
 Name = 'Python'
 Framework = 'Django'
 ```
 
-###  Using str.format()
+* ###  Using str.format()
+
 ```python
 "Language - {0}, Framework - {1}".format(Name, Framework)
 ```
 > 'Language - Python, Framework - Django'
 
-###  Using f-strings format - string interpolation
+* ###  Using f-strings format - string interpolation
+
 ```python
 f"Language - {Name}, Framework - {Framework}"
 ```
@@ -31,12 +33,13 @@ f"Language - {Name}, Framework - {Framework}"
 > 'Language - Python, Framework - Django'
 
 
-We can also handle integers within string format, without explicitly converting to string format
+* ### Handling numeric in Strings
 
 ```python
 Year = 2015
 Month = 12
 ```
+The following will through an error, as we can use strings and integers without conversions.
 
 ```python
 "Year is " + Year + ", Month is " + Month
@@ -47,23 +50,28 @@ Month = 12
 
 <hr>
 
-
+The above error can be handled by explicit conversion, str.format and f-strings.
 ```python
+# Explicit conversion to string
 "Year is " + str(Year) + ", Month is " + str(Month)
-```
-
->    'Year is 2015, Month is 12'
-
-
-```python
+# Using str.format()
 "Year is {0}, Month is {1}".format(Year, Month)
-```
-
->  'Year is 2015, Month is 12'
-
-
-```python
+# Using f-strings format - string interpolation
 f"Year is {Year}, Month is {Month}"
 ```
+>  'Year is 2015, Month is 12'  
+>  'Year is 2015, Month is 12'  
+>  'Year is 2015, Month is 12'
 
->    'Year is 2015, Month is 12'
+* ### Similarly, mathematical operations can be applied -
+
+```python
+Number1 = 2
+Number2 = 10
+# Using str.format()
+print("No. 1 * No. 2 is {0}".format(Number1*Number2))
+# Using f-strings format - string interpolation
+print(f"No. 1 * No. 2 is {Number1*Number2}")
+```
+> No. 1 \* No. 2 is 20  
+> No. 1 \* No. 2 is 20
