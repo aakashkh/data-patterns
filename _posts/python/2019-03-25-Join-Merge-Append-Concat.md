@@ -4,22 +4,27 @@ title : Join, Merge, Append and Concatenate
 categories: [python]
 tags: [pandas, python, column names, data, csv, read]
 ---
-
-```python
-import pandas as pd
-```
-
 Working with multiple data frames often involves joining two or more tables to in bring out more no. of columns from another table by joining on some sort of relationship which exists within a table or appending two tables which is adding one or more table over another table with keeping the same order of columns.  
 <hr>
 Example of append data -> monthly files of revenue sheets of a company and wee need at end of the year to be clubbed into single table.    
+
+![alt text](https://github.com/aakashkh/aakashkh.github.io/tree/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T1.png "Table 1")
+
+![alt text](https://github.com/aakashkh/aakashkh.github.io/tree/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T2.png "Table 2")
+
+![alt text](https://github.com/aakashkh/aakashkh.github.io/tree/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T3.png "Merge Table")
+
+![alt text](https://github.com/aakashkh/aakashkh.github.io/tree/master/static/img/_posts/python/2019-03-25-Join-Merge-Append-Concat/T4.png "Appended Table")
+
 <hr>
 Example of merging -> multiple files regarding employee education, compensation, performance all linked to each other in some identifier in each one of them which maps to employee master table and for doing analysis we need data from each of these tables in the same which can be achieved by merging.
-
+<hr>
 We'll look out for merging/joining two tables now and later will discuss the possibilities around appending to tables using pandas.  
 To begin with let's get create some dummy datasets.
 
 
 ```python
+import pandas as pd
 states_codes = pd.DataFrame({'State': ['Haryana', 'Punjab', 'Rajasthan', 'Uttar Pradesh', 'Madhya Pradesh'],
                         'Code': ['HR', 'PB', 'RJ', 'UP', 'MP']})
 states_area = pd.DataFrame({'State': ['Haryana', 'Punjab',  'Uttar Pradesh', 'Bihar'],
