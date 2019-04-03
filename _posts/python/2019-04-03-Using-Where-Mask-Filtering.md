@@ -2,13 +2,15 @@
 layout : post
 title : Filtering using mask and where in pandas
 categories: [python]
-tags: [pandas, python, filtering, mask, where, dataframe]
+tags: [pandas, python, filtering, mask, where, dataframe, conditions, true, false]
 ---
 
+Filtering a dataframe can be achieved in multiple ways using pandas. There are times when you simply need to update a column based on  a condition which is true or vice-versa. In pandas dataframe there are some inbuilt methods to achieve the same using .where() and .mask().  
 
-df.where -> Replace value where condition is false  
-df.mask -> Replace value where condition is true
+* [df.where](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.where.html) - Replace value when condition is false  
+* [df.mask](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mask.html) - Replace value when condition is true
 
+Initiating a dummy dataframe with some columns to understand the same -
 
 ```python
 import pandas as pd
@@ -16,15 +18,11 @@ import numpy as np
 dummy_data = pd.DataFrame(
     np.array([[1, 2, 3], [4, 5, np.nan], [7, 8, 9], [3, 2, np.nan], [5, 6, np.nan]]),
     columns=['Column 1', 'Column 2', 'Column 3'])
-```
-
-
-```python
 dummy_data
 ```
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -68,15 +66,15 @@ dummy_data
 </table>
 </div>
 
-### Operations over the data frame  
--  Using df.where - Replace values when the condition is false
+## Operations over the data frame  
+-  <b>Using df.where </b> - Replace values where values in <b>Column 3 </b> is not null by null across all the columns
 
 ```python
 dummy_data.where(dummy_data['Column 3'].isnull(),np.nan)
 ```
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -121,15 +119,15 @@ dummy_data.where(dummy_data['Column 3'].isnull(),np.nan)
 </div>
 
 
-- Using df.mask - Replace values when the condition is true
+- <b>Using df.mask </b> - Replace values where <b> Column 3 </b> values are null with 0 across the dataframe
 
 
 ```python
 dummy_data.mask(dummy_data['Column 3'].isnull(),0)
 ```
 
-<div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<div class="table-responsive-sm ">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -173,17 +171,18 @@ dummy_data.mask(dummy_data['Column 3'].isnull(),0)
 </table>
 </div>
 
-### Operations over a particular columns
+## Operations over a particular columns
 
-- Using df.mask - Replace values when the condition is true
+- Using df.mask - Replace values in <b> Column 3 </b> by 0 where values are null.  
+  The following code results in a list with previous value in Column 3 and the value obtained after using .mask()
 
 ```python
 list(zip(dummy_data['Column 3'],dummy_data['Column 3'].mask(dummy_data['Column 3'].isnull(),0)))
 ```
 > [(3.0, 3.0), (nan, 0.0), (9.0, 9.0), (nan, 0.0), (nan, 0.0)]
 
--  Using df.where - Replace values when the condition is false
-
+-  Using df.where - Replace values in <b> Column 3 </b> by null where values are not null.    
+The following code results in a list with previous value in Column 3 and the value obtained after using .where()
 
 ```python
 list(zip(dummy_data['Column 3'],dummy_data['Column 3'].where(dummy_data['Column 3'].isnull(),np.nan)))

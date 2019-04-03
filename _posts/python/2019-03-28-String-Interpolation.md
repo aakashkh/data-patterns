@@ -4,7 +4,7 @@ title : String Interpolation in Python
 categories: [python]
 tags: [pandas, python, String, Interpolation, format, f-strings, str.format()]
 ---
- String interpolation in python, sometimes can be a bit tedious, specially when we need to pass variables within Strings.
+ String operations in python, sometimes can be a bit tedious, specially when we need to pass variables within Strings.
 
  Although there are multiple ways to achieve the same, but some of the them are
  * String interpolation

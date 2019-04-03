@@ -1,5 +1,5 @@
 body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Ubuntu", cursive, sans-serif;
   background: url("/static/img/subtle_dots.png");
   line-height: 1.5em;
   font-weight: 300;
@@ -19,7 +19,7 @@ span.time, span.categories {
   font-size: 15px;
 }
 h1, h2, h3 {
-  color: #696969;
+  color: #40739e;
   font-weight: normal;
 }
 h1 {

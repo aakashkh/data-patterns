@@ -89,7 +89,7 @@ data.describe()
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -198,7 +198,7 @@ data.head()
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -290,7 +290,7 @@ data.tail()
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>

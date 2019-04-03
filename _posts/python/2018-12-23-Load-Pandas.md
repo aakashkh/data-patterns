@@ -25,7 +25,7 @@ Returing the first 10 rows of the dataset using head() function
 data.head(n=10)
 ```
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr>
       <th></th>

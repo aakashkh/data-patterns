@@ -43,7 +43,7 @@ states_codes
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -91,7 +91,7 @@ states_area
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -135,7 +135,7 @@ states_literacyrate
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -204,7 +204,7 @@ area_codes_inner
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -247,7 +247,7 @@ results_inner
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -307,7 +307,7 @@ area_codes_left
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -357,7 +357,7 @@ results_left
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -433,7 +433,7 @@ area_codes_right
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -488,7 +488,7 @@ results_right
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -564,7 +564,7 @@ area_codes_outer
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -626,7 +626,7 @@ results_outer
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -736,7 +736,7 @@ states_area
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -780,7 +780,7 @@ states_codes
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -828,7 +828,7 @@ states_area.join(states_literacyrate,lsuffix='_FromArea',rsuffix='_FromLiteracy'
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -903,7 +903,7 @@ pd.merge(states_area,states_literacyrate, left_index=True, right_index=True, how
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -993,7 +993,7 @@ city_states_area
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -1096,7 +1096,7 @@ results_inner
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -1185,7 +1185,7 @@ pd.merge(city_states_literacy,city_states_area, left_on=['State','City'], right_
 
 
 <div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
