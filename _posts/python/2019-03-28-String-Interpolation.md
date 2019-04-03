@@ -46,7 +46,7 @@ The following will through an error, as we can use strings and integers without 
 ```
 <hr>
 
-``TypeError: can only concatenate str (not "int") to str </em>``
+``TypeError: can only concatenate str (not "int") to str``
 
 <hr>
 
