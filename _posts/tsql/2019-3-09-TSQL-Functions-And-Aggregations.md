@@ -1,6 +1,6 @@
 ---
 layout : post
-title : Using Functions and aggregating data in TSQL
+title : T-SQL - Using Functions and aggregating data
 categories: [tsql]
 tags: [tsql,  sql, data, sql server, database, AdventureWorks, Functions, Logical, window, group by, groupby, aggregate, sum, rank, order]
 ---

@@ -1,6 +1,6 @@
 ---
 layout : post
-title : Querying multiple tables with Joins
+title : T-SQL - Querying multiple tables with Joins
 categories: [tsql]
 tags: [tsql,  sql, data, sql server, database, AdventureWorks, inner, left, right, full, self, cross, joins, join]
 ---

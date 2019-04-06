@@ -1,6 +1,6 @@
 ---
 layout : post
-title : Introduction to Transact-SQL - Part 2
+title : T-SQL - Introduction (Part 2)
 categories: [tsql]
 tags: [tsql, select, sql, data, sql server, database, AdventureWorks, duplicates, sorting, paging, filter, like]
 ---

@@ -1,6 +1,6 @@
 ---
 layout : post
-title : Querying multiple tables using Set Operators
+title : T-SQL - Querying multiple tables using Set Operators
 categories: [tsql]
 tags: [tsql,  sql, data, sql server, database, AdventureWorks, Union, Intersect, Except, Append]
 ---

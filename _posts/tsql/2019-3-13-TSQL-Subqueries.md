@@ -1,6 +1,6 @@
 ---
 layout : post
-title : Working with subqueries and APPLY
+title : T-SQL - Working with subqueries and APPLY
 categories: [tsql]
 tags: [tsql, sub-queries, nested sql, nested queries, apply, correlated queries, correlated, sql, data, sql server, database, AdventureWorks]
 ---

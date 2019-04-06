@@ -1,6 +1,6 @@
 ---
 layout : post
-title : Introduction to Transact-SQL - Part 1
+title : T-SQL - Introduction (Part 1)
 categories: [tsql]
 tags: [tsql, select, sql, data, sql server, database, AdventureWorks, null, isnull, nullif, case, end, cast, convert, try_cast, select, datetime]
 ---
