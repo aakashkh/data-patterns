@@ -173,7 +173,7 @@ dummy_data.mask(dummy_data['Column 3'].isnull(),0)
 
 ## Operations over a particular columns
 
-- Using df.mask - Replace values in <b> Column 3 </b> by 0 where values are null.  
+- <b>Using df.mask </b> - Replace values in <b> Column 3 </b> by 0 where values are null.  
   The following code results in a list with previous value in Column 3 and the value obtained after using .mask()
 
 ```python
@@ -181,8 +181,8 @@ list(zip(dummy_data['Column 3'],dummy_data['Column 3'].mask(dummy_data['Column 3
 ```
 > [(3.0, 3.0), (nan, 0.0), (9.0, 9.0), (nan, 0.0), (nan, 0.0)]
 
--  Using df.where - Replace values in <b> Column 3 </b> by null where values are not null.    
-The following code results in a list with previous value in Column 3 and the value obtained after using .where()
+-  <b>Using df.where </b> - Replace values in <b> Column 3 </b> by null where values are not null.    
+The following code results in a list with previous value in Column 3 & the value obtained after using .where()
 
 ```python
 list(zip(dummy_data['Column 3'],dummy_data['Column 3'].where(dummy_data['Column 3'].isnull(),np.nan)))
