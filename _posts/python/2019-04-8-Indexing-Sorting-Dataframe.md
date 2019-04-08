@@ -1,18 +1,19 @@
 ---
 layout : post
-title : Indexing a dataframe using iloc and loc
+title : Indexing and Sorting a dataframe using iloc and loc
 categories: [python]
-tags: [pandas, python, indexing, index, iloc, loc, dataframe, iris, dataset]
+tags: [pandas, python, indexing, index, iloc, loc, dataframe, argsort, index, sort]
 ---
 
 There are multiple ways in pandas by which a dataframe can be indexed i.e, selecting particular set of rows and columns from a dataframe.
 For a detailed description over this topic, once can refer official pandas documentation -
 [Indexing and Selecting Data](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
 
-We'll look the two most common ways -
-* [iloc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html) - Integer location based indexing
-* [loc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html) - Label based indexing
-
+We'll discuss the following -
+* [Integer Based Indexing - iloc](#integer-based-indexing-using-iloc)
+* [Label Based Indexing - loc](#labels-based-indexing-using-loc)
+* [Setting Values using loc](#setting-values-using-loc)
+* [Sorting using indexes via argsort](#sorting)
 
 Let's begin with loading a sample dataset and required python packages.
 
@@ -84,8 +85,8 @@ data.head()
 </table>
 </div>
 
-### Integer Based Indexing - iloc
-
+### Integer based indexing using iloc
+[iloc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html)
 
 
 ```python
@@ -290,8 +291,8 @@ data.iloc[:10,2:]
 </div>
 
 
-### Labels based indexing - loc
-
+### Labels based indexing using loc
+[loc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html)
 ```python
 data.loc[2:10,'petal_length':'iris_class']
 ```
@@ -479,7 +480,7 @@ data.loc[1:3,['petal_length','iris_class']]
 </div>
 
 
-### Stetting values using .loc for
+### Setting values using loc
 
 ```python
 data.head()
@@ -815,6 +816,146 @@ data.loc[2:10]
       <td>30.0</td>
       <td>0.2</td>
       <td>Iris-setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+### Sorting
+
+
+```python
+sample_data = data.iloc[0:6,[1]]
+sample_data
+```
+
+<div class="table-responsive-sm">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+```python
+sample_data.sort_values(by='sepal_width')
+```
+
+<div class="table-responsive-sm">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+```python
+sample_data.sort_values(by='sepal_width').index.values
+```
+> array([1, 3, 2, 0, 4, 5], dtype=int64)
+
+#### Via argsort
+
+```python
+sample_data['sepal_width'].values.argsort(axis=0)
+```
+> array([1, 3, 2, 0, 4, 5], dtype=int64)
+
+```python
+sample_data.iloc[sample_data['sepal_width'].values.argsort(axis=0)]
+```
+
+<div class="table-responsive-sm">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.9</td>
     </tr>
   </tbody>
 </table>

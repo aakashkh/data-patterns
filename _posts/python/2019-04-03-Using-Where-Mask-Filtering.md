@@ -66,7 +66,7 @@ dummy_data
 </table>
 </div>
 
-## Operations over the data frame  
+### Operations over the data frame  
 -  <b>Using df.where </b> - Replace values where values in <b>Column 3 </b> is not null by null across all the columns
 
 ```python
@@ -171,7 +171,7 @@ dummy_data.mask(dummy_data['Column 3'].isnull(),0)
 </table>
 </div>
 
-## Operations over a particular columns
+### Operations over a particular columns
 
 - <b>Using df.mask </b> - Replace values in <b> Column 3 </b> by 0 where values are null.  
   The following code results in a list with previous value in Column 3 and the value obtained after using .mask()
