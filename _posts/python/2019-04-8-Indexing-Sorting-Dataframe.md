@@ -90,7 +90,7 @@ data.head()
 
 
 ```python
-data.iloc[0:10,2:6]
+data.iloc[0:10,2:5]
 ```
 
 
@@ -443,222 +443,10 @@ data.loc[2:10,['petal_length','iris_class']]
 
 
 
-```python
-data.loc[1:3,['petal_length','iris_class']]
-```
 
-
-
-
-<div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed table-bordered">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>petal_length</th>
-      <th>iris_class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>1.4</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 
 
 ### Setting values using loc
-
-```python
-data.head()
-```
-
-
-
-
-<div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed table-bordered">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-      <th>iris_class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>30.0</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4.6</td>
-      <td>3.1</td>
-      <td>30.0</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5.0</td>
-      <td>3.6</td>
-      <td>30.0</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-data.loc[data['sepal_width']>3] = np.nan
-```
-
-
-```python
-data.head()
-```
-
-
-
-
-<div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed table-bordered">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-      <th>iris_class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-```python
-data.loc[1:3,'petal_length':'iris_class']
-```
-
-
-
-
-<div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed table-bordered">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-      <th>iris_class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 
 ```python
@@ -821,10 +609,151 @@ data.loc[2:10]
 </table>
 </div>
 
+```python
+data.head()
+```
+
+
+
+
+<div class="table-responsive-sm">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>iris_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>30.0</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>30.0</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>30.0</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+data.loc[data['sepal_width']>3] = np.nan
+```
+
+
+```python
+data.head()
+```
+
+
+
+
+<div class="table-responsive-sm">
+<table class="table-sm table-hover table-striped table-condensed table-bordered">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>iris_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 ### Sorting
 
 
 ```python
+#Fetching data from url as csv by mentioning values of various paramters
+data = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data",
+                   header = None,
+                   index_col = False,
+                   names = ['sepal_length','sepal_width','petal_length','petal_width','iris_class'])
 sample_data = data.iloc[0:6,[1]]
 sample_data
 ```
@@ -913,7 +842,7 @@ sample_data.sort_values(by='sepal_width').index.values
 ```
 > array([1, 3, 2, 0, 4, 5], dtype=int64)
 
-#### Via argsort
+<b> Using argsort </b>
 
 ```python
 sample_data['sepal_width'].values.argsort(axis=0)
