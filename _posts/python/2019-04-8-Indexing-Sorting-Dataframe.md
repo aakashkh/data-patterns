@@ -28,6 +28,8 @@ data = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/ir
 # visualising first five rows of sample dataset (Iris)
 data.head()
 ```
+The sample first five rows of data looks like (can be viewed using data.head())-
+
 <div class="table-responsive-sm">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
@@ -84,17 +86,15 @@ data.head()
   </tbody>
 </table>
 </div>
-
+<hr>
 ### Integer based indexing using iloc
-[iloc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html)
-
-
+To select some fixed no. of column and a fixed no. of rows from this data, one way is to achieve it by using [iloc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html) operation.
+The first part of indexing will be for rows and another will be columns (indexes starting from 0 to total no. of rows/columns).  
+For example, first 10 rows for last three columns can be extracted by -  
+to pass a range : can be used while indexing [start:end], start being inclusive and end being exclusive  
 ```python
 data.iloc[0:10,2:5]
 ```
-
-
-
 
 <div class="table-responsive-sm">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
@@ -170,16 +170,14 @@ data.iloc[0:10,2:5]
   </tbody>
 </table>
 </div>
-
-
+<hr>
+Similarly, specific rows and columns can be extracted using indexes of the corresponding elements.  
+The following command, will return 1st and 2nd row of 2nd and 4th column.
 
 
 ```python
 data.iloc[[0,1],[1,3]]
 ```
-
-
-
 
 <div class="table-responsive-sm">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
@@ -204,16 +202,13 @@ data.iloc[[0,1],[1,3]]
   </tbody>
 </table>
 </div>
+<hr>
 
-
-
+Another example, to extracting first 10 rows and all columns but first two.
 
 ```python
 data.iloc[:10,2:]
 ```
-
-
-
 
 <div class="table-responsive-sm">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
@@ -289,7 +284,7 @@ data.iloc[:10,2:]
   </tbody>
 </table>
 </div>
-
+<hr>
 
 ### Labels based indexing using loc
 [loc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html)
@@ -368,16 +363,12 @@ data.loc[2:10,'petal_length':'iris_class']
   </tbody>
 </table>
 </div>
-
-
+<hr>
 
 
 ```python
 data.loc[2:10,['petal_length','iris_class']]
 ```
-
-
-
 
 <div class="table-responsive-sm">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
@@ -437,14 +428,7 @@ data.loc[2:10,['petal_length','iris_class']]
   </tbody>
 </table>
 </div>
-
-
-
-
-
-
-
-
+<hr>
 
 ### Setting values using loc
 
@@ -504,6 +488,7 @@ data.loc[2:10,['petal_length']]
   </tbody>
 </table>
 </div>
+<hr>
 
 
 
@@ -608,6 +593,7 @@ data.loc[2:10]
   </tbody>
 </table>
 </div>
+<hr>
 
 ```python
 data.head()
@@ -672,6 +658,7 @@ data.head()
   </tbody>
 </table>
 </div>
+<hr>
 
 
 
@@ -744,6 +731,7 @@ data.head()
   </tbody>
 </table>
 </div>
+<hr>
 
 ### Sorting
 
@@ -794,6 +782,7 @@ sample_data
   </tbody>
 </table>
 </div>
+<hr>
 
 ```python
 sample_data.sort_values(by='sepal_width')
@@ -835,6 +824,7 @@ sample_data.sort_values(by='sepal_width')
   </tbody>
 </table>
 </div>
+<hr>
 
 
 ```python
@@ -889,3 +879,4 @@ sample_data.iloc[sample_data['sepal_width'].values.argsort(axis=0)]
   </tbody>
 </table>
 </div>
+<hr>
