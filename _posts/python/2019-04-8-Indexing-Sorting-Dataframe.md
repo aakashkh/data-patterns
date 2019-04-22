@@ -287,7 +287,9 @@ data.iloc[:10,2:]
 <hr>
 
 ### Labels based indexing using loc
-[loc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html)
+To index a dataframe based on column names,  [loc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html) can be used.  
+For example, to get all the columns between petal_length till iris class and records from 2nd to 10th, can be extracted by using -
+
 ```python
 data.loc[2:10,'petal_length':'iris_class']
 ```
@@ -365,7 +367,7 @@ data.loc[2:10,'petal_length':'iris_class']
 </div>
 <hr>
 
-
+Similarly, specific column names can be passed in a list  for which we want to fetch the data.
 ```python
 data.loc[2:10,['petal_length','iris_class']]
 ```
@@ -432,8 +434,13 @@ data.loc[2:10,['petal_length','iris_class']]
 
 ### Setting values using loc
 
+<b>.loc</b> can be used for setting values of particular records based on some predefined filter queries.
+
+For example, there is a need to set petal_length of for first 11 records, except first two equals to 30 can be achieved by -  
+`` data.loc[2:10,'petal_length'] = 30``
 
 ```python
+# Current state of those records -
 data.loc[2:10,['petal_length']]
 ```
 
@@ -488,19 +495,15 @@ data.loc[2:10,['petal_length']]
   </tbody>
 </table>
 </div>
-<hr>
 
-
-
+<br>
 
 ```python
 data.loc[2:10,'petal_length'] = 30
-```
-
-
-```python
 data.loc[2:10]
 ```
+
+
 
 
 
@@ -595,7 +598,10 @@ data.loc[2:10]
 </div>
 <hr>
 
+Another example of using .loc for setting values, make all records equal to null where ever sepal_width is greater than 3
+
 ```python
+# current state of data
 data.head()
 ```
 
@@ -658,17 +664,13 @@ data.head()
   </tbody>
 </table>
 </div>
-<hr>
 
+<br>
 
 
 
 ```python
 data.loc[data['sepal_width']>3] = np.nan
-```
-
-
-```python
 data.head()
 ```
 
@@ -734,7 +736,12 @@ data.head()
 <hr>
 
 ### Sorting
+Sorting a dataframe in python can be done in multiple ways.
+We'll be looking two of those here -
+* <b>sort_values</b>
+* <b>argsort</b>
 
+Let's begin with reloading the dataset again and have a look at first six rows of sepal_width column.
 
 ```python
 #Fetching data from url as csv by mentioning values of various paramters
@@ -784,6 +791,9 @@ sample_data
 </div>
 <hr>
 
+### Using sort_values   
+Simples way to sort a dataframe can be done using sort_values function of pandas dataframe, which take the column name argument on which the sorting is to be done.
+
 ```python
 sample_data.sort_values(by='sepal_width')
 ```
@@ -824,15 +834,20 @@ sample_data.sort_values(by='sepal_width')
   </tbody>
 </table>
 </div>
-<hr>
+<br>
 
-
+Looking at the indexes of the sorted values, gives us the following results.
 ```python
 sample_data.sort_values(by='sepal_width').index.values
 ```
 > array([1, 3, 2, 0, 4, 5], dtype=int64)
 
-<b> Using argsort </b>
+<hr>
+
+###  Using argsort   
+Another way to sort a dataframe can be acheived by using argsort, which basically returns the list of indexes which will sort the values. That list of indexes can be passed to .iloc indexing and the output will return an sorted column.  
+To read more about argsort, please follow -
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.argsort.html
 
 ```python
 sample_data['sepal_width'].values.argsort(axis=0)
