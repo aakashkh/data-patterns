@@ -164,18 +164,18 @@ layout: compress
             <li><a href="/projects/" style="color: #485460; font-weight: normal; font-size: 25px;">Projects</a></li>
               <li font-weight: normal; font-size: 25px;>|</li>
             <li><a href="/category/azure.html" style="color: #485460; font-weight: normal; font-size: 25px;">Archive</a></li>
-            <div style="float:right">
+
             {% for link in site.social %}
-              <li><a href="{{ link.link }}" target="_blank"><i class="fa {{ link.icon }}"></i></a></li>
+              <li><a href="{{ link.link }}" target="_blank" style="float:right"><i class="fa {{ link.icon }}"></i></a></li>
             {% endfor %}
-            </div>
+          
             </ul>
             </div>
           </header>
           <hr>
-          <div class="col-sm-8  main-layout">
+
         {{ content }}
-      </div>
+
 
       </div>
       <div class="col-sm-2"></div>
