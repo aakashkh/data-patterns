@@ -27,8 +27,8 @@ h2, h3 {
 }
 h1 {
   font-family: 'Roboto';
-  color: #2f3542;
-  font-weight: bold ;
+  color:#485460;
+  font-weight: bolder ;
   margin-bottom: 10px;
   font-size: 30px;
 }
@@ -46,18 +46,7 @@ a:hover {
 .main-layout {
   background: #fff;
 }
-.sidebar-nav {
-  margin: 0;
-  padding: 0;
-}
-.sidebar-nav li {
-  margin: 0;
-  list-style: none;
-}
-.sidebar-nav li::before {
-  content: "»";
-  margin-right: .5em;
-}
+
 
 /* Content */
 div.content pre {

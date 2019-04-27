@@ -1,8 +1,8 @@
-title: Data Analysis Blog
+title: Archive
 description: Notes on Python and R on data cleaning and transformation
-author: Aakash Khandelwal
+author:
 github: https://github.com/aakashkh
-about: Data Analyst
+about:
 disqus_shortname: dataanalysisblog
 google_analytics:
 avatar_url: /static/img/avatar.png
@@ -32,13 +32,13 @@ share:
   twitter_username: aakashkh284
 #  fb_appid: 1749788565247320
 
-urls:
-    - text: About Me
-      url: /about/
-    - text: My Projects
-      url: /projects/
-    - text: Archive
-      url: /category/azure.html
+#urls:
+#    - text: About Me
+#      url: /about/
+#    - text: My Projects
+#      url: /projects/
+#    - text: Archive
+#      url: /category/azure.html
 
 url: "https://aakashkh.github.io"
 baseurl: ""
