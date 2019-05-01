@@ -1,12 +1,9 @@
 ---
 layout : post
-title : Applying functions over pandas dataframe - apply, applymap, map
+title : Applying functions over pandas dataframe using apply, applymap and map
 categories: [python]
 tags: [pandas, python, dataframe, applymap, map, apply, lambda, function]
 ---
-
-
-
 ### Importing Packages and Datasets
 ```python
 import pandas as pd
