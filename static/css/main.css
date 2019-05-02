@@ -1,9 +1,9 @@
 body {
-  font-family:"Roboto Condensed";
+  font-family: "Open Sans";
   background: url("/static/img/subtle_dots.png");
   line-height: 1.5em;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   color: #00000;
 }
 hr {
@@ -19,14 +19,14 @@ span.time, span.categories {
   font-size: 15px;
 }
 h2, h3 {
-  font-family:"Roboto Condensed";
+  font-family: "Open Sans";
   color: #485460;
   font-weight: bolder;
   margin-bottom: 5px;
   font-size: 25px;
 }
 h1 {
-  font-family:"Roboto Condensed";
+  font-family: "Open Sans";
   color:#485460;
   font-weight: bolder ;
   margin-bottom: 10px;

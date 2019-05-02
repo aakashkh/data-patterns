@@ -168,7 +168,7 @@ data.apply(lambda x: (x-np.min(x))/(np.max(x)-np.min(x)))
     </tr>
   </tbody>
 </table>
-  </table>
+
 </div>
 ### Map
 

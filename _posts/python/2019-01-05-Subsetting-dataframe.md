@@ -4,44 +4,36 @@ title : Subsetting a dataframe in pandas
 categories: [python]
 tags: [pandas, python, filter, subset, data, iris]
 ---
-#### Filtering a dataset and restoring it as a new data dataframe
 
-we will start with importing pandas library and fetching the IRIS dataset and passing column names
+### Importing packages and datasets
 ```python
 import pandas as pd
-
-#Fetching data from url as csv by mentioning values of various paramters
+# Fetching data from url as csv by mentioning values of various paramters
 data = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data",
                    header = None,
                    index_col = False,
                    names = ['sepal_length','sepal_width','petal_length','petal_width','iris_class'])
-```
-we`ll filter the iris data on iris_class as we can see that there are three unique classes in this dataset.
-+ Iris-setosa
-+ Iris-versicolor
-+ Iris-virginica
-
-```python
+# Unique classes of iris datasets
 data.iris_class.unique()
 ```
+>
+ array(['Iris-setosa', 'Iris-versicolor', 'Iris-virginica'], dtype=object)
 
-> array(['Iris-setosa', 'Iris-versicolor', 'Iris-virginica'], dtype=object)
 
-
-The following command helps in creating the subset from the same.
+### Subsetting
 
 ```python
 data_setosa = data[data.iris_class == 'Iris-setosa']
 data_versicolor = data[data.iris_class == 'Iris-versicolor']
 data_virginica = data[data.iris_class == 'Iris-virginica']
-```
 
-Now we can have a look at descriptive statistics summary for each of the subset and can make inference like following..
+'''
+Now we can have a look at descriptive statistics summary for each of the subset and can make inference like following -
 * Each of the subset is of same size i.e., 50
 * Average Sepal and Petal Length is lowest in setosa and highest in virginica
-<br>
-<br>
-
+'''
+```
+<hr>
 ```python
 data_setosa.describe().T
 ```
@@ -108,8 +100,8 @@ data_setosa.describe().T
   </tbody>
 </table>
 </div>
-<br>
 
+<hr>
 ```python
 data_versicolor.describe().T
 ```
@@ -176,7 +168,7 @@ data_versicolor.describe().T
   </tbody>
 </table>
 </div>
-<br>
+<hr>
 
 ```python
 data_virginica.describe().T
@@ -245,5 +237,3 @@ data_virginica.describe().T
 </table>
 </div>
 <br>
-
-One can come up with multiple insights like mentioned above and begin with the exploratory data analysis on any dataset
