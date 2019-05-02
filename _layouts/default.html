@@ -13,7 +13,7 @@ layout: compress
     <meta name="description" content="{% if page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %}" />
     <meta name="keywords" content="{% if page.title %}{{ page.title }}, {{ site.title }}, {% for categ in page.categories %}{{ categ }}{% if forloop.last == false %}, {% endif %}{% endfor %}{% else %}{{ site.title }}, {% for category in site.categories %}{% capture categories_slug %}{{ category | first }}{% endcapture %}{% for categ in categories_slug %}{{ categ }}{% endfor %}{% if forloop.last == false %}, {% endif %}{% endfor %}{% endif %}" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
-    <meta content="{{ site.share.fb_appid }}" property="fb:app_id">
+    <!--<meta content="{{ site.share.fb_appid }}" property="fb:app_id">-->
     <meta content="{{ site.title }}" property="og:site_name">
 
     {% if site.google_verify %}
@@ -64,7 +64,7 @@ layout: compress
         <meta content="{{ tag }}" property="article:tag">
       {% endfor %}
     {% endif %}
-
+   <!--
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@{{ site.share.twitter_username }}">
     <meta name="twitter:creator" content="@{{ site.share.twitter_username }}">
@@ -88,7 +88,7 @@ layout: compress
     {% if page.header-img %}
       <meta name="twitter:image:src" content="{{ site.url }}/{{ page.header-img }}">
     {% endif %}
-
+   -->
     <!-- Font awesome icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <!-- syntax highlighting CSS -->
