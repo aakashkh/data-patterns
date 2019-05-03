@@ -189,3 +189,5 @@ list(zip(dummy_data['Column 3'],dummy_data['Column 3'].where(dummy_data['Column 
 ```
 
 > [(3.0, nan), (nan, nan), (9.0, nan), (nan, nan), (nan, nan)]
+
+<hr>

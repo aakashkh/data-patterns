@@ -46,3 +46,4 @@ block_blob_service.create_blob_from_text('container-name',
 					'local-file-name',
 					'content-to-be-added-to-file')
 ```
+<hr>

@@ -75,3 +75,5 @@ print(f"No. 1 * No. 2 is {Number1*Number2}")
 ```
 > No. 1 \* No. 2 is 20  
 > No. 1 \* No. 2 is 20
+
+<hr>

@@ -236,4 +236,4 @@ data_virginica.describe().T
   </tbody>
 </table>
 </div>
-<br>
+<hr>

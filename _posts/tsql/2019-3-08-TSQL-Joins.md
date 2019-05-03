@@ -173,3 +173,4 @@ From
   HR.Employee as emp
   Left Join HR.Employee as man on emp.ManagerID = man.EmployeeID
 ```
+<hr>

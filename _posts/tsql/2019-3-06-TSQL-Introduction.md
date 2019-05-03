@@ -305,3 +305,4 @@ Select
 from
   SalesLT.Product
 ```
+<hr>

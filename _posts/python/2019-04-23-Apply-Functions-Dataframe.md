@@ -182,3 +182,5 @@ data['Physics'].map(SquareOfMarks)
     Student 3      97.731389
     Student 4    1142.735997
     Name: Physics, dtype: float64
+
+<hr>

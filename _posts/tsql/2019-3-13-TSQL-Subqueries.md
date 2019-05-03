@@ -66,3 +66,4 @@ CROSS APPLY SalesLT.udfMaxUnitPrice(SOH.SalesOrderID) AS MUP
 WHERE SOH.UnitPrice=MUP.MaxUnitPrice
 ORDER BY SOH.SalesOrderID;
 ```
+<hr>

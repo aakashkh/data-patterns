@@ -247,3 +247,4 @@ where
   ProductNumber like 'FR%'
   or ProductCategoryID IN (5, 6, 7)
 ```
+<hr>

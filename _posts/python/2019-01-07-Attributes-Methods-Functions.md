@@ -433,3 +433,5 @@ data.loc[:,'mpg': 'displacement'].aggregate(sum)
     cylinders        2171.0
     displacement    76983.5
     dtype: float64
+
+<hr>

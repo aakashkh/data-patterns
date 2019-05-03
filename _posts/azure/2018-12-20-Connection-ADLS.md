@@ -55,3 +55,5 @@ with adl.open('Path-to-Data-Lake-Store-File-as-to-save', 'wb') as o:
 The both path, input path and output path to data lake store starts with the root folder and access to the same depends on the level of access provided to Azure AD Web App from which client secret is generated
 '''
 ```
+
+<hr>

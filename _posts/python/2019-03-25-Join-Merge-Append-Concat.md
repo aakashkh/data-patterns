@@ -1262,3 +1262,4 @@ pd.merge(city_states_literacy,city_states_area, left_on=['State','City'], right_
   </tbody>
 </table>
 </div>
+<hr>

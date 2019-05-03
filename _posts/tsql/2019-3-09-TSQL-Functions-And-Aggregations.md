@@ -355,3 +355,4 @@ group BY
 having
   sum(sod.OrderQty) > 50
  ```
+ <hr>

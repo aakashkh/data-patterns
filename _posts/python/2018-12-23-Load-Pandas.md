@@ -80,3 +80,4 @@ data.head(n=10)
   </tbody>
 </table>
 </div>
+<hr>

@@ -51,5 +51,5 @@ Distinct rows in the first set but not in the second.
 Select A,B from T1
 Except
 Select A,B from T2
-
 ```
+<hr>
