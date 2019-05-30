@@ -4,6 +4,7 @@ title : Applying functions over pandas dataframe using apply, applymap and map
 categories: [python]
 tags: [pandas, python, dataframe, applymap, map, apply, lambda, function]
 ---
+<hr>
 ### Importing Packages and Datasets
 ```python
 import pandas as pd
@@ -52,7 +53,7 @@ data
 </tbody>
 </table>
 </div>
-
+<hr>
 
 ### Applymap
 
@@ -100,7 +101,7 @@ data.applymap(RoundUpto2Decimal)
 </tbody>
 </table>
 </div>
-
+<hr>
 
 
 ### Apply
@@ -170,6 +171,8 @@ data.apply(lambda x: (x-np.min(x))/(np.max(x)-np.min(x)))
 </table>
 
 </div>
+<hr>
+
 ### Map
 
 ```python
