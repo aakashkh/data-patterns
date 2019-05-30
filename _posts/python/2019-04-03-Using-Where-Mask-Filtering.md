@@ -65,7 +65,7 @@ dummy_data
   </tbody>
 </table>
 </div>
-
+<hr>
 ### Operations over the data frame  
 -  <b>Using df.where </b> - Replace values where values in <b>Column 3 </b> is not null by null across all the columns
 
@@ -117,7 +117,7 @@ dummy_data.where(dummy_data['Column 3'].isnull(),np.nan)
   </tbody>
 </table>
 </div>
-
+<br>
 
 - <b>Using df.mask </b> - Replace values where <b> Column 3 </b> values are null with 0 across the dataframe
 
@@ -170,7 +170,7 @@ dummy_data.mask(dummy_data['Column 3'].isnull(),0)
   </tbody>
 </table>
 </div>
-
+<hr>
 ### Operations over a particular columns
 
 - <b>Using df.mask </b> - Replace values in <b> Column 3 </b> by 0 where values are null.  
@@ -190,4 +190,6 @@ list(zip(dummy_data['Column 3'],dummy_data['Column 3'].where(dummy_data['Column 
 
 > [(3.0, nan), (nan, nan), (9.0, nan), (nan, nan), (nan, nan)]
 
+<hr>
+<b> Notebook Link </b>   - [Filtering using mask and where in pandas](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Filtering%20using%20mask%20and%20where%20in%20pandas.ipynb){:target="_blank"}
 <hr>
