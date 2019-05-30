@@ -77,3 +77,5 @@ print(f"No. 1 * No. 2 is {Number1*Number2}")
 > No. 1 \* No. 2 is 20
 
 <hr>
+<b> Notebook Link </b>   - [String Interpolation in Python](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/String%20Interpolation.ipynb){:target="_blank"}
+<hr>

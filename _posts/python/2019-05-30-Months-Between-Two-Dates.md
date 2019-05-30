@@ -422,5 +422,5 @@ data
 </div>
 <hr>
 
-Notebook Link - [Months between two dates](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Months%20between%20two%20dates.ipynb){:target="_blank"}
+<b> Notebook Link </b>   - [Months between two dates](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Months%20between%20two%20dates.ipynb){:target="_blank"}
 <hr>

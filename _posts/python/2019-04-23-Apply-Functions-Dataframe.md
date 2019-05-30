@@ -187,3 +187,5 @@ data['Physics'].map(SquareOfMarks)
     Name: Physics, dtype: float64
 
 <hr>
+<b> Notebook Link </b>  - [Applying functions over pandas dataframe using apply, applymap and map](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Functions%20using%20apply%2C%20applymap%20and%20map.ipynb){:target="_blank"}
+<hr>

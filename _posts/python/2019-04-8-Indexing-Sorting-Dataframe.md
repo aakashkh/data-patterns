@@ -895,3 +895,5 @@ sample_data.iloc[sample_data['sepal_width'].values.argsort(axis=0)]
 </table>
 </div>
 <hr>
+<b> Notebook Link </b>   - [Indexing and Sorting a dataframe using iloc and loc](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Indexing%20and%20Sorting%20a%20dataframe%20using%20iloc%20and%20loc.ipynb){:target="_blank"}
+<hr>
