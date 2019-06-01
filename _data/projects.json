@@ -1,4 +1,11 @@
-[
+[	{
+	"slug": "suicides_python",
+	"name": "Suicides Statistics Using Python",
+	"image": "suicides_python.png",
+	"url": "https://www.kaggle.com/aakashkh/suicides-statistics-using-python",
+	"date": "May, 2019",
+	"tags": ["Python","Kaggle"]
+	},
 	{
 	"slug": "boxplot_r",
 	"name": "Let`s Get Avocado Smashed with R",
@@ -38,6 +45,5 @@
 		"url": "https://aakashkh.github.io/aurora-2k14/",
 		"date": "Jan - Mar, 2014",
 		"tags": ["HTML","Javascript", "AJAX"]
-	},
-
+	}
 ]

@@ -4,7 +4,8 @@ title : Business Days with Custom Holidays
 categories: [python]
 tags: [pandas, python, Business Days, Net Work Days, Datetime, holidays, custom, weekends, weekday]
 ---
-
+<hr>
+### Importing Packages and Datasets
 
 ```python
 import pandas as pd
@@ -57,15 +58,15 @@ data
 <hr>
 
 
-
+### Custm Holidays List
 ```python
 holiday_dates = [pd.datetime(2019, 8, 15), pd.datetime(2019, 10, 2), pd.datetime(2019, 10, 8),
                  pd.datetime(2019, 10, 28), pd.datetime(2019, 12, 25)]
 ```
 
-
+### Example - calculate business days (excluding weekends) with custom holidays
 ```python
-# Exclude weekends and custome holidays
+# Exclude weekends and custom holidays
 pd.bdate_range(pd.datetime(2019, 8, 1), pd.datetime(2019, 8, 31),  holidays=holiday_dates, freq='C', weekmask = None)
 ```
 
@@ -82,7 +83,8 @@ pd.bdate_range(pd.datetime(2019, 8, 1), pd.datetime(2019, 8, 31),  holidays=holi
 
 
 
-
+<hr>
+### Applying the same using lambda
 ```python
 data['Business Days'] = data.apply(lambda x: len(pd.bdate_range(x['Start Date'],
                                                                 x['End Date'],
