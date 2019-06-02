@@ -3,7 +3,7 @@ body {
   background: url("/static/img/subtle_dots.png");
   line-height: 1.5em;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
   color: #00000;
 }
 hr {
@@ -23,14 +23,14 @@ h2, h3 {
   color: #485460;
   font-weight: bolder;
   margin-bottom: 5px;
-  font-size: 25px;
+  font-size: 18px;
 }
 h1 {
   font-family: "Open Sans";
   color:#485460;
   font-weight: bolder ;
   margin-bottom: 10px;
-  font-size: 30px;
+  font-size: 22px;
 }
 
 a, a:link, a:active {
@@ -50,12 +50,12 @@ a:hover {
 
 /* Content */
 div.content pre {
-  /*background: #333333;*/
+  /*background: #F3F2F1;*/
   padding: 10px;
   color: #8f5902;
   overflow-x: auto;
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-  font-size: 15px;
+  font-size: 14px;
   border: none;
 }
 
