@@ -1,6 +1,6 @@
 body {
   font-family: "Open Sans";
-  background: url("/static/img/subtle_dots.png");
+  background: url("/static/img/ricepaper.png");
   line-height: 1.5em;
   font-weight: 400;
   font-size: 14px;
@@ -10,8 +10,8 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #F7F1F1;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
 }
 span.time, span.categories {
   color: #190b0b;
@@ -44,26 +44,35 @@ a:hover {
 
 /* Layout */
 .main-layout {
-  background: #fff;
+  background: #fff0;
+
 }
 
 
 /* Content */
 div.content pre {
-  /*background: #F3F2F1;*/
-  padding: 10px;
-  color: #8f5902;
-  overflow-x: auto;
+  display:block;
+  padding:9.5px;
+  margin:0 0 10px;
+  font-size:14px;
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-  font-size: 14px;
-  border: none;
+  line-height:1.42857143;
+  word-break:break-all;
+  word-wrap:break-word;
+  color:#333;
+  background-color:#f5f5f5;
+  border:1px solid #ccc;
+  border-radius:4px
 }
 
-/*
-div.content .highlight {
-	background: #333333;
+
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 2px solid #d8d8d8;
 }
-*/
+
 footer {
   border-top: 1px solid #F7F1F1;
   width: 100%;
