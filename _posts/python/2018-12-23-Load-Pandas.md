@@ -24,7 +24,7 @@ Returing the first 10 rows of the dataset using head() function
 # Displaying the first ten rows of the data
 data.head(n=10)
 ```
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr>

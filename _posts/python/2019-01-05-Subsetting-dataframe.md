@@ -37,7 +37,7 @@ Now we can have a look at descriptive statistics summary for each of the subset 
 ```python
 data_setosa.describe().T
 ```
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -105,7 +105,7 @@ data_setosa.describe().T
 ```python
 data_versicolor.describe().T
 ```
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered w-40">
   <thead>
     <tr style="text-align: right;">
@@ -173,7 +173,7 @@ data_versicolor.describe().T
 ```python
 data_virginica.describe().T
 ```
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">

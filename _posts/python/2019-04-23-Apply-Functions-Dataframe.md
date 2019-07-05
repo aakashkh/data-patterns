@@ -15,7 +15,7 @@ data = pd.DataFrame(np.random.rand(4, 3)*100,
 data
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
 <thead>
   <tr style="text-align: right;">
@@ -63,7 +63,7 @@ data.applymap(RoundUpto2Decimal)
 ```
 
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
 <thead>
   <tr style="text-align: right;">
@@ -132,7 +132,7 @@ data.apply(AverageMarks,axis = 1)
 ```python
 data.apply(lambda x: (x-np.min(x))/(np.max(x)-np.min(x)))
 ```
-<div class="table-responsive-sm">
+<div class="table-responsive">
   <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">

@@ -17,7 +17,7 @@ start_date = ['2019-06-03', '2019-06-13', '2018-11-05', '2019-05-31', '2019-06-0
 end_date =  ['2019-08-31', '2019-08-23', '2018-11-25', '2019-07-1', '2019-07-31', '2019-10-25']
 data = pd.DataFrame(list(zip(start_date,end_date)), columns = ['Start Date', 'End Date'])
 ```
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
 <thead>
   <tr style="text-align: right;">
@@ -155,7 +155,7 @@ data = pd.merge(data, final, how = 'left')
 data
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -293,7 +293,7 @@ data.loc[data['Month_StartDate'].isnull(),'Month_StartDate'] = pd.to_datetime(da
 data.loc[data['Month_EndDate'].isnull(),'Month_EndDate'] = pd.to_datetime(data['End Date'])
 data
 ```
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">

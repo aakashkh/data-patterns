@@ -21,7 +21,7 @@ dummy_data = pd.DataFrame(
 dummy_data
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -73,7 +73,7 @@ dummy_data
 dummy_data.where(dummy_data['Column 3'].isnull(),np.nan)
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -126,7 +126,7 @@ dummy_data.where(dummy_data['Column 3'].isnull(),np.nan)
 dummy_data.mask(dummy_data['Column 3'].isnull(),0)
 ```
 
-<div class="table-responsive-sm ">
+<div class="table-responsive ">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">

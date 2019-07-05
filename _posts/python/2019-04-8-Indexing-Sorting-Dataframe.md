@@ -29,8 +29,8 @@ data = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/ir
 data.head()
 ```
 The sample first five rows of data looks like (can be viewed using data.head())-
-
-<div class="table-responsive-sm">
+ 
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -96,7 +96,7 @@ to pass a range : can be used while indexing [start:end], start being inclusive 
 data.iloc[0:10,2:5]
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -179,7 +179,7 @@ The following command, will return 1st and 2nd row of 2nd and 4th column.
 data.iloc[[0,1],[1,3]]
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -210,7 +210,7 @@ Another example, to extracting first 10 rows and all columns but first two.
 data.iloc[:10,2:]
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -297,8 +297,8 @@ data.loc[2:10,'petal_length':'iris_class']
 
 
 
-<div class="table-responsive-sm">
-<table class="table-sm table-hover table-striped table-condensed table-bordered">
+<div class="table-responsive">
+<table class="table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -372,7 +372,7 @@ Similarly, specific column names can be passed in a list  for which we want to f
 data.loc[2:10,['petal_length','iris_class']]
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -447,7 +447,7 @@ data.loc[2:10,['petal_length']]
 
 
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -508,7 +508,7 @@ data.loc[2:10]
 
 
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -608,7 +608,7 @@ data.head()
 
 
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -677,7 +677,7 @@ data.head()
 
 
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -753,7 +753,7 @@ sample_data = data.iloc[0:6,[1]]
 sample_data
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -798,7 +798,7 @@ Simples way to sort a dataframe can be done using sort_values function of pandas
 sample_data.sort_values(by='sepal_width')
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">
@@ -858,7 +858,7 @@ sample_data['sepal_width'].values.argsort(axis=0)
 sample_data.iloc[sample_data['sepal_width'].values.argsort(axis=0)]
 ```
 
-<div class="table-responsive-sm">
+<div class="table-responsive">
 <table class="table-sm table-hover table-striped table-condensed table-bordered">
   <thead>
     <tr style="text-align: right;">

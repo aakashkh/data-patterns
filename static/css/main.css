@@ -65,6 +65,9 @@ div.content pre {
   border-radius:4px
 }
 
+div.table-responsive-sm table{
+  background-color:#f5f5f5;  
+}
 
 blockquote {
   padding: 10px 20px;
