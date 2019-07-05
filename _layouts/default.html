@@ -149,33 +149,42 @@ layout: compress
         end /.fixed-condition
       </div>
       -->
-      <div class="col-sm-10  main-layout">
+      <div class="col-sm-8  main-layout">
         <br>
-        <header>
           <div class="social">
             <ul>
-            <li><a href="/" style="color: #485460; font-weight: normal; font-size: 25px;">Home</a></li>
-            <li font-weight: normal; font-size: 25px;>|</li>
-            <li><a href="/about/" style="color: #485460; font-weight: normal; font-size: 25px;">About</a></li>
-              <li font-weight: normal; font-size: 25px;>|</li>
-            <li><a href="/projects/" style="color: #485460; font-weight: normal; font-size: 25px;">Projects</a></li>
-              <li font-weight: normal; font-size: 25px;>|</li>
-            <li><a href="/category/azure.html" style="color: #485460; font-weight: normal; font-size: 25px;">Archive</a></li>
-
-            {% for link in site.social %}
-              <li style="float:right"><a href="{{ link.link }}" target="_blank"><i class="fa {{ link.icon }}"></i></a></li>
-            {% endfor %}
+            <li><a href="/" style="color: #485460; font-weight: normal; font-size: 2vw;">Home</a></li>
+            <li  style = "border-left: 2px solid #485460; height: 1.5vw"></li>
+            <li><a href="/about/" style="color: #485460; font-weight: normal; font-size: 2vw;">About</a></li>
+            <li  style = "border-left: 2px solid #485460; height: 1.5vw"></li>
+            <li><a href="/projects/" style="color: #485460; font-weight: normal; font-size: 2vw;">Projects</a></li>
+            <li  style = "border-left: 2px solid #485460; height: 1.5vw"></li>
+            <li><a href="/category/azure.html" style="color: #485460; font-weight: normal; font-size: 2vw;">Archive</a></li>
             </ul>
             </div>
-          </header>
-          <hr>
-
-        {{ content }}
-
-
       </div>
+      <div class="col-sm-2  main-layout">
+        <br>
+              <div class="social">
+      {% for link in site.social %}
+      <a href="{{ link.link }}" target="_blank">&nbsp;<i class="fa {{ link.icon }}" style="font-size:20px;"></i></a>
+    {% endfor %}
+  </div></div>
+
       <div class="col-sm-1"></div>
       <!-- end /.col-sm-8 -->
+    </div>
+
+    <div class="container-fluid">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10  main-layout">
+            <hr>
+  
+          {{ content }}
+  
+  
+        </div>
+        <div class="col-sm-1"></div>
     </div>
 
 
