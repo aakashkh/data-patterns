@@ -16,8 +16,7 @@ We'll discuss the following -
     * [Using Global Keyword](#using-global-keyword)
 * [\*args and \*\*kwargs in function](#args-and-kwargs-in-function)
 
---- 
-
+<!--break-->
 ### Return in Function
 Function execution stops once it reaches a return statement.
 
@@ -32,6 +31,7 @@ add_num(1,2)
 
 
     3
+
 
 
 The function will return 20, the addition expression will not execute as before that a return statement is reached.
@@ -225,3 +225,6 @@ print_name(a = "hello",b="world!")
     b = world!
     
 --- 
+<b> Jupyter Notebook Link </b>   - [ Functions using apply, applymap and map](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Functions%20using%20apply%2C%20applymap%20and%20map.ipynb){:target="_blank"}
+
+---

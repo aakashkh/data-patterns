@@ -9,6 +9,7 @@ tags: [azure, r, datalake, data lake store, connect, ADLS, read, write, REST API
 The following code snippets are on creating a connection to Azure Data Lake Storage Gen1 using R with Service-to-Service authentication with client secret and client id.  
 Follow the link, for more details on different ways to [connect to Azure Data Lake Storage Gen1](https://docs.microsoft.com/en-in/azure/data-lake-store/data-lake-store-service-to-service-authenticate-python)
 
+<!--break-->
 ---
 
 ### Import Prerequisite

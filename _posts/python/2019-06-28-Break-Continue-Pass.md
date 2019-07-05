@@ -6,11 +6,6 @@ tags: [pandas, python, Break, Pass, Continue, For, Loop, If, else]
 ---
 
 ---
-
-### Continue vs Break
-
----
-
 #### Continue
 
 ```python
@@ -21,6 +16,8 @@ for i in range(0,4):
     else:
         print(i+100)
 ```
+
+<!--break-->
 >
     The loop will skip the value when value of i is 2 and restart from next value of i - 
     100
@@ -97,5 +94,8 @@ for i in range(0,4):
     2
     103
     3
+
+--- 
+<b> Jupyter Notebook Link </b>   - [Break, Continue and Pass in Python](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Break%2C%20Continue%20and%20Pass%20in%20Python.ipynb){:target="_blank"}
 
 ---
