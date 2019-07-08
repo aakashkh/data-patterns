@@ -1,0 +1,62 @@
+title: Another Data Science Blog
+description: Notes on Python and R on data cleaning and transformation
+author: Aakash Khandelwal
+github: https://github.com/aakashkh
+about: 
+disqus_shortname: dataanalysisblog
+google_analytics:
+avatar_url: /static/img/avatar.png
+google_verify: HrKO33FEPDJorqrLqhnJ80bnOhaT8AdVErCZV4BUFdE
+
+enableTags: true
+tagarray: []
+
+collections:
+  project:
+    output: true
+    permalink: /project/:path/
+
+social:
+    - icon: fa-facebook
+      link: "https://www.facebook.com/aakashkh284"
+    - icon: fa-twitter
+      link: "https://twitter.com/aakashkh284"
+    - icon: fa-linkedin
+      link: "https://www.linkedin.com/in/aakashkh284"
+#    - icon: fa-stack-exchange
+#      link: "#"
+    - icon: fa-github
+      link: "https://github.com/aakashkh"
+
+share:
+  twitter_username: aakashkh284
+#  fb_appid: 1749788565247320
+
+#urls:
+#    - text: About Me
+#      url: /about/
+#    - text: My Projects
+#      url: /projects/
+#    - text: Archive
+#      url: /category/azure.html
+
+url: "https://aakashkh.github.io"
+baseurl: ""
+paginate: 30
+per_page: 30
+paginate_path: "/page/:num/"
+markdown: kramdown
+plugins:
+  - jekyll-paginate
+  - jekyll-gist
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: ['development']
+
+exclude:
+  - static/img/_posts/**/*.jpg
+  - static/img/_posts/**/*.png

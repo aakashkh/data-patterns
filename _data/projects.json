@@ -1,0 +1,49 @@
+[	{
+	"slug": "suicides_python",
+	"name": "Suicides Statistics Using Python",
+	"image": "suicides_python.png",
+	"url": "https://www.kaggle.com/aakashkh/suicides-statistics-using-python",
+	"date": "May, 2019",
+	"tags": ["Python","Kaggle"]
+	},
+	{
+	"slug": "boxplot_r",
+	"name": "Let`s Get Avocado Smashed with R",
+	"image": "boxplot_r.png",
+	"url": "https://www.kaggle.com/aakashkh/let-s-get-avocado-smashed-with-r",
+	"date": "October, 2018",
+	"tags": ["R","Kaggle"]
+	},
+	{
+	"slug": "violin_python",
+	"name": "Reshaping (Pandas) & Plotting using Seaborn",
+	"image": "violin_python.png",
+	"url": "https://www.kaggle.com/aakashkh/reshaping-pandas-plots-box-violin-seaborn",
+	"date": "October, 2018",
+	"tags": ["Python","Kaggle"]
+	},
+	{
+	"slug": "histogram_r",
+	"name": "Grouping & Histogram in R",
+	"image": "histogram_r.png",
+	"url": "https://www.kaggle.com/aakashkh/grouping-histogram-in-r-bike-share-data",
+	"date": "October, 2018",
+	"tags": ["R","Kaggle"]
+	},
+	{
+		"slug": "aurora15",
+		"name": "Aurora 2015",
+		"image": "aurora15.jpg",
+		"url": "https://aakashkh.github.io/aurora15/",
+		"date": "Jan - Mar, 2015",
+		"tags": ["HTML","Javascript"]
+	},
+	{
+		"slug": "aurora2k14",
+		"name": "Aurora 2014",
+		"image": "aurora2k14.jpg",
+		"url": "https://aakashkh.github.io/aurora-2k14/",
+		"date": "Jan - Mar, 2014",
+		"tags": ["HTML","Javascript", "AJAX"]
+	}
+]
