@@ -26,11 +26,7 @@ def add_num(x1,x2):
     return x1+x2
 add_num(1,2)
 ```
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
 
 
@@ -47,11 +43,7 @@ def add_num(x1,x2):
 add_num(3,4)
 ```
 
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
 
     20
@@ -72,11 +64,7 @@ add_num(2)
 ```
 
 
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
     22
 
@@ -86,11 +74,7 @@ add_num(2)
 ```python
 print(i)
 ```
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
     20
     
@@ -108,11 +92,7 @@ add_num(40)
 
 
 
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
     80
 
@@ -125,11 +105,7 @@ try:
 except Exception as e:
     print("Found Error - {0}".format(e))
 ```
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
  
     Found Error - name 'p' is not defined
     
@@ -145,11 +121,7 @@ def add_num(x1):
     return i+x1
 add_num(4)
 ```
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
 
 
@@ -161,11 +133,7 @@ This will print the value of global variable.
 ```python
 print(i)
 ```
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
     20
     
@@ -184,11 +152,7 @@ try:
 except Exception as e:
     print("Found Error - {0}".format(e))
 ```
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
     Found Error - local variable 'i' referenced before assignment
     
@@ -204,11 +168,7 @@ add_num(5)
 ```
 
 
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
     5
 
@@ -218,11 +178,7 @@ Accessing with global, will altered there value as well.
 ```python
 print(i)
 ```
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
     0
 
@@ -240,11 +196,7 @@ def print_name(*args):
 
 print_name("hello","world!")
 ```
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
     hello
     world!
@@ -263,11 +215,7 @@ def print_name(**kwargs):
 
 print_name(a = "hello",b="world!")
 ```
-<<<<<<< HEAD
 ###### **Output:**
-=======
-**Output:**
->>>>>>> 918628d9aeda9de82df22ec7cedd304e6a3f4970
 
     {'a': 'hello', 'b': 'world!'}
     dict_items([('a', 'hello'), ('b', 'world!')])
