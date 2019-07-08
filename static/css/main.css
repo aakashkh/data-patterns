@@ -1,10 +1,10 @@
 body {
-  font-family: "Open Sans";
+  font-family:  Menlo, Monaco, Consolas, 'Courier New', monospace;
   background: url("/static/img/ricepaper.png");
-  line-height: 1.5em;
-  font-weight: 400;
-  font-size: 14px;
-  color: #00000;
+  line-height: 1.3em;
+  font-weight: 500;
+  font-size: 17px;
+  color: #000000;
 }
 hr {
   margin-top: 20px;
@@ -19,18 +19,19 @@ span.time, span.categories {
   font-size: 15px;
 }
 h2, h3 {
-  font-family: "Open Sans";
-  color: #485460;
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  color: #000000;
   font-weight: bolder;
   margin-bottom: 5px;
-  font-size: 18px;
+  font-size: 22px;
 }
+
 h1 {
-  font-family: "Open Sans";
-  color:#485460;
+  font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;
+  color:#000000;
   font-weight: bolder ;
   margin-bottom: 10px;
-  font-size: 22px;
+  font-size: 25px;
 }
 
 a, a:link, a:active {

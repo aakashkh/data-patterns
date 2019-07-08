@@ -4,7 +4,7 @@ title : Indexing and Sorting a dataframe using iloc and loc
 categories: [python]
 tags: [pandas, python, indexing, index, iloc, loc, dataframe, argsort, index, sort]
 ---
-
+---
 There are multiple ways in pandas by which a dataframe can be indexed i.e, selecting particular set of rows and columns from a dataframe.
 For a detailed description over this topic, once can refer official pandas documentation -
 [Indexing and Selecting Data](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)

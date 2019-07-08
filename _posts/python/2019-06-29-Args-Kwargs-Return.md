@@ -53,7 +53,7 @@ add_num(3,4)
 --- 
 ### Scoping in Function
 
-* #### Access global variable in function context
+* #### __Access global variable in function context__
 
 Global variables can be accessed but can`t be altered. To altered the same, they has to be accessed by using global in front of them. We'll see that later in the same section.
 ```python
@@ -79,7 +79,7 @@ print(i)
     20
     
 --- 
-* #### Declare a local variable within in a function
+* #### __Declare a local variable within in a function__
 
 The scope of a local variable is limited to function itself. Outside the function it can`t be accessed and doing same will throw an error.
 ```python
@@ -111,7 +111,7 @@ except Exception as e:
     
 --- 
 
-* #### Declare local variable with same name as in global
+* #### __Declare local variable with same name as in global__
 Local varibale will be given preference if a variable with sam name as the one outside the function is decalred but its scopre is limited in the function
 
 ```python
@@ -138,7 +138,7 @@ print(i)
     20
     
 --- 
-* #### Using Global Keyword
+* #### __Using Global Keyword__
 
 Global variable can`t be altered, to do the same access them via global keyword
 ```python
@@ -184,7 +184,7 @@ print(i)
 
 --- 
 ### args and kwargs in function
-* args
+* __args__
 
 User define arguments and keyword arguments (name, value pair) can be defined in function using *args and **kwargs.
 The *args have to be defined after positional argument and kwargs has to be defined after *args. There is a strict order is defined if any function incldue these all.
@@ -202,7 +202,7 @@ print_name("hello","world!")
     world!
     
 --- 
-* kwargs
+* __kwargs__
 
 ```python
 def print_name(**kwargs):

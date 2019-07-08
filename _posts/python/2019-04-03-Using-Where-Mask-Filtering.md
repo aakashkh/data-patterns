@@ -4,7 +4,7 @@ title : Filtering using mask and where in pandas
 categories: [python]
 tags: [pandas, python, filtering, mask, where, dataframe, conditions, true, false]
 ---
-
+---
 Filtering a dataframe can be achieved in multiple ways using pandas. There are times when you simply need to update a column based on  a condition which is true or vice-versa. In pandas dataframe there are some inbuilt methods to achieve the same using .where() and .mask().  
 
 * [df.where](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.where.html) - Replace value when condition is false  

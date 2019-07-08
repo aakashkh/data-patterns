@@ -8,12 +8,16 @@ tags: [python, try, except, catch, else, finally, exception handling]
 ---
 
 We'll discuss the followwing:
-* [Try and Except clause](#try-and-except) 
+* [Try and Except](#try-and-except) 
+    * [Handle Exceptions](#handle-exceptions)
+    * [Exceptions Attributes](#exceptions-attributes)
+    * [Handling Multiple Exceptions](#multiple-exceptions)
 * [Else](#else)
 * [Finally](#finally)
 
 ### Try and Except
 
+* #### __Handle Exceptions__
 The following statement will throw an error as string can't be parsed into integers.
 
 
@@ -77,6 +81,9 @@ print("Done!")
     Done!
     
 
+---
+
+* #### __Exceptions Attributes__
 
 ```python
 try:
@@ -96,8 +103,9 @@ print("Done!")
     The type of error us - <class 'ValueError'>
     The error arguments are - ("invalid literal for int() with base 10: 'hello world'",)
     Done!
-    
 
+---
+* #### __Multiple Exceptions__
 We can also catch multiple errors, for example, in this example there are two errors, firstly type error and another is value error.
 
 
