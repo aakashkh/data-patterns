@@ -115,40 +115,7 @@ layout: compress
   </head>
   <body>
     <div class="container-fluid">
-        <div class="col-sm-1"></div>
-      <!--
-      <div class="col-sm-3">
-        <div class="fixed-condition">
-          <a href="/"><img class="profile-avatar" src="{{ site.avatar_url }}" height="75px" width="75px" /></a>
-          <h1 class="author-name">{{ site.author }}</h1>
-          {% if site.about %}
-            <div class="profile-about">
-              {{ site.about }}
-            </div>
-          {% endif %}
-          <div class="social">
-            <ul>
-              {% for link in site.social %}
-                <li><a href="{{ link.link }}" target="_blank"><i class="fa {{ link.icon }}"></i></a></li>
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="search" id="js-search">
-            <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
-            <ul class="search__results" id="js-search__results"></ul>
-          </div>
-          <hr />
-          <ul class="sidebar-nav">
-            <strong>Navigation</strong>
-            <li><a href="/">Home</a></li>
-            {% for i in site.urls %}
-              <li><a class="about" href="{{ i.url }}">{{ i.text }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-        end /.fixed-condition
-      </div>
-      -->
+        <div class="col-sm-1"></div> 
       <div class="col-sm-8  main-layout">
         <br>
           <div class="social">
@@ -159,9 +126,10 @@ layout: compress
             <li  style = "border-left: 2px solid #000000; height: 1.4vw"></li>
             <li><a href="/projects/" style="color: #000000; font-weight: normal; font-size: 1.8vw;">Projects</a></li>
             <li  style = "border-left: 2px solid #000000; height: 1.4vw"></li>
-            <li><a href="/category/azure.html" style="color: #000000; font-weight: normal; font-size: 1.8vw;">Archive</a></li>
+            <li><a href="/category/python.html" style="color: #000000; font-weight: normal; font-size: 1.8vw;">Archive</a></li>
             </ul>
             </div>
+
       </div>
       <div class="col-sm-2  main-layout">
         <br>
@@ -169,11 +137,21 @@ layout: compress
       {% for link in site.social %}
       &nbsp;<a href="{{ link.link }}" target="_blank"><i class="fa {{ link.icon }}" style="font-size:20px;"></i></a>
     {% endfor %}
-  </div></div>
+  </div>
+  
+
+</div>
 
       <div class="col-sm-1"></div>
+   
+        
+        
+   
+    
+       
       <!-- end /.col-sm-8 -->
     </div>
+    
 
     <div class="container-fluid">
         <div class="col-sm-1"></div>

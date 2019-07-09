@@ -10,7 +10,7 @@ layout: default
 <span class="time">&raquo;&nbsp;&nbsp;{{ page.date | date_to_string }}<br>
 {% if page.categories %}
   <span class="categories">
-      &raquo;&nbsp;&nbsp;  {% for category in page.categories %}<a href="/category/{{ category }}">{{ category }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %}
+      &raquo;&nbsp;&nbsp;{% for category in page.categories %}<a href="/category/{{ category }}">{{ category }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %}
   </span>
 {% endif %}
 

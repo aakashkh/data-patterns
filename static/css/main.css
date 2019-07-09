@@ -49,6 +49,14 @@ a:hover {
 
 }
 
+.highlight pre {
+  overflow-x: auto; 
+  white-space: pre;        
+}
+
+.highlight pre code * {
+    white-space: nowrap;   
+  }
 
 /* Content */
 div.content pre {

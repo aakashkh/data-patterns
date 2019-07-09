@@ -67,3 +67,15 @@
 .highlight .vg { color: #000000 } /* Name.Variable.Global */
 .highlight .vi { color: #000000 } /* Name.Variable.Instance */
 .highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
+
+.highlight pre code * {
+    white-space: nowrap;    // this sets all children inside to nowrap
+  }
+  
+  .highlight pre {
+    overflow-x: auto;       // this sets the scrolling in x
+  }
+  
+  .highlight pre code {
+    white-space: pre;       // forces <code> to respect <pre> formatting
+  }
