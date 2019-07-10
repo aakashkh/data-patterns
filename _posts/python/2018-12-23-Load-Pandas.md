@@ -5,6 +5,7 @@ categories: [python]
 tags: [pandas, python, column names, data, csv, read]
 ---
 
+---
 #### Provide column names while reading a dataset in pandas  
 
 ```python

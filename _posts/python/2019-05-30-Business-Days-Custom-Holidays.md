@@ -4,7 +4,8 @@ title : Business Days with Custom Holidays
 categories: [python]
 tags: [pandas, python, Business Days, Net Work Days, Datetime, holidays, custom, weekends, weekday]
 ---
-<hr>
+
+---
 ### Importing Packages and Datasets
 
 ```python

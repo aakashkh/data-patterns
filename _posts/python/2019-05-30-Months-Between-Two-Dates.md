@@ -4,7 +4,8 @@ title : Months between two dates
 categories: [python]
 tags: [pandas, python, months, date, datetime, month start date, month end date, start date, end date]
 ---
-<hr>
+---
+
 ### Importing Packages and Datasets
 
 ```python
