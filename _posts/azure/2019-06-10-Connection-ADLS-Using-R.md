@@ -14,17 +14,17 @@ Follow the link, for more details on different ways to [connect to Azure Data La
 
 ### Import Prerequisite
 
-```r
+```python
 library(httr)
-library(curl)
-library(stringr)
+library(curl)  
+library(stringr)  
 ```
 
 ---
 
 ### Authenticate
 
-```r
+```javascript
 authentication_token <- function(tenant, client_id, client_secret){
   h <- new_handle()
   handle_setform(h,
@@ -48,7 +48,7 @@ token <- authentication_token(tenant = "TENANT",
 
 ### Read
 
-```r
+```javascript
 load_data <- function(datalake, path, auth_token){
   file_path = str_interp("https://${datalake}.azuredatalakestore.net/webhdfs/v1/${path}?op=OPEN&read=true")
   r <- httr::GET(file_path, add_headers(Authorization = auth_token))
@@ -66,7 +66,7 @@ load_data(datalake_name, file_path, authentication_token)
 
 ### Write
 
-```r
+```javascript
 upload_data <- function(dataset, datalake, path, auth_token){
   write.csv(dataset, textConnection("filecontent","w"), row.names=F)
   file_path <- str_interp("https://${datalake}.azuredatalakestore.net/webhdfs/v1/${path}?op=CREATE&overwrite=true&write=true")

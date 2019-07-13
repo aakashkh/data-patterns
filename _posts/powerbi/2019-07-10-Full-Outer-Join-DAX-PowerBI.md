@@ -208,3 +208,8 @@ FullOuterJoin = UNION(
   </tbody>
 </table>
 </div>
+<hr>
+**Note**:  
+* Another way to solve the same can be: **Left Outer Join + Right Outer Join - Inner Join**  
+  This can be achived in DAX in PowerBI by using: **Distinct(Union(LeftOuterJoin,RightOuterJoin))**
+<hr>
