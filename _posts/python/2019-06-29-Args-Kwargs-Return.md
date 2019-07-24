@@ -7,7 +7,7 @@ tags: [python, args, kwargs, scope, local, global, return, function, argument]
 
 ---
 
-We'll discuss the following -
+
 * [Return in Function](#return-in-function)
 * [Scoping in Function](#scoping-in-function)
     * [Access global variable in function context](#access-global-variable-in-function-context)

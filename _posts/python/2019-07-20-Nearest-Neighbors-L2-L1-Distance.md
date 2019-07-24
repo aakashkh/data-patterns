@@ -6,7 +6,7 @@ tags: [NN Neighbors, L1 Norm, L2 Norm, Distance, Neares1 Neighbors]
 ---
 ---
 
-We'll discuss the followwing:
+
 * [Preliminaries](#preliminaries) 
 * [Distance Matrics](#distance-metrics)
     * L2 Norm
@@ -21,8 +21,9 @@ We'll discuss the followwing:
     * From Scratch
  
 
-<!--break-->
+
 ---
+<!--break-->
 ### Preliminaries
 
 ```python
@@ -46,6 +47,7 @@ testx = x[test_indices,:]
 testy = y[test_indices]
 ```
 ---
+
 
 ### Distance Metrics
 

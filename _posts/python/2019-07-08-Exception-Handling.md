@@ -7,7 +7,7 @@ tags: [python, try, except, catch, else, finally, exception handling]
 
 ---
 
-We'll discuss the followwing:
+
 * [Try and Except](#try-and-except) 
     * [Handle Exceptions](#handle-exceptions)
     * [Exceptions Attributes](#exceptions-attributes)

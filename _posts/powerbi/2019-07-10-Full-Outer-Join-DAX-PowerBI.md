@@ -6,6 +6,23 @@ tags: [Power BI, DAX, Outer Join, Full Outer Join, Merge, Left Join, Right Anti 
 ---
 
 ---
+
+### Full Outer Join
+According to [Wikipedia](https://en.wikipedia.org/wiki/Join_(SQL)#Full_outer_join){:target="_blank"} -
+
+**"Conceptually, a full outer join combines the effect of applying both left and right outer joins. Where rows in the FULL OUTER JOINed tables do not match, the result set will have NULL values for every column of the table that lacks a matching row. For those rows that do match, a single row will be produced in the result set (containing columns populated from both tables)."**
+
+
+So, the Full Outer Join can be acheived by creating -
+
+* Left Outer Join
+* Right Anti Join  
+
+<!--break-->
+
+![Full Outer Join](/static/img/posts/powerbi/2019-07-10-Full-Outer-Join-DAX/T7.png "Full Outer") &nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;![Left Outer Join](/static/img/posts/powerbi/2019-07-10-Full-Outer-Join-DAX/T5.png "Left Outer")&nbsp;&nbsp;&nbsp;&nbsp; + &nbsp;&nbsp;&nbsp;&nbsp;![Anti Right Join](/static/img/posts/powerbi/2019-07-10-Full-Outer-Join-DAX/T6.png "Anti Right")
+
+<hr>
 To begin with, we have **Department**  table as -  
 
 <div class="table-responsive">
@@ -94,25 +111,12 @@ and **Employee** tables as -
   </tbody>
 </table>
 </div>
-<!--break-->
+
 <br>
 
 The two tables relates on **DepID** column with one to many relatioship between Department to Employee table.
 
-### Full Outer Join
-According to [Wikipedia](https://en.wikipedia.org/wiki/Join_(SQL)#Full_outer_join){:target="_blank"} -
-
-**"Conceptually, a full outer join combines the effect of applying both left and right outer joins. Where rows in the FULL OUTER JOINed tables do not match, the result set will have NULL values for every column of the table that lacks a matching row. For those rows that do match, a single row will be produced in the result set (containing columns populated from both tables)."**
-
-So, the Full Outer Join can be acheived by creating -
-
-* Left Outer Join
-* Right Anti Join  
-
-![Full Outer Join](/static/img/posts/powerbi/2019-07-10-Full-Outer-Join-DAX/T7.png "Full Outer") &nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;![Left Outer Join](/static/img/posts/powerbi/2019-07-10-Full-Outer-Join-DAX/T5.png "Left Outer")&nbsp;&nbsp;&nbsp;&nbsp; + &nbsp;&nbsp;&nbsp;&nbsp;![Anti Right Join](/static/img/posts/powerbi/2019-07-10-Full-Outer-Join-DAX/T6.png "Anti Right")
-
-
-This DAX query for the same in PowerBI can be written as - 
+The DAX query for the same in PowerBI can be written as - 
 ```sql
 FullOuterJoin = UNION(
 
