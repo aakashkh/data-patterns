@@ -34,7 +34,7 @@ f"Language - {Name}, Framework - {Framework}"
 
 > 'Language - Python, Framework - Django'
 
-
+<!--break-->
 * ### Handling numeric in Strings
 
 ```python

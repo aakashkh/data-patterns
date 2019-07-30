@@ -15,7 +15,7 @@ tags: [attributes, methods, functions, python, pandas, dataframe]
 ### Methods and Functions  
 **Methods** are always associated with an object where as the **Functions** are not dependent on any object. In simple term a method is on a object where as a function is independent of object.
 - **For example**: math.ceil(), dataframe.describe() are methods whereas sum(), len() are python built in functions  
-
+<!--break-->
 <hr>
 ### Let see some examples of **atrributes**, **methods** and **functions** in context of pandas dataframe :
 

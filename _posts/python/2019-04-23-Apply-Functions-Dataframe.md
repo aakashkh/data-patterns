@@ -102,6 +102,7 @@ data.applymap(RoundUpto2Decimal)
 </tbody>
 </table>
 </div>
+<!--break-->
 <hr>
 
 

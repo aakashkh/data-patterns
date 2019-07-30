@@ -29,6 +29,7 @@ Please visit here to check the list of operations ADLS filesystem client can per
 (https://azure-datalake-store.readthedocs.io/en/latest/api.html#azure.datalake.store.core.AzureDLFileSystem)
 '''
 ```
+<!--break-->
 <hr>
 ### Read
 ```python

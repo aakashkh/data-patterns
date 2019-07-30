@@ -7,23 +7,23 @@ tags: [NN Neighbors, L1 Norm, L2 Norm, Distance, Neares1 Neighbors]
 ---
 
 
-* [Preliminaries](#preliminaries) 
-* [Distance Matrics](#distance-metrics)
+* [Preliminaries](/python/machine%20learning/2019/07/20/Nearest-Neighbors-L2-L1-Distance.html#preliminaries)  
+* [Distance Matrics](/python/machine%20learning/2019/07/20/Nearest-Neighbors-L2-L1-Distance.html#distance-metrics)
     * L2 Norm
     * L1 Norm
-* [Nearest Neighbor](#nearest-neighbors)
+* [Nearest Neighbor](/python/machine%20learning/2019/07/20/Nearest-Neighbors-L2-L1-Distance.html#nearest-neighbors)
     * Using L2 Distance
     * Using L1 Distance
-* [Predictions](#predictions)
-* [Errors](#error-rate)
-* [Confusion Matrix](#confusion-matrix)
+* [Predictions](/python/machine%20learning/2019/07/20/Nearest-Neighbors-L2-L1-Distance.html#predictions)
+* [Errors](/python/machine%20learning/2019/07/20/Nearest-Neighbors-L2-L1-Distance.html#error-rate)
+* [Confusion Matrix](/python/machine%20learning/2019/07/20/Nearest-Neighbors-L2-L1-Distance.html#confusion-matrix)
     * Using Pandas
     * From Scratch
  
 
-
----
 <!--break-->
+---
+
 ### Preliminaries
 
 ```python

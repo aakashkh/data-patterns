@@ -65,7 +65,9 @@ dummy_data
   </tbody>
 </table>
 </div>
+<!--break-->
 <hr>
+
 ### Operations over the data frame  
 -  <b>Using df.where </b> - Replace values where values in <b>Column 3 </b> is not null by null across all the columns
 

@@ -86,7 +86,10 @@ The sample first five rows of data looks like (can be viewed using data.head())-
   </tbody>
 </table>
 </div>
+<!--break-->
 <hr>
+
+
 ### Integer based indexing using iloc
 To select some fixed no. of column and a fixed no. of rows from this data, one way is to achieve it by using [iloc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html) operation.
 The first part of indexing will be for rows and another will be columns (indexes starting from 0 to total no. of rows/columns).  

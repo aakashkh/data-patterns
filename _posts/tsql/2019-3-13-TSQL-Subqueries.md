@@ -5,14 +5,14 @@ categories: [tsql]
 tags: [tsql, sub-queries, nested sql, nested queries, apply, correlated queries, correlated, sql, data, sql server, database, AdventureWorks]
 ---
 <hr />
-<hr />
+
 ``Note : The following scripts are the part of the course on edx titled as: Querying Data with Transact-SQL - ``  
 [Querying Data with Transact-SQL](https://www.edx.org/course/querying-data-with-transact-sql-0)  
 `` These queries works on AdventureWorks database and information regarding the same ``  
 `` can be accessed by visiting following link - ``  
 [AdventureWorks Installation and configuration](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-2017)
 <hr />
-<hr />
+
 
 ```sql
 /* Sub Queries - nested queries
@@ -40,6 +40,7 @@ Select CustomerID, SalesOrderID, OrderDate From SalesLT.SalesOrderHeader as S01
 Where orderdate = (Select Max(orderdate) from SalesLT.SalesOrderHeader As S02 where S02.CustomerID = S01.CustomerID)
 Order By CustomerID
 
+
 /* Apply operator
 Cross Apply -  Apply right table expression to each row in left table - Conceptually lik Outer Join
 Outer Apply -  add rows for thoses with null in columns for right table - conceptually like Left Outer Join
@@ -66,4 +67,6 @@ CROSS APPLY SalesLT.udfMaxUnitPrice(SOH.SalesOrderID) AS MUP
 WHERE SOH.UnitPrice=MUP.MaxUnitPrice
 ORDER BY SOH.SalesOrderID;
 ```
+<!--break-->
+
 <hr>

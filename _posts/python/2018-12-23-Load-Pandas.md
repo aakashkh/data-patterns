@@ -20,6 +20,8 @@ data = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/ir
                    index_col = False,
                    names = ['sepal_length','sepal_width','petal_length','petal_width','iris_class'])
 ```
+<!--break-->
+
 Returing the first 10 rows of the dataset using head() function
 ```python
 # Displaying the first ten rows of the data

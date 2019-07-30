@@ -24,6 +24,7 @@ Please visit here to check the list of operations can be performed on the blob s
 (https://azure-storage.readthedocs.io/)
 '''
 ```
+<!--break-->
 <hr>
 
 ### List the blobs in a container

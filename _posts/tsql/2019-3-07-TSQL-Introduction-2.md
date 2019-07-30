@@ -5,14 +5,14 @@ categories: [tsql]
 tags: [tsql, select, sql, data, sql server, database, AdventureWorks, duplicates, sorting, paging, filter, like]
 ---
 <hr />
-<hr />
+
 ``Note : The following scripts are the part of the course on edx titled as: Querying Data with Transact-SQL - ``  
 [Querying Data with Transact-SQL](https://www.edx.org/course/querying-data-with-transact-sql-0)  
 `` These queries works on AdventureWorks database and information regarding the same ``  
 `` can be accessed by visiting following link - ``  
 [AdventureWorks Installation and configuration](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-2017)
 <hr />
-<hr />
+
 
 In the last post, we started with Introduction to T-SQL, where some of the forms of <b>SELECT</b> statement were discussed, along with examples regarding <b> Data Type Conversion </b>, <b>Working with NULLs</b> and <b>CASE-END</b> operations were shown.  
 You can follow the same - [Introduction to Transact-SQL - Part 1](https://aakashkh.github.io/tsql/2019/03/06/Introduction-To-TSQL.html)
@@ -37,6 +37,7 @@ from
 ### Sorting Results
 <b> Order By </b> is used to order the final output return by sql queries by the order of the column in ascending / descending manner. The default order is ascending.
 * The following queries will give the distinct color names sorted alphabetically.
+<!--break-->
 
 ``` sql
 select

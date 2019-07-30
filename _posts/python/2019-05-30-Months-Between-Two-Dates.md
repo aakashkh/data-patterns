@@ -61,9 +61,10 @@ data = pd.DataFrame(list(zip(start_date,end_date)), columns = ['Start Date', 'En
 </tbody>
 </table>
 </div>
+<!--break-->
 <hr>
 
-<!--break-->
+
 ### Logic
 ```python
 # Store data index as a new column which will act as a primary key will be used later and initiate a blank new dataframe

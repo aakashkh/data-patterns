@@ -1,8 +1,8 @@
 body {
-  font-family:  Menlo, Monaco, Consolas, 'Courier New', monospace;
-  background: url("/static/img/ricepaper.png");
+  font-family: segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+  /*background: url("/static/img/ricepaper.png");*/
   line-height: 1.3em;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 17px;
   color: #000000;
 }
@@ -19,7 +19,7 @@ span.time, span.categories {
   font-size: 15px;
 }
 h2, h3 {
-  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family:segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
   color: #000000;
   font-weight: bolder;
   margin-bottom: 5px;
@@ -27,11 +27,11 @@ h2, h3 {
 }
 
 h1 {
-  font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family:segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
   color:#000000;
   font-weight: bolder ;
   margin-bottom: 10px;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 a, a:link, a:active {
@@ -42,6 +42,8 @@ a:hover {
   color: #273c75;
   text-decoration: underline;
 }
+
+
 
 /* Layout */
 .main-layout {
@@ -64,7 +66,7 @@ div.content pre {
   padding:9.5px;
   margin:0 0 10px;
   font-size:14px;
-  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
   line-height:1.42857143;
   word-break:break-all;
   word-wrap:break-word;

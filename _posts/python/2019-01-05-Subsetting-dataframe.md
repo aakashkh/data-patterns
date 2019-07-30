@@ -34,6 +34,8 @@ Now we can have a look at descriptive statistics summary for each of the subset 
 * Average Sepal and Petal Length is lowest in setosa and highest in virginica
 '''
 ```
+<!--break-->
+
 <hr>
 ```python
 data_setosa.describe().T
@@ -170,6 +172,7 @@ data_versicolor.describe().T
 </table>
 </div>
 <hr>
+
 
 ```python
 data_virginica.describe().T

@@ -1,45 +1,39 @@
 ---
 layout: default
 ---
-<div class="col-sm-12  main-layout">
- <u><h1 > Recent Posts </h1></u>
-<br>
-{% for post in site.posts limit:2 %}
-	<div class="post-preview col-sm-6">
-    <hr>
-    <u><h2><a href="{{ post.url }}">{{ post.title }}</a></h2></u>
-   <i>{{ post.date | date_to_string }}</i>
-		{{ post.content | split:'<!--break-->' | first }}
-    {% if post.content contains '<!--break-->' %}
-    {% endif %}
-    <br>  
-    <u><a href="{{ post.url }}">Read More</a></u>&nbsp;&raquo;
-  </div>  
-  
-{% endfor %}
-  </div>
-
-
 
 <div class="col-sm-12  main-layout">
-    <hr>
-  <u><h1>Posts</h1></u>
+  <div class="post-preview col-sm-1"></div>
+  <div class="post-preview col-sm-10">
+
   <div class="posts">
     {% for post in paginator.posts %}
-    <div class="col-sm-6">
-      <i>{{ post.date | date_to_string }}</i>&nbsp;&raquo;&nbsp;
-      
-     <a style = "line-height: 1.5em; font-weight: 300; font-size: 20px " href="{{ post.url }}">
-     {{ post.title }}
-     </a>
+ <div class="post-preview col-sm-12">
   
-    </div>
+      <h1><a href="{{ post.url }}" style="color:#000000;">{{ post.title }}</a></h1>
+      <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ post.date | date_to_string }}
+     <br>
+     {% if post.categories %}
+  <span class="categories">
+      <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;{% for category in post.categories %}<a href="/category/{{ category }}">{{ category }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %}
+  </span>
+{% endif %}
+      {{ post.content | split:'<!--break-->' | first }}
+      {% if post.content contains '<!--break-->' %}
+      {% endif %}
+      <br>  
+      
+    </div>  
     {% endfor %}
   </div>
+</div>
+<div class="post-preview col-sm-1"></div>
 </div>
 
  
 <div class="col-sm-12  main-layout">
+    <div class="post-preview col-sm-2"></div>
+    <div class="post-preview col-sm-10">
   <!-- Pagination links -->
   {% if paginator.total_pages > 1 %}
     <ul class="pagination pagination-sm">
@@ -73,3 +67,5 @@ layout: default
   <br>
   <br>
 </div><!-- end #home -->
+</div>
+

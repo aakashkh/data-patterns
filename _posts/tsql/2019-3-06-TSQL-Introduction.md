@@ -5,14 +5,14 @@ categories: [tsql]
 tags: [tsql, select, sql, data, sql server, database, AdventureWorks, null, isnull, nullif, case, end, cast, convert, try_cast, select, datetime]
 ---
 <hr />
-<hr />
+
 ``Note : The following scripts are the part of the course on edx titled as: Querying Data with Transact-SQL - ``  
 [Querying Data with Transact-SQL](https://www.edx.org/course/querying-data-with-transact-sql-0)  
 `` These queries works on AdventureWorks database and information regarding the same ``  
 `` can be accessed by visiting following link - ``  
 [AdventureWorks Installation and configuration](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-2017)
 <hr />
-<hr />
+
 
 <b>SQL</b> is widely used language to interact with databases. It is a declarative language and not procedural, meaning to say that we are more concerned on achieving the output rather than how it is going to be achieved.  
 T-SQL is Microsoft implementation of the SQL also called as Transact SQL.The following links can be accessed to have a detailed overview about the same.
@@ -32,6 +32,8 @@ We'll focus on the data manipulation part which is mostly relates to data analys
 * [Data Type Conversion](#data-type-conversion)
 * [Working With Null](#working-with-null)
 * [Case And End](#case-and-end)
+
+<!--break-->
 
 ### SELECT statement
 A <b>Select statement</b> looks like -

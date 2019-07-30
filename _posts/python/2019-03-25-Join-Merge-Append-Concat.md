@@ -17,13 +17,13 @@ Example of append data -> monthly files of revenue sheets of a company and wee n
 
 ![alt text](/static/img/posts/python/2019-03-25-Join-Merge-Append-Concat/T4.jpg "Appended Table")
 
+<!--break-->
 
 <hr>
 Example of merging -> multiple files regarding employee education, compensation, performance all linked to each other in some identifier in each one of them which maps to employee master table and for doing analysis we need data from each of these tables in the same which can be achieved by merging.
 <hr>
 We'll look out for merging/joining two tables now and later will discuss the possibilities around appending to tables using pandas.  
 To begin with let's get create some dummy datasets.
-
 
 ```python
 import pandas as pd

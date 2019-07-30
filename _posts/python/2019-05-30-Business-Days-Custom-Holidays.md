@@ -64,7 +64,7 @@ data
 holiday_dates = [pd.datetime(2019, 8, 15), pd.datetime(2019, 10, 2), pd.datetime(2019, 10, 8),
                  pd.datetime(2019, 10, 28), pd.datetime(2019, 12, 25)]
 ```
-
+<!--break-->
 ### Example - calculate business days (excluding weekends) with custom holidays
 ```python
 # Exclude weekends and custom holidays
