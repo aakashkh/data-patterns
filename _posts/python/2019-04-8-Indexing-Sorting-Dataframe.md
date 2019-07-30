@@ -10,10 +10,10 @@ For a detailed description over this topic, once can refer official pandas docum
 [Indexing and Selecting Data](http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
 
 We'll discuss the following -
-* [Integer Based Indexing - iloc](#integer-based-indexing-using-iloc)
-* [Label Based Indexing - loc](#labels-based-indexing-using-loc)
-* [Setting Values using loc](#setting-values-using-loc)
-* [Sorting using indexes via argsort](#sorting)
+* [Integer Based Indexing - iloc](/python/2019/04/08/Indexing-Sorting-Dataframe.html#integer-based-indexing-using-iloc)
+* [Label Based Indexing - loc](/python/2019/04/08/Indexing-Sorting-Dataframe.html#labels-based-indexing-using-loc)
+* [Setting Values using loc](/python/2019/04/08/Indexing-Sorting-Dataframe.html#setting-values-using-loc)
+* [Sorting using indexes via argsort](/python/2019/04/08/Indexing-Sorting-Dataframe.html#sorting)
 
 Let's begin with loading a sample dataset and required python packages.
 

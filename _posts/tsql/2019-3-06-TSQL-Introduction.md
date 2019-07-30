@@ -28,10 +28,10 @@ In SQL, there are three type of operation can be performed and we have various s
 
 We'll focus on the data manipulation part which is mostly relates to data analysis and performing advance operations over the data, starting with following in this post -
 
-* [SELECT Statement](#select-statement)
-* [Data Type Conversion](#data-type-conversion)
-* [Working With Null](#working-with-null)
-* [Case And End](#case-and-end)
+* [SELECT Statement](/tsql/2019/03/06/TSQL-Introduction.html#select-statement)
+* [Data Type Conversion](/tsql/2019/03/06/TSQL-Introduction.html#data-type-conversion)
+* [Working With Null](/tsql/2019/03/06/TSQL-Introduction.html#working-with-null)
+* [Case And End](/tsql/2019/03/06/TSQL-Introduction.html#case-and-end)
 
 <!--break-->
 

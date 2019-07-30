@@ -8,10 +8,10 @@ tags: [python, try, except, catch, else, finally, exception handling]
 ---
 
 
-* [Try and Except](#try-and-except) 
-    * [Handle Exceptions](#handle-exceptions)
-    * [Exceptions Attributes](#exceptions-attributes)
-    * [Handling Multiple Exceptions](#multiple-exceptions)
+* [Try and Except](/python/2019/07/08/Exception-Handling.html#try-and-except) 
+    * [Handle Exceptions](/python/2019/07/08/Exception-Handling.html#handle-exceptions)
+    * [Exceptions Attributes](/python/2019/07/08/Exception-Handling.html#exceptions-attributes)
+    * [Handling Multiple Exceptions](/python/2019/07/08/Exception-Handling.html#multiple-exceptions)
 * [Else](#else)
 * [Finally](#finally)
 

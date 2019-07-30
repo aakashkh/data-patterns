@@ -14,10 +14,10 @@ tags: [tsql,  sql, data, sql server, database, AdventureWorks, Functions, Logica
 ## Functions in TSQL  
 We can use multiple inbuilt functions in TSQL to achieve complex tasks in a very simpler manner.
 We'll discuss the following -
-* [Scalar Functions](#scalar-functions)
-* [Logical Functions](#logical-functions)
-* [Window Functions](#window-functions)
-* [Group By](#group-by)
+* [Scalar Functions](/tsql/2019/03/09/TSQL-Functions-And-Aggregations.html#scalar-functions)
+* [Logical Functions](/tsql/2019/03/09/TSQL-Functions-And-Aggregations.html#logical-functions)
+* [Window Functions](/tsql/2019/03/09/TSQL-Functions-And-Aggregations.html#window-functions)
+* [Group By](/tsql/2019/03/09/TSQL-Functions-And-Aggregations.html#group-by)
 
 For more details regarding built in functions in TSQL, please visit -    
 https://docs.microsoft.com/en-us/sql/t-sql/functions/functions?view=sql-server-2017

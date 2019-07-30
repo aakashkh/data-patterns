@@ -5,7 +5,9 @@ categories: [python]
 tags: [pandas, python, Break, Pass, Continue, For, Loop, If, else]
 ---
 
-<hr>
+---
+
+### Continue vs Break
 
 #### Continue
 
@@ -19,7 +21,7 @@ for i in range(0,4):
 ```
 
 <!--break-->
->
+###### **Output:**
     The loop will skip the value when value of i is 2 and restart from next value of i - 
     100
     101
@@ -38,7 +40,7 @@ for i in range(0,4):
     else:
         print(i+100)
 ```
->
+###### **Output:**
     The loop will break when value of i is 2. No more further execution! - 
     100
     101
@@ -48,7 +50,6 @@ for i in range(0,4):
 
 ### Continue vs Pass
 
----
 
 #### Continue
 
@@ -62,7 +63,7 @@ for i in range(0,4):
         print(100+i)
     print(i)
 ```
->
+###### **Output:**
     When value of i is 2, it will start from next iteration - 
     100
     0
@@ -86,7 +87,7 @@ for i in range(0,4):
         print(100+i)
     print(i)
 ```
->
+###### **Output:**
     When value of i is 2, it does nothing and passes execution to next statement - 
     100
     0

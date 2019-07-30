@@ -8,13 +8,13 @@ tags: [python, args, kwargs, scope, local, global, return, function, argument]
 ---
 
 
-* [Return in Function](#return-in-function)
-* [Scoping in Function](#scoping-in-function)
-    * [Access global variable in function context](#access-global-variable-in-function-context)
-    * [Declare a local variable within in a function](#declare-a-local-variable-within-in-a-function)
-    * [Declare local variable with same name as in global](#declare-local-variable-with-same-name-as-in-global)
-    * [Using Global Keyword](#using-global-keyword)
-* [\*args and \*\*kwargs in function](#args-and-kwargs-in-function)
+* [Return in Function](/python/2019/06/29/Args-Kwargs-Return.html#return-in-function)
+* [Scoping in Function](/python/2019/06/29/Args-Kwargs-Return.html#scoping-in-function)
+    * [Access global variable in function context](/python/2019/06/29/Args-Kwargs-Return.html#access-global-variable-in-function-context)
+    * [Declare a local variable within in a function](/python/2019/06/29/Args-Kwargs-Return.html#declare-a-local-variable-within-in-a-function)
+    * [Declare local variable with same name as in global](/python/2019/06/29/Args-Kwargs-Return.html#declare-local-variable-with-same-name-as-in-global)
+    * [Using Global Keyword](/python/2019/06/29/Args-Kwargs-Return.html#using-global-keyword)
+* [\*args and \*\*kwargs in function](/python/2019/06/29/Args-Kwargs-Return.html#args-and-kwargs-in-function)
 
 <!--break-->
 ### Return in Function

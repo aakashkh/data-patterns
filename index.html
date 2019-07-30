@@ -10,7 +10,7 @@ layout: default
     {% for post in paginator.posts %}
  <div class="post-preview col-sm-12">
   
-      <h1><a href="{{ post.url }}" style="color:#000000;">{{ post.title }}</a></h1>
+      <h1><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{ post.url }}" style="color:#000000;">{{ post.title }}</a></h1>
       <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ post.date | date_to_string }}
      <br>
      {% if post.categories %}
