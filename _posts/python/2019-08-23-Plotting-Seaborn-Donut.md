@@ -5,8 +5,18 @@ categories: [python, visualisation]
 tags: [python, seaborn, matplotlib, pandas, plot, donut]
 ---
 ---
+### Introduction and Data preparation
+Please follow the folloing links regarding data preparation and previous posts to follow along -
 
-## DONUTS
+* <b> For Data Preapration </b>  - [Part 0 - Plotting Using Seaborn - Data Preparation](/python/visualisation/2019/08/20/Plotting-Seaborn-Data-Preparation.html){:target="_blank"}
+
+* <b> For Part 1 </b> - [Part 1 - Plotting Using Seaborn - Violin, Box and Line Plot](/python/visualisation/2019/08/21/Plotting-Seaborn-Violin-Box-Line.html){:target="_blank"}
+
+* <b> For Part 2 </b> - [Part 2 - Plotting Using Seaborn - Distribution Plot, Facet Grid](/python/visualisation/2019/08/23/Plotting-Seaborn-Distribution-Facet-Grid.html){:target="_blank"}
+
+---
+
+### Basic prelimanries for Donut Chart 
 
 ```python
 company_headcount = pd.melt(test_participant, id_vars=['Designation'], 
@@ -14,19 +24,18 @@ company_headcount = pd.melt(test_participant, id_vars=['Designation'],
                         .rename(columns={"variable": "Track", "value": "Headcount"})
 
 for_donuts = test_scores.groupby(['Track','Designation'])[['Participant identifier']].nunique().reset_index()
-```
 
-
-```python
 participant_matrix = pd.merge(company_headcount,for_donuts,how = 'left',left_on = ['Track', 'Designation'],
                               right_on= ['Track', 'Designation'])
+
 participant_matrix_eng = participant_matrix[participant_matrix['Track'] == 'Engineering']
 participant_matrix_sup = participant_matrix[participant_matrix['Track'] == 'Support']
 participant_matrix_qa = participant_matrix[participant_matrix['Track'] == 'Quality Assurance']
 ```
-
-<!--break-->
 ---
+<!--break-->
+
+### Participation proportion of all Track
 
 ```python
 participant_matrix = participant_matrix.groupby(['Track'])[['Headcount','Participant identifier']].sum().reset_index()
@@ -83,8 +92,9 @@ plt.setp(mypie3,width=0.7, edgecolor='white')
 
 ![Donut Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Donut/output_6_1.png "Participation proportion of all Track")
 
+---
 
-
+### Participation proportion of various designation from Engineering Track
 
 ```python
 participant_matrix_eng['Headcount Percent'] = round(participant_matrix_eng['Headcount']/participant_matrix_eng['Headcount'].sum(),4)*100
@@ -135,6 +145,9 @@ plt.setp(mypie3,width=0.7, edgecolor='white')
 ```
 ![Donut Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Donut/output_7_1.png "Participation proportion of various designation from Engineering Track")
 
+---
+
+### Participation proportion of various designation from QA Track
 
 ```python
 participant_matrix_qa['Headcount Percent'] = round(participant_matrix_qa['Headcount']/participant_matrix_qa['Headcount'].sum(),4)*100
@@ -186,6 +199,9 @@ plt.setp(mypie3,width=0.7, edgecolor='white')
 
 ![Donut Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Donut/output_8_1.png "Participation proportion of various designation from QA Track")
 
+--- 
+
+### Participation proportion of various designation from Support Track
 
 ```python
 participant_matrix_sup['Headcount Percent'] = round(participant_matrix_sup['Headcount']/participant_matrix_sup['Headcount'].sum(),4)*100
@@ -236,3 +252,7 @@ plt.setp(mypie3,width=0.7, edgecolor='white')
 ```
 
 ![Donut Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Donut/output_9_1.png "Participation proportion of various designation from Support Track")
+
+---
+<b> Jupyter Notebook Link </b>   - [Part 3 - Plotting Using Seaborn - Donut](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Visualization%20With%20Seaborn/Donuts.ipynb){:target="_blank"}
+---

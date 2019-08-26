@@ -4,16 +4,27 @@ title : Part 2 - Plotting Using Seaborn - Distribution Plot, Facet Grid
 categories: [python, visualisation]
 tags: [python, seaborn, matplotlib, pandas, plot, dist plot, distribution, facet, grid]
 ---
----
-### Complexity
 
+---
+### Introduction and Data preparation
+Please follow the folloing links regarding data preparation and previous posts to follow along -
+
+* <b> For Data Preapration </b>  - [Part 0 - Plotting Using Seaborn - Data Preparation](/python/visualisation/2019/08/20/Plotting-Seaborn-Data-Preparation.html){:target="_blank"}
+
+* <b> For Part 1 </b> - [Part 1 - Plotting Using Seaborn - Violin, Box and Line Plot](/python/visualisation/2019/08/21/Plotting-Seaborn-Violin-Box-Line.html){:target="_blank"}
+
+---
+
+### Subset of data based on complexity
 
 ```python
 test_scores_easy = test_scores[test_scores['Complexity']=='Easy']
 test_scores_medium = test_scores[test_scores['Complexity']=='Medium']
 test_scores_hard = test_scores[test_scores['Complexity']=='Difficult']
 ```
+---
 
+### Distribution of score percentage across track in test with easy complexity
 
 ```python
 sns.set(style="whitegrid")
@@ -29,17 +40,12 @@ g.fig.suptitle('Distribution of score percentage across track in test with easy 
 ```
 
 <!--break-->
----
-
-
-
- 
 
 ![Distribution Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Distribution-Facet-Grid/output_5_1.png "Distribution of score percentage across track in test with easy complexity")
 
+---
 
-
-
+### Distribution of score percentage across track in test with medium complexity
 
 ```python
 sns.set(style="whitegrid")
@@ -54,16 +60,11 @@ g.fig.suptitle('Distribution of score percentage across track in test with mediu
 #plb.savefig('Distribution_medium.png',dpi=50,bbox_inches='tight')
 ```
 
-
-
-
-
 ![Distribution Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Distribution-Facet-Grid/output_6_1.png "Distribution of score percentage across track in test with medium complexity")
 
+---
 
-
-
-
+### Distribution of score percentage across track in test with difficult complexity
 
 ```python
 sns.set(style = "whitegrid")
@@ -78,10 +79,8 @@ g.fig.suptitle('Distribution of score percentage across track in test with diffi
 #plb.savefig('Distribution_hard',dpi=50,bbox_inches='tight')
 ```
 
-
-
-
-
 ![Distribution Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Distribution-Facet-Grid/output_7_1.png "Distribution of score percentage across track in test with difficult complexity")
 
-
+---
+<b> Jupyter Notebook Link </b>   - [Part 2 - Plotting Using Seaborn - Distribution Plot, Facet Grid](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Visualization%20With%20Seaborn/Complexity%20Analysis.ipynb){:target="_blank"}
+---

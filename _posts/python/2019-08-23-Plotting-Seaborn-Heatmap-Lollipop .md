@@ -4,7 +4,22 @@ title : Part 4 - Plotting Using Seaborn - Heatmap, Lollipop Plot, Scatter Plot
 categories: [python, visualisation]
 tags: [python, seaborn, matplotlib, pandas, plot, heatmap, lollipop plot, scatter plot]
 ---
+
 ---
+### Introduction and Data preparation
+Please follow the folloing links regarding data preparation and previous posts to follow along -
+
+* <b> For Data Preapration </b>  - [Part 0 - Plotting Using Seaborn - Data Preparation](/python/visualisation/2019/08/20/Plotting-Seaborn-Data-Preparation.html){:target="_blank"}
+
+* <b> For Part 1 </b> - [Part 1 - Plotting Using Seaborn - Violin, Box and Line Plot](/python/visualisation/2019/08/21/Plotting-Seaborn-Violin-Box-Line.html){:target="_blank"}
+
+* <b> For Part 2 </b> - [Part 2 - Plotting Using Seaborn - Distribution Plot, Facet Grid](/python/visualisation/2019/08/23/Plotting-Seaborn-Distribution-Facet-Grid.html){:target="_blank"}
+
+* <b> For Part 3 </b> - [Part 3 - Plotting Using Seaborn - Donut](/python/visualisation/2019/08/23/Plotting-Seaborn-Donut.html){:target="_blank"}
+
+---
+
+### Heatmap shwoing average percentage score across each test by track
 
 ```python
 test_scores_TestName2 = test_scores.groupby(['Test Name','Track'])[['Score','maximum_score']].mean().reset_index().sort_values(by=['maximum_score','Score'])
@@ -22,9 +37,12 @@ fig.suptitle('Heatmap shwoing average percentage score across each test by track
 ```
 
 <!--break-->
----
+
 ![Heatmap](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_6_1.png "Heatmap shwoing average percentage score across each test by track")
 
+---
+
+### Heatmap shwoing average percentage score across each test by designation
 
 ```python
 test_scores_TestName2 = test_scores.groupby(['Test Name','Designation'])[['Score','maximum_score']].mean().reset_index().sort_values(
@@ -44,6 +62,10 @@ fig.suptitle('Heatmap shwoing average percentage score across each test by desig
 ```
 
 ![Heatmap](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_7_1.png "Heatmap shwoing average percentage score across each test by designation")
+
+---
+
+### Average score percentage across tests by complexity 
 
 ```python
 fig = plt.figure(figsize=(12,10))
@@ -72,6 +94,11 @@ plt.legend(custom_lines, ['Easy', 'Medium', 'Difficult'], loc='lower right')
 
 ![Lollipop Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_9_1.png "Average score percentage across tests by complexity")
 
+--- 
+
+### Participation across tests by complexity
+
+
 ```python
 fig = plt.figure(figsize=(12,10))
 test_names = test_scores.groupby(['Test Name', 'Complexity'])['Participant identifier'].size().reset_index()
@@ -98,6 +125,10 @@ plt.legend(custom_lines, ['Easy', 'Medium', 'Difficult'], loc='lower right')
 ```
 
 ![Lollipop Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_11_1.png "Participation across tests by complexity")
+
+---
+
+### Participants who scored full across tests by complexity
 
 ```python
 max_score = test_scores[test_scores['Percent'] == 100]
@@ -126,8 +157,11 @@ plt.legend(custom_lines, ['Easy', 'Medium', 'Difficult'], loc='lower right')
 #plb.savefig('Lollipo_FullScore',dpi=100,bbox_inches='tight')
 ```
 
-
 ![Lollipop Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_13_1.png "Participants who scored full across tests by complexity")
+
+---
+
+### Score percentage distribution by no. of tests given
 
 ```python
 fig = plt.figure(figsize=(10,7))
@@ -146,3 +180,8 @@ plt.title("Score percentage distribution by no. of tests given", fontsize=20, x=
 ```
 
 ![Scatter Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_14_1.png "Participants who scored full across tests by complexity")
+
+---
+<b> Jupyter Notebook Link </b>   - [Part 4 - Plotting Using Seaborn - Heatmap, Lollipop Plot, Scatter Plot](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Visualization%20With%20Seaborn/Test%20Names.ipynb){:target="_blank"}
+
+---

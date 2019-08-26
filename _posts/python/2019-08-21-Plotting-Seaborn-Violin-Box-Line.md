@@ -4,6 +4,13 @@ title : Part 1 - Plotting Using Seaborn - Violin, Box and Line Plot
 categories: [python, visualisation]
 tags: [python, seaborn, matplotlib, pandas, plot, violin plot, box plot, line plot]
 ---
+
+---
+### Introduction and Data preparation
+Please follow the folloing links regarding data preparation and previous posts to follow along -
+
+* <b> For Data Preparation </b>  - [Part 0 - Plotting Using Seaborn - Data Preparation](/python/visualisation/2019/08/20/Plotting-Seaborn-Data-Preparation.html){:target="_blank"}
+
 ---
 
 ### Violin Plot showing distribution of score for each track by complexity
