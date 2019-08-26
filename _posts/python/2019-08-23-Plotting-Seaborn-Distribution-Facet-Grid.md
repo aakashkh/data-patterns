@@ -2,42 +2,11 @@
 layout : post
 title : Part 2 - Plotting Using Seaborn - Distribution Plot, Facet Grid
 categories: [python, visualisation]
-tags: [python, seaborn, matplotlib, pandas, plot, Dist plot, Distribution, Facet, Grid]
+tags: [python, seaborn, matplotlib, pandas, plot, dist plot, distribution, facet, grid]
 ---
 ---
 ### Complexity
 
-
-```python
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-import matplotlib.pylab as plb
-import warnings
-warnings.filterwarnings('ignore')
-```
-
-
-```python
-test_scores = pd.read_csv("Data/Test scores.csv", parse_dates=['Test taken date'])
-test_master = pd.read_csv("Data/Test master.csv")
-test_participant = pd.read_csv("Data/Audience summary.csv")
-```
-
-
-```python
-test_scores['weekday_name']  = test_scores['Test taken date'].dt.weekday_name
-test_scores['month']  = test_scores['Test taken date'].dt.month_name() 
-test_scores['week']  = test_scores['Test taken date'].dt.week-42 # to get number from 1 
-test_master['maximum_score'] = test_master['No. of questions'] * test_master['Marks per question']
-test_scores = pd.merge(test_scores,test_master,left_on="Test Name", right_on="Test name", how = "left")
-cols = ['Participant identifier', 'Test Name', 'Track','Designation', 'Score', 
-        'weekday_name', 'month', 'week','Complexity', 'maximum_score']
-test_scores = test_scores[cols]
-test_scores['Percent'] = round((test_scores['Score']/test_scores['maximum_score'])*100,2)
-```
-<!--break-->
----
 
 ```python
 test_scores_easy = test_scores[test_scores['Complexity']=='Easy']
@@ -59,13 +28,14 @@ g.fig.suptitle('Distribution of score percentage across track in test with easy 
 #plb.savefig('Distribution_easy.png',dpi=50,bbox_inches='tight')
 ```
 
+<!--break-->
+---
 
 
 
  
 
 ![Distribution Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Distribution-Facet-Grid/output_5_1.png "Distribution of score percentage across track in test with easy complexity")
-
 
 
 

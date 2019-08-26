@@ -42,8 +42,8 @@ share:
 
 url: "https://aakashkh.github.io"
 baseurl: ""
-paginate: 5
-per_page: 5
+paginate: 3
+per_page: 3
 paginate_path: "/page/:num/"
 markdown: kramdown
 plugins:

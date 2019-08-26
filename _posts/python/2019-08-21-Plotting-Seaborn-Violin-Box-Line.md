@@ -2,43 +2,11 @@
 layout : post
 title : Part 1 - Plotting Using Seaborn - Violin, Box and Line Plot
 categories: [python, visualisation]
-tags: [python, seaborn, matplotlib, pandas, plot, Violin Plot, Box Plot, Line Plot]
+tags: [python, seaborn, matplotlib, pandas, plot, violin plot, box plot, line plot]
 ---
 ---
 
-## Basic
-
-
-```python
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-import matplotlib.pylab as plb
-import warnings
-warnings.filterwarnings('ignore')
-```
-
-
-```python
-test_scores = pd.read_csv("Data/Test scores.csv", parse_dates=['Test taken date'])
-test_master = pd.read_csv("Data/Test master.csv")
-test_participant = pd.read_csv("Data/Audience summary.csv")
-```
-
-
-```python
-test_scores['weekday_name']  = test_scores['Test taken date'].dt.weekday_name
-test_scores['month']  = test_scores['Test taken date'].dt.month_name() 
-test_scores['week']  = test_scores['Test taken date'].dt.week-42 # to get number from 1 
-test_master['maximum_score'] = test_master['No. of questions'] * test_master['Marks per question']
-test_scores = pd.merge(test_scores,test_master,left_on="Test Name", right_on="Test name", how = "left")
-cols = ['Participant identifier', 'Test Name', 'Track','Designation', 'Score', 
-        'weekday_name', 'month', 'week','Complexity', 'maximum_score']
-test_scores = test_scores[cols]
-test_scores['Percent'] = round((test_scores['Score']/test_scores['maximum_score'])*100,2)
-```
-<!--break-->
----
+### Violin Plot showing distribution of score for each track by complexity
 
 ```python
 plot1 = sns.catplot(y="Track",
@@ -63,10 +31,14 @@ plot1.fig.suptitle('Violin Plot showing distribution of score for each track by 
 #plot1.savefig("Violin Plot -1.png",dpi=100,bbox_inches='tight')
 ```
 
+<!--break-->
 
 
 
 ![Violin Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_4_1.png "Violin Plot showing distribution of score for each track by complexity")
+
+---
+### Box Plot showing distribution of average score percentage for each track by complexity
 
 ```python
 plot2 = sns.catplot(y="Track", 
@@ -91,7 +63,8 @@ plot2.fig.suptitle('Box Plot showing distribution of average score percentage fo
 
 ![Box Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_5_1.png "Box Plot showing distribution of average score percentage for each track by complexity")
 
-
+---
+### Violin Plot showing distribution of score for each designation by complexity
 
 ```python
 plot3 = sns.catplot(y="Designation", 
@@ -117,14 +90,11 @@ plot3.fig.suptitle('Violin Plot showing distribution of score for each designati
 #plot3.savefig("Violin Plot -2.png",dpi=100,bbox_inches='tight')
 ```
 
-
-
-
-
 ![Violin Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_6_1.png "'Violin Plot showing distribution of score for each designation by complexity'")
 
+---
 
-
+### Box Plot showing distribution of average score percentage for each designation by complexity
 
 ```python
 plot4 = sns.catplot(y="Designation", 
@@ -149,25 +119,20 @@ plot4.fig.suptitle('Box Plot showing distribution of average score percentage fo
 #plot4.savefig("Box Plot -2.png",dpi=100,bbox_inches='tight')
 ```
 
-
-
-
-    Text(0.5, 0.98, '')
-
-
 ![Box Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_7_1.png "Box Plot showing distribution of average score percentage for each designation by complexity")
 
+---
 
-
+### Trend in average score for each designation by complexity
 
 
 ```python
+
+# Score by Designation
 test_scores_Designtion = test_scores.groupby(['Complexity','Designation'])[['Score','maximum_score']].mean().reset_index()
 test_scores_Designtion['Percent'] = round(test_scores_Designtion['Score']/test_scores_Designtion['maximum_score'],2)*100
-```
 
-
-```python
+# Plotting
 plot5 = sns.catplot(x="Designation", 
                  y="Score", 
                  hue="Complexity",
@@ -191,17 +156,11 @@ plot5.fig.suptitle('Trend in average score for each designation by complexity', 
 ```
 
 
-
-
-
-
-
-
 ![Line Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_9_1.png "Trend in average score for each designation by complexity")
 
+---
 
-
-
+### Trend in average score percentage for each designation by complexity
 
 ```python
 plot6 = sns.catplot(x="Designation", 
@@ -225,13 +184,9 @@ plot6.fig.subplots_adjust(top=0.9)
 plot6.fig.suptitle('Trend in average score percentage for each designation by complexity', size = 20)
 #plot6.savefig("Line Plot 2.png",dpi=200,bbox_inches='tight')
 ```
-
-
-
-
- 
 ![Line Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_10_1.png "Trend in average score percentage for each designation by complexity")       
 
+---
+<b> Jupyter Notebook Link </b>   - [Part 1 - Plotting Using Seaborn - Violin, Box and Line Plot](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Visualization%20With%20Seaborn/Basic.ipynb){:target="_blank"}
 
-
-
+---
