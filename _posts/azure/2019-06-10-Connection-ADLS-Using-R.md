@@ -14,7 +14,7 @@ Follow the link, for more details on different ways to [connect to Azure Data La
 
 ### Import Prerequisite
 
-```python
+```javascript
 library(httr)
 library(curl)  
 library(stringr)  
