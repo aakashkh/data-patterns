@@ -2,7 +2,7 @@
 layout : post
 title : "Access Azure Active Directory Groups using R"
 categories : [azure, r]
-tags: [azure, r, datalake, data lake store, connect, ADLS, read, write, REST API, CURL, GET, POST]  
+tags: [azure, r, REST API, CURL, GET, POST, Azure Active Directory, Azure AD, AD authentication, Authenticate]  
 ---
 
 ----
@@ -37,7 +37,9 @@ get_response <- function(request_link, auth_token){
 }
 
 ```
+<!--break-->
 --- 
+
 ### Groups
 ```javascript
 link <- "https://graph.microsoft.com/v1.0/groups"
