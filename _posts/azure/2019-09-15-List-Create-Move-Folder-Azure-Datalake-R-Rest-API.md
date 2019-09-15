@@ -8,12 +8,12 @@ tags: [azure, r, REST API, Azure authentication, Authenticate, Data Lake, ADLS, 
 ---
 The following code snippets are on creating a connection to Azure Data Lake Storage Gen1 using R with Service-to-Service authentication with client secret and client id using REST API to list, create and move any folder in a azure data lake store gen1.  
 
-* [LISTSTATUS](/azure/r/2019/09/15/List-Create-Movel-Folder-Azure-Datalake-R-Rest-API.html#list-folder)  - To list everything in a folder
-* [MKDIRS](/azure/r/2019/09/15/List-Create-Movel-Folder-Azure-Datalake-R-Rest-API.html#create-folder) - To create new folder
-* [RENAME](/azure/r/2019/09/15/List-Create-Movel-Folder-Azure-Datalake-R-Rest-API.html#move-folder) - To move a folder to new location
+* [LISTSTATUS](/azure/r/2019/09/15/List-Create-Move-Folder-Azure-Datalake-R-Rest-API.html#list-folder)  - To list everything in a folder
+* [MKDIRS](/azure/r/2019/09/15/List-Create-Move-Folder-Azure-Datalake-R-Rest-API.html#create-folder) - To create new folder
+* [RENAME](/azure/r/2019/09/15/List-Create-Move-Folder-Azure-Datalake-R-Rest-API.html#move-folder) - To move a folder to new location
 
 <!--break-->
-
+### Import Prerequisite and Authenticate
 ---
 ```javascript
 library(tidyverse)
