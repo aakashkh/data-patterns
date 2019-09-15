@@ -5,6 +5,10 @@ categories : [azure, r]
 tags: [azure, r, REST API, CURL, GET, POST, Azure Active Directory, Azure AD, AD authentication, Authenticate]  
 ---
 
+---
+
+The following code snippets are on creating a connection to Azure Active Directoy using R with Service-to-Service authentication with client secret and client id using REST API and fetch Active Directory`s groups and associated details with them like owners and memebers.
+
 ----
 ### Import Prerequisite
 ```javascript

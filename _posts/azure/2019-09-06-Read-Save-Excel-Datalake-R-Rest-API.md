@@ -4,9 +4,11 @@ title : "Read and Write Excel from Azure Datalake Store using R and Rest API"
 categories : [azure, r]
 tags: [azure, r, REST API, CURL, GET, POST, Azure authentication, Authenticate, Data Lake, ADLS, Excel, Read, write, Store]  
 ---
+---
+The following code snippets are on creating a connection to Azure Data Lake Storage Gen1 using R with Service-to-Service authentication with client secret and client id using REST API and read and write an excel file.
 
 ----
-### Import Prerequisite
+### Import Prerequisite 
 ```javascript
 library(httr)
 library(curl)  
@@ -60,7 +62,7 @@ local_file_path <- 'Enter-Local-File-Path.xlsx'
 write_excel_data <- file(local_file_path, 'wb')
 // write the file content to local file
 writeBin(excel_data, write_excel_data)
-// close the locla file
+// close the local file
 close(write_excel_data)
 ```
 ---
