@@ -2,7 +2,7 @@
 layout : post
 title : Hackerrank SQL - Advanced Select
 categories: [tsql]
-tags: [tsql, sub-queries, nested sql, nested queries, apply, correlated queries, correlated, sql, data, sql server, database, AdventureWorks]
+tags: [tsql, sub-queries, nested sql, nested queries, apply, correlated queries, correlated, sql, data, sql server, database]
 ---
 
 ---
