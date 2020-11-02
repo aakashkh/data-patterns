@@ -7,15 +7,17 @@ tags: [Power BI, DAX, Time, DateTable, Parallel Period, Moving Average, Running 
 
 ---
 
-### Time Intelligence in PowerBI
-
 Data Analysis Expressions (DAX) includes [time-intelligence functions](https://docs.microsoft.com/en-us/dax/time-intelligence-functions-dax){:target="_blank"}  that enable you to manipulate data using time periods, including days, months, quarters, and years, and then build and compare calculations over those periods.
 
 
-![Time Intelligence in PowerBI](/static/img/posts/powerbi/2020-11-01-Time-Intelligence-PowerBI/time_intelligence.jpg "Time Intelligence in PowerBI")
+![Time Intelligence in PowerBI](/static/img/posts/powerbi/2020-11-01-Time-Intelligence-PowerBI/time_intelligence.png "Time Intelligence in PowerBI")
 <!--break-->
-![Time Intelligence in PowerBI](/static/img/posts/powerbi/2020-11-01-Time-Intelligence-PowerBI/model.jpg "Time Intelligence in PowerBI")
 
+# Data Model 
+
+![Data Model](/static/img/posts/powerbi/2020-11-01-Time-Intelligence-PowerBI/model.png "Data Model")
+
+Above date table can be created using following dax - 
 ### DateTable
 
 ```python
@@ -30,24 +32,28 @@ ADDCOLUMNS(
     "Day", DAY ( [Date] )
 )
 ```
-### Sales
+
+# Measures
+
+### Sales -  Sum
 ```python
 = CALCULATE(sum(Data_Blog[Sales]))
 ```
 
-### Sales_MoM
+### Sales_MoM - Previous Month Sales
 ```python
 var _prevmonthsales = CALCULATE([Sales],DATEADD(DateTable[Date],-1,MONTH))  
 return [Sales] - _prevmonthsales
 ```
 
-### Sales_MoM % 
+### Sales_MoM %  - Percentage change with Previous Month Sales
 ```python
 var _prevmonthsales = CALCULATE([Sales],DATEADD(DateTable[Date],-1,MONTH))  
 return DIVIDE([Sales] - _prevmonthsales,_prevmonthsales)
 ```
 
-### Sales_MovingAverage
+### Sales_MovingAverage - Moving Average of last three months 
+#### [Quick Measure - Rolling Average] 
 ```python
 IF(
 	ISFILTERED('Data_Blog'[SalesDate]),
@@ -75,23 +81,23 @@ IF(
 		)
 )
 ```
-### Sales_PreviousMonth
+### Sales_PreviousMonth - Parallel Period - Last Month
 ```python
 = CALCULATE([Sales],PARALLELPERIOD(DateTable[Date],-1,MONTH))
 ```
-### Sales_PreviousYear
+### Sales_PreviousYear - Previous Year Sum
 ```python
 = CALCULATE([Sales],PREVIOUSYEAR(DateTable[Date]))
 ```
-### Sales_QTD
+### Sales_QTD - Quarter Till Date - Running Total
 ```python
 = TOTALQTD([Sales],DateTable[Date])
 ```
-### Sales_SamePeriodLastYear
+### Sales_SamePeriodLastYear - Same Period Last Year
 ```python
 = CALCULATE([Sales],SAMEPERIODLASTYEAR(DateTable[Date]))
 ```
-### Sales_YTD
+### Sales_YTD -  Year Till Date -  Running Total
 ```python
 = TOTALYTD([Sales],'DateTable'[Date])
 ```
