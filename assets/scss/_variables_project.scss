@@ -1,0 +1,36 @@
+/*
+Custom variables for Data Patterns site
+*/
+
+// Brand colors
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+// Custom brand color for data patterns
+$td-enable-google-fonts: true;
+
+// Typography
+$font-family-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-monospace: "Roboto Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// Code highlighting
+$code-color: #e83e8c;
+$code-bg: #f8f9fa;
+
+// Table styling
+$table-border-color: #dee2e6;
+$table-striped-bg: rgba(0, 0, 0, 0.05);
+
+// Navigation
+$navbar-dark-color: rgba(255, 255, 255, 0.75);
+$navbar-dark-hover-color: rgba(255, 255, 255, 1);
+
+// Sidebar
+$sidebar-tree-root-color: $primary;
+$sidebar-tree-section-color: $dark;

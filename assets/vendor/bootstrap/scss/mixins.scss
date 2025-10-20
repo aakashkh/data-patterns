@@ -1,0 +1,51 @@
+// Bootstrap Mixins
+// Minimal mixins file to prevent import errors
+
+@mixin border-radius($radius: $border-radius) {
+  border-radius: $radius;
+}
+
+@mixin box-shadow($shadow...) {
+  box-shadow: $shadow;
+}
+
+@mixin transition($transition...) {
+  transition: $transition;
+}
+
+@mixin button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
+  color: color-contrast($background);
+  background-color: $background;
+  border-color: $border;
+
+  &:hover {
+    color: color-contrast($hover-background);
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: color-contrast($hover-background);
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &:active,
+  &.active {
+    color: color-contrast($active-background);
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

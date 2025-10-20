@@ -113,6 +113,6 @@ large_setosa_query = data.query("iris_class == 'Iris-setosa' and sepal_length > 
 
 ## Related Patterns
 
-- [Data Loading Patterns]({{< relref "load-pandas" >}})
-- [Indexing and Sorting]({{< relref "indexing-sorting" >}})
-- [Join Operations]({{< relref "join-merge" >}})
+- Data Loading Patterns (coming soon)
+- Indexing and Sorting (coming soon)
+- Join Operations (coming soon)
