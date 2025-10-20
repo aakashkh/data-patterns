@@ -1,0 +1,8 @@
+<div class="categories-grid">
+  {{ range $name, $pages := .Site.Taxonomies.categories }}
+    <a href="{{ `categories/` | relLangURL }}{{ $name | urlize }}" class="category-card">
+      <h3><i class="fas fa-folder"></i> {{ $name }}</h3>
+      <p>{{ len $pages }} posts</p>
+    </a>
+  {{ end }}
+</div>

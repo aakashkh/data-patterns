@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="explore-page">
+  <div class="search-container">
+    {{ partial "search-input.html" . }}
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Categories</h2>
+      <ul class="categories-list nav flex-column">
+        {{ $categories := .Site.Taxonomies.categories }}
+        {{ range $name, $pages := $categories }}
+          <li class="nav-item">
+            <a href="#{{ $name | urlize }}" class="nav-link category-link">{{ $name }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <h2>Tags</h2>
+      {{ $categories := .Site.Taxonomies.categories }}
+      {{ range $name, $pages := $categories }}
+        <div id="{{ $name | urlize }}" class="tag-group">
+          <h3>{{ $name }}</h3>
+          <ul class="tags-list">
+            {{ $tags := $.Site.Taxonomies.tags }}
+            {{ range $tagName, $tagPages := $tags }}
+              {{ $pagesInCat := $pages.Pages }}
+              {{ $pagesInTag := $tagPages.Pages }}
+              {{ $intersection := intersect $pagesInCat $pagesInTag }}
+              {{ if gt (len $intersection) 0 }}
+                <li>
+                  <a href="{{ `tags/` | relLangURL }}{{ $tagName | urlize }}">{{ $tagName }}</a>
+                </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

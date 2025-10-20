@@ -1,36 +1,73 @@
-/* Custom overrides for Docsy theme */
-
-/* Hide sidebar search on blog pages only */
-.td-blog .td-sidebar__search,
-.td-blog .td-sidebar .td-search,
-.td-blog .td-sidebar-tree .td-search {
-  display: none !important;
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-/* Also hide sidebar search globally (handles cases where body class differs or mobile variant renders) */
-.td-sidebar__search,
-#content-mobile .td-sidebar__search,
-.td-sidebar .td-search,
-.td-sidebar-tree .td-search {
-  display: none !important;
+.category-card {
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+
+  p {
+    color: #718096;
+    font-size: 0.9rem;
+  }
 }
 
-/* Fix breadcrumb alignment */
-.td-page-header .td-breadcrumbs {
-  margin: 0 !important;
-  padding-left: 0 !important;
-}
+.explore-page {
+  padding: 2rem;
 
-.td-page-header .breadcrumb {
-  margin: 0 !important;
-}
+  .search-container {
+    margin-bottom: 2rem;
+  }
 
-.td-page-header .breadcrumb-item {
-  display: inline-flex !important;
-  align-items: center !important;
-}
+  .categories-list {
+    .nav-link {
+      color: #333;
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
 
-.td-page-header .breadcrumb-item i {
-  margin-right: 0.25rem !important;
-  vertical-align: middle !important;
+  .tag-group {
+    margin-bottom: 2rem;
+    h3 {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  .tags-list {
+    list-style: none;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin-right: 0.5rem;
+      a {
+        background-color: #f1f1f1;
+        color: #333;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.25rem;
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+  }
 }

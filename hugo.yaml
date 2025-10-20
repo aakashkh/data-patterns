@@ -89,6 +89,10 @@ menu:
       name: "Blog"
       url: "/blog/"
       weight: 20
+    - identifier: explore
+      name: "Explore"
+      url: "/explore/"
+      weight: 30
 
 params:
   github_repo: "https://github.com/aakashkh/data-patterns"
