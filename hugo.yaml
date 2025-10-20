@@ -96,9 +96,8 @@ params:
   # Enable Lunr.js offline search
   offlineSearch: true
 
-  # Enable syntax highlighting and copy buttons on code blocks with Prism
-  prism_syntax_highlighting: true
-  prism_theme: "prism-tomorrow"
+  # Disable Prism.js and use Hugo's default syntax highlighting
+  prism_syntax_highlighting: false
 
   # User interface configuration
   ui:

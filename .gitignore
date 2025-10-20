@@ -18,26 +18,52 @@ _vendor/
 ehthumbs.db
 Thumbs.db
 
-# Editor files
+# Hugo build output
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+hugo_stats.json
+
+# Editor files and directories
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Local environment files
+# Environment files
 .env
 .env.*
 
-# Package manager caches
+# Dependency directories
+node_modules/
 .cache/
 
-# Node modules (if using npm)
-node_modules/
-
-# Log files
+# Logs and databases
 *.log
+*.sqlite
 
-# Temporary files
-tmp/
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Local development
+*.local
+
+# Hugo modules
+# Uncomment if you use Hugo modules
+# /public/
+# /resources/
+# /assets/vendor/
+# /node_modules/
+
+# IDE specific
+.idea/
+.vscode/
+*.sublime-*
 temp/
