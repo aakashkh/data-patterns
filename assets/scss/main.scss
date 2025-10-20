@@ -1,11 +1,1 @@
-/* Using CDN CSS only - no SCSS processing needed */
-
-/* Fix breadcrumb icon and text alignment */
-.breadcrumb-item {
-  display: flex;
-  align-items: center;
-}
-
-.breadcrumb-item i {
-  margin-right: 0.25rem;
-}
+@import "custom";}

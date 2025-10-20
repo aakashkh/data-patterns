@@ -1,0 +1,19 @@
+/* Custom overrides for Docsy theme */
+
+/* Hide sidebar search */
+.td-sidebar__search,
+.td-sidebar .td-search,
+.td-sidebar-tree .td-search {
+    display: none !important;
+}
+
+/* Fix breadcrumb alignment */
+.breadcrumb-item {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.breadcrumb-item i {
+    margin-right: 0.25rem !important;
+    vertical-align: middle !important;
+}

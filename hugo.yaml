@@ -69,8 +69,8 @@ params:
   # gcs_engine_id: "d72aa9b2712488cc3"
 
   # Enable Algolia DocSearch
-  search:
-    algolia: false
+  # search:
+  #   algolia: false
 
   # Enable Lunr.js offline search
   offlineSearch: true

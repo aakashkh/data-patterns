@@ -13,9 +13,7 @@
                         <h5 class="mb-1">{{ .Title }}</h5>
                         <small class="text-muted">{{ .Date.Format "Jan 2006" }}</small>
                     </div>
-                    {{ with .Summary }}
-                    <p class="mb-1">{{ . }}</p>
-                    {{ end }}
+                    <p class="mb-1">{{ .Summary | truncate 150 }}</p>
                     {{ with .Params.categories }}
                     <small class="text-muted">{{ delimit . ", " }}</small>
                     {{ end }}
