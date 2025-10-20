@@ -6,6 +6,8 @@ resources/
 # Hugo cache and stats
 .hugo_cache/
 hugo_stats.json
+.vendor/
+_vendor/
 
 # OS generated files
 .DS_Store
