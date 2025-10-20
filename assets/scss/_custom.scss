@@ -7,6 +7,14 @@
   display: none !important;
 }
 
+/* Also hide sidebar search globally (handles cases where body class differs or mobile variant renders) */
+.td-sidebar__search,
+#content-mobile .td-sidebar__search,
+.td-sidebar .td-search,
+.td-sidebar-tree .td-search {
+  display: none !important;
+}
+
 /* Fix breadcrumb alignment */
 .td-page-header .td-breadcrumbs {
   margin: 0 !important;
