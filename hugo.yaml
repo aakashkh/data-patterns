@@ -97,7 +97,8 @@ params:
   offlineSearch: true
 
   # Enable syntax highlighting and copy buttons on code blocks with Prism
-  prism_syntax_highlighting: false
+  prism_syntax_highlighting: true
+  prism_theme: "prism-tomorrow"
 
   # User interface configuration
   ui:

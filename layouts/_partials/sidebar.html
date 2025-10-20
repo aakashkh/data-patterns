@@ -1,0 +1,10 @@
+{{/* Override Docsy sidebar to remove the search form on the left sidebar (blog and elsewhere) */}}
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile"></div>
+  <div id="content-desktop"></div>
+  <nav class="td-sidebar-nav collapse" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      {{ partial "sidebar-tree.html" . }}
+    </ul>
+  </nav>
+</div>

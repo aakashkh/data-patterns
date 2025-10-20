@@ -5,6 +5,10 @@
     class="no-js">
   <head>
     {{ partial "head.html" . }}
+    <style>
+      /* Hide sidebar search on blog pages only */
+      .td-blog .td-sidebar__search { display: none !important; }
+    </style>
   </head>
   <body class="td-{{ .Kind }} td-blog {{- with .Page.Params.body_class }} {{ . }}{{ end }}">
     <header>
@@ -24,7 +28,6 @@
             {{ partial "toc.html" . }}
             {{ partial "taxonomy_terms_clouds.html" . }}
           </aside>
-          </main>
         </div>
       </div>
       {{ partial "footer.html" . }}
