@@ -2,8 +2,6 @@ baseURL: "https://aakashkh.github.io/data-patterns/"
 languageCode: "en-us"
 title: "Data Patterns"
 
-theme: "docsy"
-
 enableRobotsTXT: true
 enableGitInfo: true
 
@@ -64,7 +62,6 @@ module:
   proxy: "direct"
   imports:
     - path: github.com/google/docsy
-      disable: true
 
 
 # Everything below this are Site Params
