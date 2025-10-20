@@ -1,0 +1,30 @@
+# Hugo build files
+public/
+resources/
+.hugo_build.lock
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (if using npm)
+node_modules/
+
+# Log files
+*.log
+
+# Temporary files
+tmp/
+temp/
