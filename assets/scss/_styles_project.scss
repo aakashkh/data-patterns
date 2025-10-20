@@ -1,0 +1,11 @@
+/* Project-level overrides loaded by Docsy after theme styles */
+
+/* Hide sidebar search block in all variants (online/offline) */
+#td-sidebar-menu .td-sidebar__search,
+#td-sidebar-menu .td-search,
+#td-sidebar-menu .td-search--offline,
+.td-sidebar .td-sidebar__search,
+.td-sidebar .td-search,
+.td-sidebar .td-search--offline {
+  display: none !important;
+}
