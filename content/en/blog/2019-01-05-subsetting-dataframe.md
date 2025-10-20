@@ -47,198 +47,36 @@ Now we can have a look at descriptive statistics summary for each of the subset 
 ```python
 data_setosa.describe().T
 ```
-<table >
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>count</th>
-      <th>mean</th>
-      <th>std</th>
-      <th>min</th>
-      <th>25%</th>
-      <th>50%</th>
-      <th>75%</th>
-      <th>max</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>sepal_length</th>
-      <td>50.0</td>
-      <td>5.006</td>
-      <td>0.352490</td>
-      <td>4.3</td>
-      <td>4.800</td>
-      <td>5.0</td>
-      <td>5.200</td>
-      <td>5.8</td>
-    </tr>
-    <tr>
-      <th>sepal_width</th>
-      <td>50.0</td>
-      <td>3.418</td>
-      <td>0.381024</td>
-      <td>2.3</td>
-      <td>3.125</td>
-      <td>3.4</td>
-      <td>3.675</td>
-      <td>4.4</td>
-    </tr>
-    <tr>
-      <th>petal_length</th>
-      <td>50.0</td>
-      <td>1.464</td>
-      <td>0.173511</td>
-      <td>1.0</td>
-      <td>1.400</td>
-      <td>1.5</td>
-      <td>1.575</td>
-      <td>1.9</td>
-    </tr>
-    <tr>
-      <th>petal_width</th>
-      <td>50.0</td>
-      <td>0.244</td>
-      <td>0.107210</td>
-      <td>0.1</td>
-      <td>0.200</td>
-      <td>0.2</td>
-      <td>0.300</td>
-      <td>0.6</td>
-    </tr>
-  </tbody>
-</table>
+
+| Metric | count | mean | std | min | 25% | 50% | 75% | max |
+|--------|-------|------|-----|-----|-----|-----|-----|-----|
+| sepal_length | 50.0 | 5.006 | 0.352490 | 4.3 | 4.800 | 5.0 | 5.200 | 5.8 |
+| sepal_width | 50.0 | 3.418 | 0.381024 | 2.3 | 3.125 | 3.4 | 3.675 | 4.4 |
+| petal_length | 50.0 | 1.464 | 0.173511 | 1.0 | 1.400 | 1.5 | 1.575 | 1.9 |
+| petal_width | 50.0 | 0.244 | 0.107210 | 0.1 | 0.200 | 0.2 | 0.300 | 0.6 |
 ---
 
 ```python
 data_versicolor.describe().T
 ```
-<table >
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>count</th>
-      <th>mean</th>
-      <th>std</th>
-      <th>min</th>
-      <th>25%</th>
-      <th>50%</th>
-      <th>75%</th>
-      <th>max</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>sepal_length</th>
-      <td>50.0</td>
-      <td>5.936</td>
-      <td>0.516171</td>
-      <td>4.9</td>
-      <td>5.600</td>
-      <td>5.90</td>
-      <td>6.3</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>sepal_width</th>
-      <td>50.0</td>
-      <td>2.770</td>
-      <td>0.313798</td>
-      <td>2.0</td>
-      <td>2.525</td>
-      <td>2.80</td>
-      <td>3.0</td>
-      <td>3.4</td>
-    </tr>
-    <tr>
-      <th>petal_length</th>
-      <td>50.0</td>
-      <td>4.260</td>
-      <td>0.469911</td>
-      <td>3.0</td>
-      <td>4.000</td>
-      <td>4.35</td>
-      <td>4.6</td>
-      <td>5.1</td>
-    </tr>
-    <tr>
-      <th>petal_width</th>
-      <td>50.0</td>
-      <td>1.326</td>
-      <td>0.197753</td>
-      <td>1.0</td>
-      <td>1.200</td>
-      <td>1.30</td>
-      <td>1.5</td>
-      <td>1.8</td>
-    </tr>
-  </tbody>
-</table>
+
+| Metric | count | mean | std | min | 25% | 50% | 75% | max |
+|--------|-------|------|-----|-----|-----|-----|-----|-----|
+| sepal_length | 50.0 | 5.936 | 0.516171 | 4.9 | 5.600 | 5.90 | 6.3 | 7.0 |
+| sepal_width | 50.0 | 2.770 | 0.313798 | 2.0 | 2.525 | 2.80 | 3.0 | 3.4 |
+| petal_length | 50.0 | 4.260 | 0.469911 | 3.0 | 4.000 | 4.35 | 4.6 | 5.1 |
+| petal_width | 50.0 | 1.326 | 0.197753 | 1.0 | 1.200 | 1.30 | 1.5 | 1.8 |
 ---
 
 ```python
 data_virginica.describe().T
 ```
-<table >
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>count</th>
-      <th>mean</th>
-      <th>std</th>
-      <th>min</th>
-      <th>25%</th>
-      <th>50%</th>
-      <th>75%</th>
-      <th>max</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>sepal_length</th>
-      <td>50.0</td>
-      <td>6.588</td>
-      <td>0.635880</td>
-      <td>4.9</td>
-      <td>6.225</td>
-      <td>6.50</td>
-      <td>6.900</td>
-      <td>7.9</td>
-    </tr>
-    <tr>
-      <th>sepal_width</th>
-      <td>50.0</td>
-      <td>2.974</td>
-      <td>0.322497</td>
-      <td>2.2</td>
-      <td>2.800</td>
-      <td>3.00</td>
-      <td>3.175</td>
-      <td>3.8</td>
-    </tr>
-    <tr>
-      <th>petal_length</th>
-      <td>50.0</td>
-      <td>5.552</td>
-      <td>0.551895</td>
-      <td>4.5</td>
-      <td>5.100</td>
-      <td>5.55</td>
-      <td>5.875</td>
-      <td>6.9</td>
-    </tr>
-    <tr>
-      <th>petal_width</th>
-      <td>50.0</td>
-      <td>2.026</td>
-      <td>0.274650</td>
-      <td>1.4</td>
-      <td>1.800</td>
-      <td>2.00</td>
-      <td>2.300</td>
-      <td>2.5</td>
-    </tr>
-  </tbody>
-</table>
+
+| Metric | count | mean | std | min | 25% | 50% | 75% | max |
+|--------|-------|------|-----|-----|-----|-----|-----|-----|
+| sepal_length | 50.0 | 6.588 | 0.635880 | 4.9 | 6.225 | 6.50 | 6.900 | 7.9 |
+| sepal_width | 50.0 | 2.974 | 0.322497 | 2.2 | 2.800 | 3.00 | 3.175 | 3.8 |
+| petal_length | 50.0 | 5.552 | 0.551895 | 4.5 | 5.100 | 5.55 | 5.875 | 6.9 |
+| petal_width | 50.0 | 2.026 | 0.274650 | 1.4 | 1.800 | 2.00 | 2.300 | 2.5 |
 ---
 

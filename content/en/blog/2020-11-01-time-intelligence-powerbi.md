@@ -12,20 +12,15 @@ toc: true
 
 ---
 
-Data Analysis Expressions (DAX) includes [time-intelligence functions](https://docs.microsoft.com/en-us/dax/time-intelligence-functions-dax){:target="_blank"}  that enable you to manipulate data using time periods, including days, months, quarters, and years, and then build and compare calculations over those periods.
+Data Analysis Expressions (DAX) includes [time-intelligence functions](https://docs.microsoft.com/en-us/dax/time-intelligence-functions-dax) that enable you to manipulate data using time periods, including days, months, quarters, and years, and then build and compare calculations over those periods.
 
+## Data Model
 
-![Time Intelligence in PowerBI](/static/img/posts/powerbi/2020-11-01-Time-Intelligence-PowerBI/time_intelligence.jpg "Time Intelligence in PowerBI")
+The date table can be created using the following DAX:
 
-
-# Data Model 
-
-![Data Model](/static/img/posts/powerbi/2020-11-01-Time-Intelligence-PowerBI/model.png "Data Model")
-
-Above date table can be created using following dax - 
 ### DateTable
 
-```python
+```dax
 DateTable = 
 ADDCOLUMNS(
     CALENDAR(EOMONTH(min(Data_Blog[SalesDate]),-1), EOMONTH(max(Data_Blog[SalesDate]),3)),
@@ -38,28 +33,28 @@ ADDCOLUMNS(
 )
 ```
 
-# Measures
+## Measures
 
-### Sales -  Sum
-```python
+### Sales - Sum
+```dax
 = CALCULATE(sum(Data_Blog[Sales]))
 ```
 
 ### Sales_MoM - Previous Month Sales
-```python
+```dax
 var _prevmonthsales = CALCULATE([Sales],DATEADD(DateTable[Date],-1,MONTH))  
 return [Sales] - _prevmonthsales
 ```
 
-### Sales_MoM %  - Percentage change with Previous Month Sales
-```python
+### Sales_MoM % - Percentage change with Previous Month Sales
+```dax
 var _prevmonthsales = CALCULATE([Sales],DATEADD(DateTable[Date],-1,MONTH))  
 return DIVIDE([Sales] - _prevmonthsales,_prevmonthsales)
 ```
 
-### Sales_MovingAverage - Moving Average of last three months 
-#### [Quick Measure - Rolling Average] 
-```python
+### Sales_MovingAverage - Moving Average of last three months
+#### [Quick Measure - Rolling Average]
+```dax
 IF(
 	ISFILTERED('Data_Blog'[SalesDate]),
 	ERROR("Time intelligence quick measures can only be grouped or filtered by the Power BI-provided date hierarchy or primary date column."),
@@ -86,23 +81,28 @@ IF(
 		)
 )
 ```
+
 ### Sales_PreviousMonth - Parallel Period - Last Month
-```python
+```dax
 = CALCULATE([Sales],PARALLELPERIOD(DateTable[Date],-1,MONTH))
 ```
+
 ### Sales_PreviousYear - Previous Year Sum
-```python
+```dax
 = CALCULATE([Sales],PREVIOUSYEAR(DateTable[Date]))
 ```
+
 ### Sales_QTD - Quarter Till Date - Running Total
-```python
+```dax
 = TOTALQTD([Sales],DateTable[Date])
 ```
+
 ### Sales_SamePeriodLastYear - Same Period Last Year
-```python
+```dax
 = CALCULATE([Sales],SAMEPERIODLASTYEAR(DateTable[Date]))
 ```
-### Sales_YTD -  Year Till Date -  Running Total
-```python
+
+### Sales_YTD - Year Till Date - Running Total
+```dax
 = TOTALYTD([Sales],'DateTable'[Date])
 ```

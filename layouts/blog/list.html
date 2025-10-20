@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="td-content">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    
+    <div class="row mt-5">
+        <div class="col-lg-8">
+            <h2>Recent Posts</h2>
+            <div class="list-group">
+                {{ range (.Paginate (.Pages.ByDate.Reverse)).Pages }}
+                <a href="{{ .RelPermalink }}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ .Title }}</h5>
+                        <small class="text-muted">{{ .Date.Format "Jan 2006" }}</small>
+                    </div>
+                    {{ with .Summary }}
+                    <p class="mb-1">{{ . }}</p>
+                    {{ end }}
+                    {{ with .Params.categories }}
+                    <small class="text-muted">{{ delimit . ", " }}</small>
+                    {{ end }}
+                </a>
+                {{ end }}
+            </div>
+            
+            {{ template "_internal/pagination.html" . }}
+        </div>
+        
+        <div class="col-lg-4">
+            <h2>Categories</h2>
+            <div class="list-group">
+                {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <span>{{ $name | title }}</span>
+                    <span class="badge bg-primary rounded-pill">{{ len $taxonomy }}</span>
+                </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
