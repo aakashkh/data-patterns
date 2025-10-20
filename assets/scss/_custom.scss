@@ -1,19 +1,28 @@
 /* Custom overrides for Docsy theme */
 
-/* Hide sidebar search */
-.td-sidebar__search,
-.td-sidebar .td-search,
-.td-sidebar-tree .td-search {
-    display: none !important;
+/* Hide sidebar search on blog pages only */
+.td-blog .td-sidebar__search,
+.td-blog .td-sidebar .td-search,
+.td-blog .td-sidebar-tree .td-search {
+  display: none !important;
 }
 
 /* Fix breadcrumb alignment */
-.breadcrumb-item {
-    display: inline-flex !important;
-    align-items: center !important;
+.td-page-header .td-breadcrumbs {
+  margin: 0 !important;
+  padding-left: 0 !important;
 }
 
-.breadcrumb-item i {
-    margin-right: 0.25rem !important;
-    vertical-align: middle !important;
+.td-page-header .breadcrumb {
+  margin: 0 !important;
+}
+
+.td-page-header .breadcrumb-item {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.td-page-header .breadcrumb-item i {
+  margin-right: 0.25rem !important;
+  vertical-align: middle !important;
 }

@@ -1,6 +1,7 @@
 baseURL: "https://aakashkh.github.io/data-patterns/"
 languageCode: "en-us"
 title: "Data Patterns"
+
 theme: "docsy"
 
 enableRobotsTXT: true
@@ -54,6 +55,17 @@ markup:
     style: "github"
     # Uncomment if you want your chosen highlight style used for code blocks without a specified language
     # guessSyntax: "true"
+
+taxonomies:
+  tag: tags
+  category: categories
+
+module:
+  proxy: "direct"
+  imports:
+    - path: github.com/google/docsy
+      disable: true
+
 
 # Everything below this are Site Params
 
@@ -143,9 +155,3 @@ params:
 build:
   writeStats: false
   useResourceCacheWhen: "fallback"
-  
-# Disable PostCSS processing
-services:
-  css:
-    transpiler: "libsass"
-

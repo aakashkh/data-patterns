@@ -1,9 +1,5 @@
 ---
 title: "Blog"
 linkTitle: "Blog"
-menu:
-  main:
-    weight: 30
+type: "blog"
 ---
-
-Explore our latest articles on data engineering, analytics, and modern data stack technologies.
