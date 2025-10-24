@@ -25,7 +25,7 @@
                     <i class="fas fa-folder"></i>
                   </div>
                   <h2 class="h5 mb-0">
-                    <a href="/categories/{{ .Page.Title | urlize }}/" class="text-decoration-none">
+                    <a href="{{ .Page.RelPermalink }}" class="text-decoration-none">
                       {{ .Page.Title | title }}
                     </a>
                   </h2>
@@ -35,7 +35,7 @@
                   <span class="badge bg-light text-dark">
                     <i class="fas fa-file-alt me-1"></i> {{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}
                   </span>
-                  <a href="/categories/{{ .Page.Title | urlize }}/" class="btn btn-sm btn-outline-primary">
+                  <a href="{{ .Page.RelPermalink }}" class="btn btn-sm btn-outline-primary">
                     View all <i class="fas fa-arrow-right ms-1"></i>
                   </a>
                 </div>

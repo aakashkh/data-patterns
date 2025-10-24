@@ -1,4 +1,4 @@
-baseURL = 'https://aakashkh.github.io/data-patterns/'
+baseURL = 'https://aakashkh.github.io/data-patterns'
 languageCode = 'en-us'
 title = 'Data Patterns'
 
@@ -15,8 +15,7 @@ title = 'Data Patterns'
       autoHeadingIDType = "github"
 
 [permalinks]
-  blog = "/:section/:year/:month/:day/:slug/"
-  posts = "/blog/:year/:month/:day/:slug/"
+  blog = "/blog/:year/:month/:day/:slug/"
   categories = "/categories/:slug/"
   tags = "/tags/:slug/"
 
