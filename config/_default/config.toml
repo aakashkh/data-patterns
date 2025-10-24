@@ -1,0 +1,30 @@
+baseURL = 'http://localhost:1313/data-patterns/'
+languageCode = 'en-us'
+title = 'Data Patterns'
+
+[markup.goldmark.renderer]
+  unsafe = true  # Enable raw HTML in markdown
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.typographer]
+        disable = false
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+
+[permalinks]
+  blog = "/:section/:year/:month/:day/:slug/"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+[params]
+  github_repo = "https://github.com/aakashkh/data-patterns"
+  github_branch = "main"

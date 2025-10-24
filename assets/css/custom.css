@@ -1,0 +1,248 @@
+/* ===========================================
+   Categories Pages
+   =========================================== */
+
+/* Category Cards - Reset all flex properties first */
+.category-card {
+  all: unset;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-radius: 0.75rem !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  height: auto !important;
+  display: block !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  float: none !important;
+  position: static !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: rgba(13, 110, 253, 0.2);
+}
+
+.category-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(13, 110, 253, 0.1);
+  color: #0d6efd;
+  border-radius: 50%;
+  font-size: 1.25rem;
+}
+
+.category-icon-lg {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(13, 110, 253, 0.1);
+  color: #0d6efd;
+  border-radius: 1rem;
+  font-size: 1.75rem;
+}
+
+/* Category Page Header */
+.category-page .breadcrumb {
+  background-color: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.category-page .breadcrumb-item a {
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.category-page .breadcrumb-item a:hover {
+  color: #0d6efd;
+}
+
+.category-page .breadcrumb-item.active {
+  color: #495057;
+  font-weight: 500;
+}
+
+/* Post Cards in Category */
+.post-card {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  background: #fff;
+  overflow: hidden;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-color: rgba(13, 110, 253, 0.2);
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.post-meta a {
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.post-meta a:hover {
+  color: #0d6efd;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+  .category-page .display-4 {
+    font-size: 2rem;
+  }
+  
+  .category-icon-lg {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+  
+  .post-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .post-meta > *:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Badges */
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+  border-radius: 0.5rem;
+}
+
+/* Cards */
+.card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0.75rem;
+  background: #fff;
+  margin-bottom: 1.5rem;
+  height: auto;
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 1.25rem;
+  height: auto;
+  overflow: visible;
+}
+
+/* Fix for category cards layout */
+.categories-list .card,
+.category-term .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.categories-list .card-body,
+.category-term .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1.5rem;
+}
+
+/* Ensure proper spacing in category cards */
+.categories-list .card-body > *:last-child,
+.category-term .card-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.card-title {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.card-text {
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.fa-folder {
+  color: #ffc107;
+  margin-right: 0.5rem;
+}
+
+/* Fix for category list layout */
+.categories-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  gap: 1.5rem !important;
+  padding: 1rem 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Reset any Bootstrap grid/column classes */
+.categories-grid .row,
+.categories-grid .col,
+.categories-grid [class*='col-'] {
+  display: block !important;
+  width: 100% !important;
+  flex: none !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Ensure proper spacing in category cards */
+.category-card h3 {
+  margin: 0 0 0.5rem 0;
+  padding: 1.5rem 1.5rem 0.5rem;
+  font-size: 1.25rem;
+}
+
+.category-card p {
+  margin: 0 0 1.5rem 0;
+  padding: 0 1.5rem 1.5rem;
+  color: #6c757d;
+}
+
+/* Override Bootstrap's flexbox behavior for category cards */
+.categories-grid .card,
+.categories-grid .category-card {
+  display: block !important;
+  flex: none !important;
+  width: 100%;
+}
+
+/* Ensure direct children of category cards don't use flex */
+.categories-grid .card > *,
+.category-card > * {
+  display: block !important;
+  flex: none !important;
+}
+
+/* Reset any flex-grow/shrink/basis */
+.categories-grid .card,
+.categories-grid .category-card,
+.categories-grid .card > *,
+.category-card > * {
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  flex-basis: auto !important;
+}

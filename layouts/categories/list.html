@@ -1,0 +1,51 @@
+{{ define "main" }}
+<div class="categories-page">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <nav aria-label="breadcrumb" class="mb-4">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Categories</li>
+          </ol>
+        </nav>
+
+        <header class="mb-5 text-center">
+          <h1 class="display-4 fw-bold mb-3">All Categories</h1>
+          <p class="lead text-muted">Browse our content organized by categories</p>
+        </header>
+
+        <div class="row g-4">
+          {{ range .Site.Taxonomies.categories.ByCount }}
+          <div class="col-md-6 col-lg-4">
+            <div class="card category-card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="category-icon me-3">
+                    <i class="fas fa-folder"></i>
+                  </div>
+                  <h2 class="h5 mb-0">
+                    <a href="{{ .Page.RelPermalink }}" class="text-decoration-none">
+                      {{ .Page.Title | title }}
+                    </a>
+                  </h2>
+                </div>
+                <p class="text-muted mb-3">{{ .Page.Description | default "Explore our collection of posts in this category." }}</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">
+                    <i class="fas fa-file-alt me-1"></i> {{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}
+                  </span>
+                  <a href="{{ .Page.RelPermalink }}" class="btn btn-sm btn-outline-primary">
+                    View all <i class="fas fa-arrow-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

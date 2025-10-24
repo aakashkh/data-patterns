@@ -1,0 +1,40 @@
+{{ define "main" }}
+<main class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="text-center mb-5">
+        <h1 class="display-4 mb-3">{{ .Title }}</h1>
+        <p class="lead text-muted">{{ .Description }}</p>
+      </div>
+      
+      {{ .Content }}
+      
+      <!-- Categories Section -->
+      {{ if .Site.Taxonomies.categories }}
+      <section class="mt-5">
+        <h2 class="mb-4">Browse by Category</h2>
+        <div class="row g-4">
+          {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+            {{ with $.Site.GetPage (printf "/categories/%s" $name) }}
+            <div class="col-md-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h3 class="h5 card-title mb-3">
+                    <a href="{{ .RelPermalink }}" class="text-decoration-none">
+                      <i class="fas fa-folder-open text-warning me-2"></i>
+                      {{ .LinkTitle | title }}
+                    </a>
+                  </h3>
+                  <p class="text-muted mb-0">{{ $taxonomy.Count }} {{ if eq $taxonomy.Count 1 }}post{{ else }}posts{{ end }}</p>
+                </div>
+              </div>
+            </div>
+            {{ end }}
+          {{ end }}
+        </div>
+      </section>
+      {{ end }}
+    </div>
+  </div>
+</main>
+{{ end }}

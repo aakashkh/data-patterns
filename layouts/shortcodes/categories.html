@@ -1,0 +1,41 @@
+<div class="categories-container">
+  <h2 class="mb-4">Browse by Category</h2>
+  <div class="row">
+    {{ range .Site.Taxonomies.categories }}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{{ .Page.RelPermalink }}" class="stretched-link">
+                <i class="fas fa-folder me-2"></i>{{ .Page.Title | title }}
+              </a>
+            </h5>
+            <p class="card-text text-muted">{{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}</p>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+</div>
+
+<style>
+.categories-container {
+  margin: 2rem 0;
+}
+.card {
+  transition: transform 0.2s ease-in-out;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.5rem;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.card-title a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+.card-title a:hover {
+  color: #0a58ca;
+}
+</style>

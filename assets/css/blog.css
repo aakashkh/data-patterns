@@ -1,0 +1,105 @@
+/* Blog Card Styles */
+.blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card .card-img-top {
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.blog-card .card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-card .card-title {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.blog-card .card-text {
+  color: #4a5568;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+/* Category Badges */
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Pagination */
+.pagination {
+  margin: 2rem 0;
+}
+
+.page-link {
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+  margin: 0 0.25rem;
+  border-radius: 0.25rem !important;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.page-item.active .page-link {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+  .blog-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .blog-card .card-img-top {
+    height: 180px;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blog-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Add delay for each card */
+.blog-card {
+  animation-delay: calc(var(--index, 0) * 0.1s);
+}

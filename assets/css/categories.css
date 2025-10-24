@@ -1,0 +1,226 @@
+/* ===========================================
+   Categories Pages
+   =========================================== */
+
+/* Category List Page */
+.categories-page {
+  padding: 2rem 0;
+}
+
+.categories-page .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-card {
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+  height: auto !important;
+}
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  height: 100%;
+  margin-bottom: 1.5rem;
+  width: 30%;
+  margin: 1rem;
+}
+
+.categories-page .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border-color: #0d6efd;
+}
+
+.categories-page .card-body {
+  padding: 1.5rem;
+}
+
+.categories-page .card-title {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.categories-page .card-text {
+  color: #6c757d;
+  margin-bottom: 1.25rem;
+}
+
+/* Individual Category Page */
+.category-term .card {
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.category-term .card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.category-term .card-body {
+  padding: 1.5rem;
+}
+
+.category-term .post-meta {
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.category-term .post-meta i {
+  width: 1.25rem;
+  text-align: center;
+  margin-right: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .categories-page .card,
+  .category-term .card {
+    margin-bottom: 1rem;
+  }
+  
+  .category-term .col-lg-4 {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .categories-page .card,
+  .category-term .card {
+    margin-bottom: 1rem;
+  }
+  
+  .category-term .col-lg-4 {
+    margin-top: 1.5rem;
+  }
+}
+  
+  .categories-page [class*='col-'],
+  .category-term [class*='col-'] {
+    float: left;
+  }
+  
+  .categories-page .col-md-6,
+  .category-term .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .category-term .col-lg-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+  
+  .category-term .col-lg-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+.categories-list .category-card .card-title {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.categories-list .category-card .card-title a {
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.categories-list .category-card:hover .card-title a {
+  color: #0d6efd;
+}
+
+.categories-list .category-card .card-text {
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+/* Individual Category Page */
+.category-term .card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.category-term .card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.category-term .card-body {
+  padding: 1.5rem;
+}
+
+.category-term .card-title {
+  margin-bottom: 0.75rem;
+}
+
+.category-term .card-title a {
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.category-term .card-title a:hover {
+  color: #0d6efd;
+}
+
+.category-term .text-muted {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.category-term .card-text {
+  color: #4a5568;
+  margin-bottom: 1.25rem;
+}
+
+/* Sidebar */
+.category-sidebar .card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.category-sidebar .card-body {
+  padding: 1.5rem;
+}
+
+.category-sidebar .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .categories-list .category-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .category-term .card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.categories-list .category-card,
+.category-term .card {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Add delay for each card */
+.categories-list .category-card {
+  animation-delay: calc(var(--index) * 0.1s);
+}

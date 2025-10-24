@@ -1,0 +1,99 @@
+{{ define "main" }}
+<div class="category-page">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <nav aria-label="breadcrumb" class="mb-4">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/data-patterns/"><i class="fas fa-home me-1"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="/data-patterns/categories/">Categories</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ .Title | title }}</li>
+          </ol>
+        </nav>
+
+        <header class="mb-5">
+          <div class="d-flex align-items-center mb-3">
+            <div class="category-icon-lg me-3">
+              <i class="fas fa-folder-open"></i>
+            </div>
+            <div>
+              <h1 class="display-4 fw-bold mb-2">{{ .Title | title }}</h1>
+              <p class="lead text-muted mb-0">{{ .Description | default (print "Explore our " .Title " content") }}</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-8">
+            {{ if .Pages }}
+              {{ range .Pages }}
+              <article class="card post-card mb-4 shadow-sm">
+                <div class="card-body">
+                  <div class="post-meta d-flex align-items-center mb-2">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}" class="text-muted small">
+                      <i class="far fa-calendar-alt me-1"></i> {{ .Date.Format "January 2, 2006" }}
+                    </time>
+                    {{ if .Params.categories }}
+                    <span class="ms-3 text-muted small">
+                      <i class="fas fa-folder me-1"></i>
+                      {{ range $index, $category := .Params.categories }}
+                        {{ if $index }}, {{ end }}
+                        <a href="/data-patterns/categories/{{ . | urlize }}/" class="text-muted">{{ . | title }}</a>
+                      {{ end }}
+                    </span>
+                    {{ end }}
+                  </div>
+                  <h2 class="h4 card-title mb-3">
+                    <a href="{{ .RelPermalink }}" class="text-decoration-none text-dark">
+                      {{ .Title }}
+                    </a>
+                  </h2>
+                  <p class="card-text text-muted">
+                    {{ .Summary | truncate 200 }}
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <a href="{{ .RelPermalink }}" class="btn btn-sm btn-outline-primary">
+                      Read more <i class="fas fa-arrow-right ms-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+              {{ end }}
+            {{ else }}
+              <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i> No posts found in this category yet.
+              </div>
+            {{ end }}
+          </div>
+          
+          <div class="col-lg-4">
+            <div class="card shadow-sm mb-4">
+              <div class="card-body">
+                <h3 class="h5 card-title mb-3">
+                  <i class="fas fa-info-circle me-2 text-primary"></i> About {{ .Title | title }}
+                </h3>
+                <div class="card-text text-muted">
+                  {{ .Content | default (print "This category contains all our posts about " .Title ". Browse through to find what you're looking for.") | markdownify }}
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center">
+                  <a href="/data-patterns/categories/" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-1"></i> All Categories
+                  </a>
+                  <span class="badge bg-primary">
+                    {{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}
+                  </span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .post-card {
+    height: auto !important;
+  }
+</style>
+{{ end }}

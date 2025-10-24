@@ -1,0 +1,32 @@
+{{ define "main" }}
+<article class="docs-page">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="display-4 mb-4">{{ .Title }}</h1>
+        {{ .Content }}
+      </div>
+    </div>
+    
+    {{ if .Pages }}
+    <div class="row g-4 mt-4">
+      {{ range .Pages }}
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h2 class="h4">
+              <a href="{{ .RelPermalink }}" class="text-decoration-none">{{ .Title }}</a>
+            </h2>
+            <p class="text-muted">{{ .Description | default .Summary | truncate 120 }}</p>
+            <a href="{{ .RelPermalink }}" class="btn btn-outline-primary btn-sm">
+              Read more <i class="fas fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

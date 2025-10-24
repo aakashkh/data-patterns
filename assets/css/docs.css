@@ -1,0 +1,213 @@
+/* Documentation Hero Section */
+.docs-hero {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 4rem 0;
+}
+
+.docs-hero h1 {
+  color: #2c3e50;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem;
+}
+
+.docs-hero p.lead {
+  color: #4a5568;
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cards */
+.card {
+  transition: all 0.3s ease;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: #fff;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+.card.h-100 {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Card hover effects */
+.hover-shadow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Icons */
+.icon-wrapper {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  margin-right: 1rem;
+}
+
+.icon-wrapper i {
+  font-size: 1.5rem;
+}
+
+/* Card content */
+.card h3 {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card p.text-muted {
+  color: #718096 !important;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Lists */
+.list-unstyled {
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+}
+
+.list-unstyled li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.list-unstyled i {
+  margin-right: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline-primary {
+  border-width: 2px;
+  font-weight: 500;
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.btn-outline-primary:hover {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn i {
+  transition: transform 0.2s ease;
+}
+
+.btn:hover i {
+  transform: translateX(3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .docs-hero {
+    padding: 2.5rem 0;
+  }
+  
+  .docs-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .icon-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .icon-wrapper i {
+    font-size: 1.25rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add delay for each card */
+.card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Ensure cards have proper spacing */
+.row.g-4 > [class*='col-'] {
+  margin-bottom: 1.5rem;
+}
+
+/* Make sure the cards have consistent height */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-body {
+  flex: 1;
+}
+
+/* Make the "Read more" button stick to the bottom */
+.mt-auto {
+  margin-top: auto !important;
+}
+
+/* Add some spacing between sections */
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+/* Ensure text doesn't overflow */
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -1,4 +1,8 @@
+# Base URL for production
 baseURL: "https://aakashkh.github.io/data-patterns/"
+
+# For local development, uncomment the following line and comment out the production URL
+# baseURL: "http://localhost:1313/data-patterns/"
 languageCode: "en-us"
 title: "Data Patterns"
 
