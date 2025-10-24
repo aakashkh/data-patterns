@@ -67,6 +67,14 @@ module:
   imports:
     - path: github.com/google/docsy
       disable: false
+      ignoreConfig: true
+      mounts:
+        - source: assets
+          target: assets
+        - source: layouts
+          target: layouts
+        - source: static
+          target: static
   
   # Mounts the theme's layouts and assets
   mounts:
