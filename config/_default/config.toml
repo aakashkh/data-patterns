@@ -25,6 +25,12 @@ title = 'Data Patterns'
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS"]
 
+[markup.highlight]
+  codeFences = true
+  guessSyntax = true
+  lineNos = true
+  style = "monokai"
+
 [params]
   github_repo = "https://github.com/aakashkh/data-patterns"
   github_branch = "main"
