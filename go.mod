@@ -4,5 +4,4 @@ go 1.22
 
 require (
 	github.com/google/docsy v0.12.0
-	github.com/google/docsy/dependencies v0.7.2
 )

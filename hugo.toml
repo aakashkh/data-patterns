@@ -5,9 +5,3 @@
   [[module.imports]]
     path = "github.com/google/docsy"
     disable = false
-  [[module.imports]]
-    path = "github.com/google/docsy/dependencies"
-    disable = false
-    [module.imports.params]
-      bootstrap = "5.3.0"
-      fontawesome = "6.4.0"
