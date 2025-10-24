@@ -78,12 +78,12 @@ module:
       target: layouts
     - source: static
       target: static
-    - source: "themes/docsy/layouts"
-      target: "layouts/docsy"
-    - source: "themes/docsy/assets"
-      target: "assets/docsy"
-    - source: "themes/docsy/static"
-      target: "static/docsy"
+    - source: _vendor/github.com/google/docsy/layouts
+      target: layouts/docsy
+    - source: _vendor/github.com/google/docsy/assets
+      target: assets/docsy
+    - source: _vendor/github.com/google/docsy/static
+      target: static/docsy
 
 
 # Everything below this are Site Params
