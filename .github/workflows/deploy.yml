@@ -43,11 +43,11 @@ jobs:
 
       - name: Vendor Hugo modules
         run: |
-          hugo mod tidy
-          hugo mod vendor
+          hugo mod tidy --ignoreVendorPaths='**'
+          hugo mod vendor --ignoreVendorPaths='**'
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --ignoreVendorPaths='**'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
