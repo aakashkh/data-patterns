@@ -1,4 +1,170 @@
 /* ===========================================
+   Blog Post Styling
+   =========================================== */
+
+/* Main content area */
+.td-content {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  line-height: 1.7;
+  color: #2d3748;
+}
+
+/* Headings */
+.td-content h1,
+.td-content h2,
+.td-content h3,
+.td-content h4,
+.td-content h5,
+.td-content h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #1a202c;
+}
+
+.td-content h1 { font-size: 2.25rem; }
+.td-content h2 { font-size: 1.875rem; }
+.td-content h3 { font-size: 1.5rem; }
+.td-content h4 { font-size: 1.25rem; }
+
+/* Paragraphs and text */
+.td-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2d3748;
+}
+
+/* Links */
+.td-content a {
+  color: #3182ce;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.td-content a:hover {
+  color: #2c5282;
+  text-decoration: underline;
+}
+
+/* Code blocks */
+.td-content pre {
+  background-color: #1e1e1e;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.td-content code {
+  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9em;
+  color: #e2e8f0;
+  background-color: rgba(226, 232, 240, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+}
+
+.td-content pre code {
+  color: #e2e8f0;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* Tables */
+.td-content table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.td-content th,
+.td-content td {
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.td-content th {
+  background-color: #f7fafc;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.td-content tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Images */
+.td-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  display: block;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Blockquotes */
+.td-content blockquote {
+  border-left: 4px solid #4299e1;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background-color: #f8fafc;
+  color: #4a5568;
+  font-style: italic;
+  border-radius: 0 0.375rem 0.375rem 0;
+}
+
+/* Lists */
+.td-content ul,
+.td-content ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.td-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .td-content {
+    padding: 1rem 0.5rem;
+  }
+  
+  .td-content h1 {
+    font-size: 1.875rem;
+  }
+  
+  .td-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .td-content h3 {
+    font-size: 1.25rem;
+  }
+  
+  .td-content pre {
+    border-radius: 0;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 1rem;
+  }
+}
+
+/* ===========================================
    Categories Pages
    =========================================== */
 

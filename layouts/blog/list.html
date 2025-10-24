@@ -17,13 +17,19 @@
           <div class="card h-100 shadow-sm border-0 blog-card-hover">
             {{ with .Params.images }}
               {{ $imageUrl := index . 0 | relURL }}
-              <a href="{{ .RelPermalink }}">
+              <a href="/{{ .Section }}/{{ .Date.Format "2006/01/02" }}/{{ .File.TranslationBaseName }}/">
                 <img src="{{ $imageUrl }}" class="card-img-top" alt="{{ .Title }}" style="height: 220px; object-fit: cover;">
+              </a>
+            {{ else }}
+              <a href="/{{ .Section }}/{{ .Date.Format "2006/01/02" }}/{{ .File.TranslationBaseName }}/">
+                <div class="bg-light" style="height: 220px; display: flex; align-items: center; justify-content: center;">
+                  <i class="fas fa-image fa-3x text-muted"></i>
+                </div>
               </a>
             {{ end }}
             <div class="card-body">
               <h2 class="h5 card-title mb-2">
-                <a href="{{ .RelPermalink }}" class="text-dark text-decoration-none">{{ .Title }}</a>
+                <a href="/{{ .Section }}/{{ .Date.Format "2006/01/02" }}/{{ .File.TranslationBaseName }}/" class="text-dark text-decoration-none">{{ .Title }}</a>
               </h2>
               <div class="small text-muted mb-3">
                 <span>{{ .Date.Format "January 2, 2006" }}</span>
@@ -33,7 +39,7 @@
               <p class="card-text text-muted">{{ .Summary | plainify | truncate 150 }}</p>
             </div>
             <div class="card-footer bg-transparent border-0 pt-0">
-                <a href="{{ .RelPermalink }}" class="btn btn-sm btn-outline-primary">Read More</a>
+                <a href="/{{ .Section }}/{{ .Date.Format "2006/01/02" }}/{{ .File.TranslationBaseName }}/" class="btn btn-sm btn-outline-primary">Read More</a>
             </div>
           </div>
         </div>

@@ -1,46 +1,174 @@
 {{ define "main" }}
-<div class="container my-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-      <article>
-        <header class="mb-4">
-          <h1 class="fw-bold">{{ .Title }}</h1>
-          <div class="text-muted mb-2">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-          </div>
-          {{ with .Params.categories }}
-          <div>
-            {{ range . }}
-            <a href="{{ "/categories/" | relURL }}{{ . | urlize }}" class="badge bg-primary text-decoration-none me-1">{{ . }}</a>
-            {{ end }}
-          </div>
-          {{ end }}
-        </header>
+<div class="td-content">
+  <div class="container py-4 py-md-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-xl-8">
+        <article class="card shadow-sm border-0">
+          <div class="card-body p-4 p-md-5">
+            <!-- Header -->
+            <header class="mb-4">
+              <h1 class="display-4 fw-bold mb-3">{{ .Title }}</h1>
+              <div class="d-flex flex-wrap align-items-center text-muted mb-4">
+                <div class="d-flex align-items-center me-4 mb-2">
+                  <i class="far fa-calendar-alt me-2"></i>
+                  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                </div>
+                {{ with .Params.categories }}
+                <div class="d-flex flex-wrap align-items-center">
+                  <i class="fas fa-tags me-2"></i>
+                  {{ range $index, $category := . }}
+                  <a href="{{ "/categories/" | relURL }}{{ $category | urlize }}" 
+                    class="badge bg-primary bg-opacity-10 text-primary text-decoration-none me-2 mb-2">
+                    {{ $category }}
+                  </a>
+                  {{ end }}
+                </div>
+                {{ end }}
+              </div>
+            </header>
 
-        <div class="content">
-          {{ .Content }}
-        </div>
-
-        <hr class="my-4">
-
-        <nav class="d-flex justify-content-between">
-          <div>
-            {{ with .PrevInSection }}
-            <a href="{{ .RelPermalink }}" class="btn btn-outline-primary">
-              &larr; Previous Post
-            </a>
-            {{ end }}
+            <!-- Content -->
+            <div class="blog-content">
+              {{ .Content }}
+            </div>
           </div>
-          <div>
-            {{ with .NextInSection }}
-            <a href="{{ .RelPermalink }}" class="btn btn-outline-primary">
-              Next Post &rarr;
-            </a>
-            {{ end }}
+
+          <!-- Footer with navigation -->
+          <div class="card-footer bg-transparent border-top-0 py-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                {{ with .PrevInSection }}
+                <a href="{{ .RelPermalink }}" class="btn btn-outline-primary">
+                  <i class="fas fa-arrow-left me-2"></i> Previous Post
+                </a>
+                {{ end }}
+              </div>
+              <div>
+                {{ with .NextInSection }}
+                <a href="{{ .RelPermalink }}" class="btn btn-outline-primary">
+                  Next Post <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+                {{ end }}
+              </div>
+            </div>
           </div>
-        </nav>
-      </article>
+        </article>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Custom Styles for Blog Content -->
+<style>
+  /* Ensure proper spacing and typography */
+  .blog-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2d3748;
+  }
+  
+  .blog-content p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .blog-content h1,
+  .blog-content h2, 
+  .blog-content h3, 
+  .blog-content h4, 
+  .blog-content h5, 
+  .blog-content h6 {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #1a202c;
+  }
+  
+  .blog-content h1 { font-size: 2.25rem; }
+  .blog-content h2 { font-size: 1.875rem; }
+  .blog-content h3 { font-size: 1.5rem; }
+  .blog-content h4 { font-size: 1.25rem; }
+  
+  /* Style code blocks */
+  .blog-content pre {
+    background-color: #1e1e1e;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  
+  .blog-content code {
+    font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9em;
+    color: #e2e8f0;
+    background-color: transparent;
+  }
+  
+  .blog-content pre code {
+    padding: 0;
+    background-color: transparent;
+  }
+  
+  /* Style tables */
+  .blog-content table {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-content th,
+  .blog-content td {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .blog-content th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-align: left;
+  }
+  
+  .blog-content tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  /* Style blockquotes */
+  .blog-content blockquote {
+    border-left: 4px solid #0d6efd;
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    background-color: #f8f9fa;
+    font-style: italic;
+  }
+  
+  /* Style images */
+  .blog-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .blog-content {
+      font-size: 1rem;
+    }
+    
+    .blog-content h1 { font-size: 1.75rem; }
+    .blog-content h2 { font-size: 1.5rem; }
+    .blog-content h3 { font-size: 1.25rem; }
+    
+    .blog-content pre {
+      border-radius: 0;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding: 1rem;
+    }
+  }
+</style>
 {{ end }}
