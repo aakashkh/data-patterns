@@ -25,7 +25,7 @@ So, the Full Outer Join can be acheived by creating -
 
 
 
-![Full Outer Join](/static/img/posts/powerbi/2019-07-10-Full-Outer-Join-DAX/T7.png "Full Outer") &nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;![Left Outer Join](/static/img/posts/powerbi/2019-07-10-Full-Outer-Join-DAX/T5.png "Left Outer")&nbsp;&nbsp;&nbsp;&nbsp; + &nbsp;&nbsp;&nbsp;&nbsp;![Anti Right Join](/static/img/posts/powerbi/2019-07-10-Full-Outer-Join-DAX/T6.png "Anti Right")
+![Full Outer Join](/img/posts/2019-07-10-full-outer-join-dax-powerbi/T7.png "Full Outer") &nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;![Left Outer Join](/img/posts/2019-07-10-full-outer-join-dax-powerbi/T5.png "Left Outer")&nbsp;&nbsp;&nbsp;&nbsp; + &nbsp;&nbsp;&nbsp;&nbsp;![Anti Right Join](/img/posts/2019-07-10-full-outer-join-dax-powerbi/T6.png "Anti Right")
 
 
 ---

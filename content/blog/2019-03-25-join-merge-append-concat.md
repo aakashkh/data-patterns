@@ -17,12 +17,12 @@ Working with multiple data frames often involves joining two or more tables to i
 
 Example of append data -> monthly files of revenue sheets of a company and wee need at end of the year to be clubbed into single table.    
 
-![alt text](/static/img/posts/python/2019-03-25-Join-Merge-Append-Concat/T1.jpg "Table 1") &nbsp;&nbsp;&nbsp;&nbsp;
-![alt text](/static/img/posts/python/2019-03-25-Join-Merge-Append-Concat/T2.jpg "Table 2")
+![alt text](/img/posts/2019-03-25-join-merge-append-concat/T1.jpg "Table 1") &nbsp;&nbsp;&nbsp;&nbsp;
+![alt text](/img/posts/2019-03-25-join-merge-append-concat/T2.jpg "Table 2")
 
-![alt text](/static/img/posts/python/2019-03-25-Join-Merge-Append-Concat/T3.jpg "Merge Table")
+![alt text](/img/posts/2019-03-25-join-merge-append-concat/T3.jpg "Merge Table")
 
-![alt text](/static/img/posts/python/2019-03-25-Join-Merge-Append-Concat/T4.jpg "Appended Table")
+![alt text](/img/posts/2019-03-25-join-merge-append-concat/T4.jpg "Appended Table")
 
 
 

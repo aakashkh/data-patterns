@@ -43,7 +43,7 @@ fig.suptitle('Heatmap shwoing average percentage score across each test by track
 
 
 
-![Heatmap](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_6_1.png "Heatmap shwoing average percentage score across each test by track")
+![Heatmap](/img/posts/2019-08-23-plotting-seaborn-heatmap-lollipop/output_6_1.png "Heatmap showing average percentage score across each test by track")
 
 ---
 
@@ -66,7 +66,7 @@ fig.suptitle('Heatmap shwoing average percentage score across each test by desig
 #plb.savefig('Heat_Design',dpi=100,bbox_inches='tight')
 ```
 
-![Heatmap](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_7_1.png "Heatmap shwoing average percentage score across each test by designation")
+![Heatmap](/img/posts/2019-08-23-plotting-seaborn-heatmap-lollipop/output_7_1.png "Heatmap showing average percentage score across each test by designation")
 
 ---
 
@@ -97,7 +97,7 @@ plt.legend(custom_lines, ['Easy', 'Medium', 'Difficult'], loc='lower right')
 #plb.savefig('Lollipo_Score',dpi=100,bbox_inches='tight')
 ```
 
-![Lollipop Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_9_1.png "Average score percentage across tests by complexity")
+![Lollipop Plot](/img/posts/2019-08-23-plotting-seaborn-heatmap-lollipop/output_9_1.png "Average score percentage across tests by complexity")
 
 --- 
 
@@ -129,7 +129,7 @@ plt.legend(custom_lines, ['Easy', 'Medium', 'Difficult'], loc='lower right')
 #plb.savefig('Lollipo_Part',dpi=100,bbox_inches='tight')
 ```
 
-![Lollipop Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_11_1.png "Participation across tests by complexity")
+![Lollipop Plot](/img/posts/2019-08-23-plotting-seaborn-heatmap-lollipop/output_11_1.png "Participation across tests by complexity")
 
 ---
 
@@ -162,7 +162,7 @@ plt.legend(custom_lines, ['Easy', 'Medium', 'Difficult'], loc='lower right')
 #plb.savefig('Lollipo_FullScore',dpi=100,bbox_inches='tight')
 ```
 
-![Lollipop Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_13_1.png "Participants who scored full across tests by complexity")
+![Lollipop Plot](/img/posts/2019-08-23-plotting-seaborn-heatmap-lollipop/output_13_1.png "Participants who scored full across tests by complexity")
 
 ---
 
@@ -184,7 +184,7 @@ plt.title("Score percentage distribution by no. of tests given", fontsize=20, x=
 
 ```
 
-![Scatter Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Heatmap-Lollipop/output_14_1.png "Participants who scored full across tests by complexity")
+![Scatter Plot](/img/posts/2019-08-23-plotting-seaborn-heatmap-lollipop/output_14_1.png "Score percentage distribution by no. of tests given")
 
 ---
 <b> Jupyter Notebook Link </b>   - [Part 4 - Plotting Using Seaborn - Heatmap, Lollipop Plot, Scatter Plot](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Visualization%20With%20Seaborn/Test%20Names.ipynb){:target="_blank"}

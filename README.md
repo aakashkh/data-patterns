@@ -70,6 +70,67 @@ The site supports the following Markdown features through Goldmark (Hugo's defau
 - Autolinking
 - Typographic replacements (smart quotes, dashes, etc.)
 
+## 🖼️ Image Management
+
+### Image Organization
+All blog post images should be stored in the `static/img/posts/` directory, organized by post date and slug:
+
+```
+static/
+└── img/
+    └── posts/
+        ├── YYYY-MM-DD-post-slug/
+        │   ├── image1.png
+        │   ├── image2.jpg
+        │   └── ...
+        └── ...
+```
+
+### Adding Images to Posts
+Use the following markdown syntax to include images in your posts:
+
+```markdown
+![Alt text for accessibility](/img/posts/YYYY-MM-DD-post-slug/image-name.png "Optional hover text")
+```
+
+### Best Practices
+1. **Naming Conventions**:
+   - Use lowercase with hyphens for image filenames (e.g., `my-image.png`)
+   - Be descriptive with filenames
+   - Include the post date in the folder name for better organization
+
+2. **Image Optimization**:
+   - Compress images before uploading (aim for <200KB per image)
+   - Use appropriate formats:
+     - PNG for diagrams and screenshots with text
+     - JPG for photographs
+     - SVG for logos and icons
+   - Recommended dimensions:
+     - Full-width images: 1200-2000px width
+     - Content images: 600-800px width
+
+3. **Accessibility**:
+   - Always include descriptive alt text
+   - Keep the hover text (title) concise but informative
+   - For complex images, consider adding a caption using HTML:
+     ```html
+     <figure>
+       <img src="/img/posts/YYYY-MM-DD-post-slug/image.png" alt="Descriptive alt text">
+       <figcaption>Detailed description of the image content</figcaption>
+     </figure>
+     ```
+
+### Example
+```markdown
+![Sample visualization](/img/posts/2023-10-25-data-visualization/example-chart.png "Sample bar chart showing monthly data")
+```
+
+### Updating Existing Posts
+When updating posts with images:
+1. Move images to the appropriate directory under `static/img/posts/`
+2. Update all image paths in the markdown files
+3. Test that all images load correctly in both development and production
+
 ### Code Blocks
 
 ````markdown

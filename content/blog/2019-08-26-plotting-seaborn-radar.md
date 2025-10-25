@@ -61,7 +61,7 @@ fig.suptitle('Kernel density estimate of distribution of score (percentage)', fo
 ```
 
 
-![Dist Plot](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_3_1.png "Kernel density estimate of distribution of score (percentage)")
+![Dist Plot](/img/posts/2019-08-26-plotting-seaborn-radar/output_3_1.png "Kernel density estimate of distribution of score (percentage)")
 
 ---
 
@@ -82,7 +82,7 @@ fig.suptitle('Distribution of score (percentage) across participants in various 
 #plb.savefig('Score Percentage.png',dpi=100,bbox_inches='tight')
 ```
 
-![Dist Plot](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_4_1.png "Distribution of score (percentage) across participants in various categories")
+![Dist Plot](/img/posts/2019-08-26-plotting-seaborn-radar/output_4_1.png "Distribution of score (percentage) across participants in various categories")
 
 ---
 ### Radar Chart showing performance in each subject by Designation and Track  
@@ -151,38 +151,37 @@ for row in range(0, len(alltests_Track.index)):
 
 ### By Designation -
 
-
-![Radar Chart](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_7_0.png "Radar showing performance in each subject by Designation")
-
----
-
-![Radar Chart](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_7_1.png "Radar showing performance in each subject by Designation")
+![Radar Chart](/img/posts/2019-08-26-plotting-seaborn-radar/output_7_0.png "Radar showing performance in each subject by Designation")
 
 ---
 
-![Radar Chart](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_7_2.png "Radar showing performance in each subject by Designation")
+![Radar Chart](/img/posts/2019-08-26-plotting-seaborn-radar/output_7_1.png "Radar showing performance in each subject by Designation")
 
 ---
 
-![Radar Chart](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_7_3.png "Radar showing performance in each subject by Designation")
+![Radar Chart](/img/posts/2019-08-26-plotting-seaborn-radar/output_7_2.png "Radar showing performance in each subject by Designation")
 
 ---
 
-![Radar Chart](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_7_4.png "Radar showing performance in each subject by Designation")
+![Radar Chart](/img/posts/2019-08-26-plotting-seaborn-radar/output_7_3.png "Radar showing performance in each subject by Designation")
+
+---
+
+![Radar Chart](/img/posts/2019-08-26-plotting-seaborn-radar/output_7_4.png "Radar showing performance in each subject by Designation")
 
 ---
 
 ### By Track -
 
-![Radar Chart](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_7_5.png "Radar showing performance in each subject by Designation")
+![Radar Chart](/img/posts/2019-08-26-plotting-seaborn-radar/output_7_5.png "Radar showing performance in each subject by Designation")
 
 ---
 
-![Radar Chart](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_7_6.png "Radar showing performance in each subject by Designation")
+![Radar Chart](/img/posts/2019-08-26-plotting-seaborn-radar/output_7_6.png "Radar showing performance in each subject by Designation")
 
 ---
 
-![Radar Chart](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_7_7.png "Radar showing performance in each subject by Designation")
+![Radar Chart](/img/posts/2019-08-26-plotting-seaborn-radar/output_7_7.png "Radar showing performance in each subject by Designation")
 
 ---
 
@@ -208,7 +207,7 @@ plt.title("Score distribution of top 20 participants", fontsize=20, x=0.5,y=1.02
 
 ```
 
-![Line Plot](/static/img/posts/python/2019-08-26-Plotting-Seaborn-Radar/output_9_1.png "Score distribution of top 20 participants")
+![Line Plot](/img/posts/2019-08-26-plotting-seaborn-radar/output_9_1.png "Score distribution of top 20 participants")
 
 ---
 <b> Jupyter Notebook Link </b>   - [Part 5 - Plotting Using Seaborn - Radar](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Visualization%20With%20Seaborn/Participants%20-%20Analysis.ipynb){:target="_blank"}

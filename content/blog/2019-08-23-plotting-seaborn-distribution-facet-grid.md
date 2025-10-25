@@ -46,7 +46,7 @@ g.fig.suptitle('Distribution of score percentage across track in test with easy 
 
 
 
-![Distribution Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Distribution-Facet-Grid/output_5_1.png "Distribution of score percentage across track in test with easy complexity")
+![Distribution Plot](/img/posts/2019-08-23-plotting-seaborn-distribution-facet-grid/output_5_1.png "Distribution of score percentage across track in test with easy complexity")
 
 ---
 
@@ -65,7 +65,7 @@ g.fig.suptitle('Distribution of score percentage across track in test with mediu
 #plb.savefig('Distribution_medium.png',dpi=50,bbox_inches='tight')
 ```
 
-![Distribution Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Distribution-Facet-Grid/output_6_1.png "Distribution of score percentage across track in test with medium complexity")
+![Distribution Plot](/img/posts/2019-08-23-plotting-seaborn-distribution-facet-grid/output_6_1.png "Distribution of score percentage across track in test with medium complexity")
 
 ---
 
@@ -84,7 +84,7 @@ g.fig.suptitle('Distribution of score percentage across track in test with diffi
 #plb.savefig('Distribution_hard',dpi=50,bbox_inches='tight')
 ```
 
-![Distribution Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Distribution-Facet-Grid/output_7_1.png "Distribution of score percentage across track in test with difficult complexity")
+![Distribution Plot](/img/posts/2019-08-23-plotting-seaborn-distribution-facet-grid/output_7_1.png "Distribution of score percentage across track in test with difficult complexity")
 
 ---
 <b> Jupyter Notebook Link </b>   - [Part 2 - Plotting Using Seaborn - Distribution Plot, Facet Grid](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Visualization%20With%20Seaborn/Complexity%20Analysis.ipynb){:target="_blank"}

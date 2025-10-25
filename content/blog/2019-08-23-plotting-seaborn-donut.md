@@ -96,7 +96,7 @@ plt.setp(mypie3,width=0.7, edgecolor='white')
 #plb.savefig('Participation.png',dpi=100,bbox_inches='tight')
 ```
 
-![Donut Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Donut/output_6_1.png "Participation proportion of all Track")
+![Donut Plot](/img/posts/2019-08-23-plotting-seaborn-donut/output_6_1.png "Participation proportion of all Track")
 
 ---
 
@@ -149,7 +149,7 @@ plt.setp(mypie3,width=0.7, edgecolor='white')
 
 #plb.savefig('Eng_Participation.png',dpi=100,bbox_inches='tight')
 ```
-![Donut Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Donut/output_7_1.png "Participation proportion of various designation from Engineering Track")
+![Donut Plot](/img/posts/2019-08-23-plotting-seaborn-donut/output_7_1.png "Participation proportion of various designation from Engineering Track")
 
 ---
 
@@ -203,7 +203,7 @@ plt.setp(mypie3,width=0.7, edgecolor='white')
 #plb.savefig('QA_Participation.png',dpi=100,bbox_inches='tight')
 ```
 
-![Donut Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Donut/output_8_1.png "Participation proportion of various designation from QA Track")
+![Donut Plot](/img/posts/2019-08-23-plotting-seaborn-donut/output_8_1.png "Participation proportion of various designation from Quality Assurance Track")
 
 --- 
 
@@ -257,7 +257,7 @@ plt.setp(mypie3,width=0.7, edgecolor='white')
 #plb.savefig('Sup_Participation.png',dpi=100,bbox_inches='tight')
 ```
 
-![Donut Plot](/static/img/posts/python/2019-08-23-Plotting-Seaborn-Donut/output_9_1.png "Participation proportion of various designation from Support Track")
+![Donut Plot](/img/posts/2019-08-23-plotting-seaborn-donut/output_9_1.png "Participation proportion of various designation from Support Track")
 
 ---
 <b> Jupyter Notebook Link </b>   - [Part 3 - Plotting Using Seaborn - Donut](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Visualization%20With%20Seaborn/Donuts.ipynb){:target="_blank"}

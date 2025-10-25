@@ -47,7 +47,7 @@ plot1.fig.suptitle('Violin Plot showing distribution of score for each track by 
 
 
 
-![Violin Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_4_1.png "Violin Plot showing distribution of score for each track by complexity")
+![Violin Plot](/img/posts/2019-08-21-plotting-seaborn-violin-box-line/output_4_1.png "Violin Plot showing distribution of score for each track by complexity")
 
 ---
 ### Box Plot showing distribution of average score percentage for each track by complexity
@@ -73,7 +73,7 @@ plot2.fig.suptitle('Box Plot showing distribution of average score percentage fo
 ```
 
 
-![Box Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_5_1.png "Box Plot showing distribution of average score percentage for each track by complexity")
+![Box Plot](/img/posts/2019-08-21-plotting-seaborn-violin-box-line/output_5_1.png "Box Plot showing distribution of average score percentage for each track by complexity")
 
 ---
 ### Violin Plot showing distribution of score for each designation by complexity
@@ -102,7 +102,7 @@ plot3.fig.suptitle('Violin Plot showing distribution of score for each designati
 #plot3.savefig("Violin Plot -2.png",dpi=100,bbox_inches='tight')
 ```
 
-![Violin Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_6_1.png "'Violin Plot showing distribution of score for each designation by complexity'")
+![Violin Plot](/img/posts/2019-08-21-plotting-seaborn-violin-box-line/output_6_1.png "Violin Plot showing distribution of score for each designation by complexity")
 
 ---
 
@@ -131,7 +131,7 @@ plot4.fig.suptitle('Box Plot showing distribution of average score percentage fo
 #plot4.savefig("Box Plot -2.png",dpi=100,bbox_inches='tight')
 ```
 
-![Box Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_7_1.png "Box Plot showing distribution of average score percentage for each designation by complexity")
+![Box Plot](/img/posts/2019-08-21-plotting-seaborn-violin-box-line/output_7_1.png "Box Plot showing distribution of average score percentage for each designation by complexity")
 
 ---
 
@@ -168,7 +168,7 @@ plot5.fig.suptitle('Trend in average score for each designation by complexity', 
 ```
 
 
-![Line Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_9_1.png "Trend in average score for each designation by complexity")
+![Line Plot](/img/posts/2019-08-21-plotting-seaborn-violin-box-line/output_9_1.png "Trend in average score for each designation by complexity")
 
 ---
 
@@ -196,7 +196,7 @@ plot6.fig.subplots_adjust(top=0.9)
 plot6.fig.suptitle('Trend in average score percentage for each designation by complexity', size = 20)
 #plot6.savefig("Line Plot 2.png",dpi=200,bbox_inches='tight')
 ```
-![Line Plot](/static/img/posts/python/2019-08-21-Plotting-Seaborn-Violin-Box-Line/output_10_1.png "Trend in average score percentage for each designation by complexity")       
+![Line Plot](/img/posts/2019-08-21-plotting-seaborn-violin-box-line/output_10_1.png "Trend in average score percentage for each designation by complexity")       
 
 ---
 <b> Jupyter Notebook Link </b>   - [Part 1 - Plotting Using Seaborn - Violin, Box and Line Plot](https://nbviewer.jupyter.org/github/aakashkh/Sample-Jupyter-Notebooks/blob/master/Visualization%20With%20Seaborn/Basic.ipynb){:target="_blank"}
