@@ -1,5 +1,20 @@
 /* Project-level overrides loaded by Docsy after theme styles */
 
+/* Adjust blog sidebar width */
+.td-sidebar {
+  @media (min-width: 992px) {
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+  }
+}
+
+.td-main {
+  @media (min-width: 992px) {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+}
+
 /* Hide sidebar search block in all variants (online/offline) */
 #td-sidebar-menu .td-sidebar__search,
 #td-sidebar-menu .td-search,
@@ -8,4 +23,91 @@
 .td-sidebar .td-search,
 .td-sidebar .td-search--offline {
   display: none !important;
+}
+
+/* Fix text colors for better contrast on white backgrounds */
+body {
+  color: #2d3748;  /* Dark gray for main text */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #1a365d !important;  /* Dark blue for better contrast */
+}
+
+/* Sidebar navigation */
+.td-sidebar #td-sidebar-menu .td-sidebar-nav .td-sidebar-link__page {
+  color: #2d3748 !important;  /* Dark gray for better contrast */
+  font-weight: 500;
+  
+  &:hover, 
+  &:focus,
+  &.active {
+    color: #1a5a96 !important;
+    text-decoration: none !important;
+    background-color: rgba(26, 90, 150, 0.05) !important;
+  }
+}
+
+/* Category count styling */
+.td-sidebar #td-sidebar-menu .td-sidebar-link__count {
+  color: #4a5568 !important;  /* Slightly darker gray for better visibility */
+  font-weight: normal;
+  
+  &:hover,
+  &:focus {
+    color: #1a5a96 !important;
+  }
+}
+
+/* General text in sidebar */
+.td-sidebar .td-sidebar-nav {
+  a, span, div, p {
+    color: #2d3748 !important;  /* Dark gray for better contrast */
+  }
+  
+  a:hover, a:focus {
+    color: #1a5a96 !important;
+  }
+}
+
+/* Blog post content */
+.blog-content, 
+.td-content {
+  color: #2d3748;  /* Dark gray for better readability */
+  
+  p, li, td {
+    color: #2d3748 !important;  /* Ensure consistent text color */
+  }
+  
+  a:not(.btn) {
+    color: #3182ce;  /* Blue for links */
+    text-decoration: none;
+    
+    &:hover, 
+    &:focus {
+      color: #2c5282;  /* Darker blue on hover */
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Cards and other components */
+.card, 
+.td-card {
+  color: #2d3748 !important;  /* Ensure text is visible on cards */
+  
+  .card-title, 
+  .card-text {
+    color: #2d3748 !important;
+  }
+}
+
+/* Fix for any white text on white background */
+.text-white, 
+.text-light {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
 }

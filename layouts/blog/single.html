@@ -45,6 +45,20 @@
               </div>
             </header>
 
+            <!-- Table of Contents -->
+            {{ if .Params.toc }}
+            <div class="toc-wrapper mb-4">
+              <div class="card border-0 shadow-sm">
+                <div class="card-header bg-light">
+                  <h5 class="mb-0"><i class="{{ with .Params.toc_icon }}{{ . }}{{ else }}fas fa-list{{ end }} me-2"></i>{{ with .Params.toc_label }}{{ . }}{{ else }}Table of Contents{{ end }}</h5>
+                </div>
+                <div class="card-body py-2">
+                  {{ .TableOfContents }}
+                </div>
+              </div>
+            </div>
+            {{ end }}
+
             <!-- Content -->
             <div class="blog-content">
               {{ .Content }}

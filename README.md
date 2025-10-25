@@ -17,6 +17,95 @@ A Hugo-powered site using the Docsy theme, focused on data engineering and analy
 - 🔍 SEO optimized
 - ⚡ Fast page loads with asset minification
 
+## 📑 Table of Contents (TOC)
+
+### Enabling TOC for Blog Posts
+
+1. **Per Post Basis**
+   Add the following to your post's front matter:
+   ```yaml
+   ---
+   # Required
+   toc: true                    # Enable table of contents
+   
+   # Optional TOC Settings
+   toc_float: true             # Make TOC float on the side (true/false)
+   toc_label: "Contents"       # Customize TOC title
+   toc_icon: "list"            # Add an icon (uses Font Awesome icons)
+   toc_sticky: true            # Make TOC sticky on scroll (true/false)
+   toc_expand: true            # Expand all TOC sections by default (true/false)
+   toc_depth: 4                # Maximum heading level to include (1-6)
+   ---
+   ```
+   
+   **Available Icons**: You can use any Font Awesome icon name (without the `fa-` prefix) from [Font Awesome Icons](https://fontawesome.com/icons?d=gallery&s=duotone&m=free).
+
+2. **Global TOC Settings**
+   The following settings are configured in `config/_default/config.toml`:
+   ```toml
+   [markup.tableOfContents]
+     startLevel = 2  # Start with h2 headings
+     endLevel = 4    # Include up to h4 headings
+     ordered = false  # Use unordered lists for TOC
+   ```
+
+## ✍️ Markdown Features
+
+The site supports the following Markdown features through Goldmark (Hugo's default markdown renderer):
+
+### Basic Formatting
+- **Bold**, *italic*, ~~strikethrough~~, `inline code`
+- Headers (`# H1` to `###### H6`)
+- Links and images
+- Lists (ordered and unordered)
+- Blockquotes
+- Horizontal rules
+
+### Extended Features
+- Tables
+- Task lists
+- Definition lists
+- Footnotes
+- Strikethrough
+- Autolinking
+- Typographic replacements (smart quotes, dashes, etc.)
+
+### Code Blocks
+
+````markdown
+```python
+def hello():
+    print("Hello, World!")
+```
+````
+
+### Front Matter Example
+
+```yaml
+---
+title: "Your Blog Post Title"
+date: 2024-04-18T00:00:00+05:30
+description: "A brief description of your post"
+categories: ["category1", "category2"]
+tags: ["tag1", "tag2", "tag3"]
+weight: 100
+toc: true
+draft: false
+---
+```
+
+### Supported Front Matter Fields
+- `title`: Post title (required)
+- `date`: Publication date (required)
+- `lastmod`: Last modified date
+- `description`: Short description for SEO and previews
+- `categories`: Array of categories
+- `tags`: Array of tags
+- `weight`: Sorting weight (lower numbers appear first)
+- `toc`: Enable/disable table of contents
+- `draft`: Mark as draft (won't be published)
+- `images`: Array of image paths for social sharing
+
 ## 🛠️ Getting Started
 
 ### Prerequisites

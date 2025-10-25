@@ -2,17 +2,53 @@ baseURL = 'https://aakashkh.github.io/data-patterns'
 languageCode = 'en-us'
 title = 'Data Patterns'
 
-[markup.goldmark.renderer]
-  unsafe = true  # Enable raw HTML in markdown
-
 [markup]
+  # Table of Contents Configuration
+  [markup.tableOfContents]
+    startLevel = 2  # Start with h2 headings
+    endLevel = 4    # Include up to h4 headings
+    ordered = false  # Use unordered lists for TOC
+    
+  # Goldmark Configuration
   [markup.goldmark]
     [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
       [markup.goldmark.extensions.typographer]
         disable = false
+        
     [markup.goldmark.parser]
       autoHeadingID = true
       autoHeadingIDType = "github"
+      
+    [markup.goldmark.renderer]
+      unsafe = true  # Allow raw HTML in markdown
+      
+  # Syntax Highlighting Configuration
+  [markup.highlight]
+    # Enable code fences and syntax guessing
+    codeFences = true
+    guessSyntax = true
+    
+    # Disable line numbers (we'll handle them with CSS if needed)
+    lineNos = false
+    
+    # Disable default classes to prevent extra wrapper divs
+    noClasses = true
+    
+    # Use monokai theme for syntax highlighting
+    style = "monokai"
+    
+    # Set tab width for code blocks
+    tabWidth = 4
+    
+    # Additional options
+    lineNumbersInTable = false
+    noHl = false
 
 [permalinks]
   blog = "/blog/:year/:month/:day/:slug/"
@@ -26,27 +62,6 @@ title = 'Data Patterns'
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS"]
-
-[markup.highlight]
-  # Enable code fences and syntax guessing
-  codeFences = true
-  guessSyntax = true
-  
-  # Disable line numbers (we'll handle them with CSS if needed)
-  lineNos = false
-  
-  # Disable default classes to prevent extra wrapper divs
-  noClasses = true
-  
-  # Use monokai theme for syntax highlighting
-  style = "monokai"
-  
-  # Set tab width for code blocks
-  tabWidth = 4
-  
-  # Additional options
-  lineNumbersInTable = false
-  noHl = false
 
 [params]
   github_repo = "https://github.com/aakashkh/data-patterns"
