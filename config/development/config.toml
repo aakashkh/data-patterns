@@ -2,19 +2,16 @@
 # This overrides settings from _default/config.toml
 # Only for local development - does not affect production
 
-# Base URL for local development
-baseURL = 'http://localhost:1313/'
+# Base URL for local development including the subdirectory
+baseURL = 'http://localhost:1313/data-patterns/'
 canonifyURLs = true
-relativeURLs = true
-
-# Set the base path for the site when served from a subdirectory
-basePath = "/data-patterns/"
+relativeURLs = false
 
 # Keep permalinks consistent with production
 [permalinks]
-  categories = "/data-patterns/categories/:title/"
-  tags = "/data-patterns/tags/:title/"
-  posts = "/data-patterns/:year/:month/:day/:title/"
+  categories = "/categories/:title/"
+  tags = "/tags/:title/"
+  posts = "/:year/:month/:day/:title/"
 
 # Markdown processing
 [markup]
