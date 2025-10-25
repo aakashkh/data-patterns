@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="container py-5">
+  <h1 class="mb-4">{{ .Title }}</h1>
+  
+  {{ if eq .Data.Singular "tag" }}
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        {{ range .Pages }}
+          <article class="mb-4">
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <div class="text-muted mb-2">
+              {{ .Date.Format "January 2, 2006" }}
+            </div>
+            <p>{{ .Summary }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  {{ else }}
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        {{ .Content }}
+        <ul class="list-unstyled">
+          {{ range .Pages }}
+            <li class="mb-2">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              <span class="text-muted small">({{ .Date.Format "Jan 2, 2006" }})</span>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  {{ end }}
+</div>
+{{ end }}

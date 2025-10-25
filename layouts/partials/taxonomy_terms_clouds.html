@@ -1,0 +1,20 @@
+{{ if .Site.Taxonomies.tags }}
+<div class="taxonomy taxonomy-terms-cloud">
+  <h5 class="taxonomy-title">
+    <a href="{{ "tags/" | relLangURL }}" class="text-decoration-none">
+      Tags <i class="fas fa-tags ms-1"></i>
+    </a>
+  </h5>
+  <ul class="taxonomy-terms">
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+        <li class="taxonomy-term">
+          <a href="{{ .RelPermalink }}" class="taxonomy-term-link">
+            {{ $name }}<span class="taxonomy-term-count">{{ $taxonomy.Count }}</span>
+          </a>
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

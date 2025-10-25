@@ -1,0 +1,38 @@
+# Development-specific configuration
+# This overrides settings from _default/config.toml
+# Only for local development - does not affect production
+
+# Use root-relative URLs for local development
+baseURL = 'http://localhost:1313/data-patterns/'
+canonifyURLs = true
+relativeURLs = false
+
+# Keep permalinks consistent with production
+[permalinks]
+  categories = "/categories/:title/"
+  tags = "/tags/:title/"
+  posts = "/:year/:month/:day/:title/"
+
+# Markdown processing
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+
+# Development settings
+enableGitInfo = false
+buildDrafts = true
+buildFuture = true
+buildExpired = true
+
+# Disable features not needed in development
+disableKinds = ["taxonomy", "term"]
+
+# Performance settings for development
+enableRobotsTXT = false
+enableEmoji = false
+
+# Debugging
+verbose = true
+logFile = "hugo.log"
