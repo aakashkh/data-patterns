@@ -175,6 +175,137 @@
 </div>
 
 <!-- Custom CSS for the blog layout -->
+<script>
+  // Clean up and enhance code blocks
+  document.addEventListener('DOMContentLoaded', function() {
+    // Process all code blocks
+    document.querySelectorAll('pre').forEach((pre) => {
+      // Skip if already processed or if already has a copy button
+      if (pre.classList.contains('processed') || pre.closest('.code-block-container')) return;
+      
+      // Get the code element
+      const codeElement = pre.querySelector('code');
+      if (!codeElement) return;
+      
+      // Create container for the code block if it doesn't exist
+      let container = pre.closest('.code-block-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'code-block-container';
+        pre.parentNode.insertBefore(container, pre);
+        container.appendChild(pre);
+      }
+      
+      // Get language from code block class with better detection
+      let language = 'code';
+      const classList = Array.from(codeElement.classList || []);
+      
+      // First try to get language from class
+      const langClass = classList.find(cls => cls.startsWith('language-'));
+      if (langClass) {
+        language = langClass.replace('language-', '').toLowerCase();
+      }
+      
+      // Common language mappings for better display
+      const languageNames = {
+        'py': 'Python',
+        'python': 'Python',
+        'js': 'JavaScript',
+        'javascript': 'JavaScript',
+        'html': 'HTML',
+        'css': 'CSS',
+        'json': 'JSON',
+        'yaml': 'YAML',
+        'yml': 'YAML',
+        'bash': 'Bash',
+        'sh': 'Bash',
+        'sql': 'SQL',
+        'java': 'Java',
+        'cpp': 'C++',
+        'c': 'C',
+        'cs': 'C#',
+        'go': 'Go',
+        'php': 'PHP',
+        'rb': 'Ruby',
+        'swift': 'Swift',
+        'kt': 'Kotlin',
+        'ts': 'TypeScript',
+        'rs': 'Rust',
+        'scala': 'Scala',
+        'r': 'R'
+      };
+      
+      // Get display name or capitalize first letter
+      language = languageNames[language] || language.charAt(0).toUpperCase() + language.slice(1);
+      
+      // Check if header already exists
+      let header = container.querySelector('.code-header');
+      if (!header) {
+        header = document.createElement('div');
+        header.className = 'code-header d-flex justify-content-between align-items-center px-3 py-2';
+        header.style.background = '#2d2d2d';
+        header.style.borderRadius = '6px 6px 0 0';
+        container.insertBefore(header, container.firstChild);
+      }
+      
+      // Add language label
+      if (language && language !== 'code') {
+        const langLabel = document.createElement('span');
+        langLabel.textContent = language;
+        langLabel.className = 'text-muted small';
+        header.appendChild(langLabel);
+      } else {
+        header.appendChild(document.createElement('span')); // Empty span for flex spacing
+      }
+      
+      // Add copy button if it doesn't exist
+      if (!header.querySelector('.copy-code')) {
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'btn btn-sm btn-outline-light copy-code';
+        copyBtn.innerHTML = '<i class="far fa-copy me-1"></i> Copy';
+        copyBtn.style.fontSize = '0.75rem';
+        copyBtn.style.padding = '0.25rem 0.5rem';
+        
+        copyBtn.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          try {
+            const code = pre.innerText;
+            await navigator.clipboard.writeText(code);
+            const originalText = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check me-1"></i> Copied!';
+            copyBtn.classList.add('text-success');
+            setTimeout(() => {
+              copyBtn.innerHTML = originalText;
+              copyBtn.classList.remove('text-success');
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy text: ', err);
+          }
+        });
+        
+        header.appendChild(copyBtn);
+      }
+      
+      // Clean up the code block
+      const lineNumbers = pre.querySelectorAll('span[style*="white-space:pre"]');
+      lineNumbers.forEach(span => span.remove());
+      
+      // Ensure proper spacing and remove extra line breaks
+      const code = pre.querySelector('code');
+      if (code) {
+        code.innerHTML = code.innerHTML
+          .replace(/<span[^>]*>\s*<\/span>/g, '')
+          .replace(/\n\s*\n/g, '\n')
+          .trim();
+      }
+      
+      // Mark as processed
+      pre.classList.add('processed');
+      container.classList.add('processed');
+    });
+  });
+</script>
+
 <style>
   .position-sticky {
     position: -webkit-sticky;
@@ -242,25 +373,194 @@
   .blog-content h3 { font-size: 1.5rem; }
   .blog-content h4 { font-size: 1.25rem; }
   
-  /* Style code blocks */
-  .blog-content pre {
-    background-color: #1e1e1e;
-    border-radius: 0.5rem;
-    padding: 1.25rem;
+  /* ======================
+     Code Block Styling
+     ====================== */
+  
+  /* Code block container */
+  .code-block-container {
     margin: 1.5rem 0;
-    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
   }
   
-  .blog-content code {
-    font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  .code-block-container:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+  }
+  
+  /* Code header with language and copy button */
+  .code-header {
+    background: #2d2d2d;
+    border-bottom: 1px solid #444;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .code-header .language-label {
+    color: #e0e0e0;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .code-header .copy-code {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .code-header .copy-code:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+  }
+  
+  .code-header .copy-code:active {
+    transform: translateY(0);
+  }
+  
+  .code-header .copy-code i {
     font-size: 0.9em;
-    color: #e2e8f0;
-    background-color: transparent;
+  }
+  
+  /* Make sure pre and code elements don't have backgrounds */
+  .blog-content pre,
+  .blog-content pre code {
+  
+  .blog-content pre {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 0 6px 6px !important;
+    overflow-x: auto;
+    position: relative;
   }
   
   .blog-content pre code {
-    padding: 0;
-    background-color: transparent;
+    font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
+    font-size: 0.9em !important;
+    line-height: 1.6 !important;
+    color: #e0e0e0 !important;
+    background: transparent !important;
+    padding: 1rem !important;
+    border: none !important;
+    display: block;
+    overflow-x: auto;
+    tab-size: 2 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    white-space: pre !important;
+    word-spacing: normal !important;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* ======================
+     Syntax Highlighting
+     ====================== */
+  
+  /* Base syntax colors */
+  .blog-content pre code .keyword { color: #c678dd; }      /* function, if, else */
+  .blog-content pre code .function { color: #61afef; }     /* Function names */
+  .blog-content pre code .string { color: #98c379; }       /* Strings */
+  .blog-content pre code .comment { 
+    color: #5c6370 !important; 
+    font-style: italic !important;
+  }
+  .blog-content pre code .operator { color: #56b6c2; }     /* +, -, =, <-, etc */
+  .blog-content pre code .number { color: #d19a66; }       /* Numbers */
+  .blog-content pre code .boolean { color: #d19a66; }      /* TRUE, FALSE */
+  .blog-content pre code .symbol { color: #e5c07b; }       /* Variables */
+  .blog-content pre code .function-call { color: #61afef; } /* Function calls */
+  
+  /* Python specific */
+  .blog-content pre code .python-keyword { color: #c678dd; }  /* def, class, import */
+  .blog-content pre code .python-builtin { color: #56b6c2; }  /* print, len, etc */
+  
+  /* SQL specific */
+  .blog-content pre code .sql-keyword { color: #c678dd; }     /* SELECT, FROM, WHERE */
+  .blog-content pre code .sql-function { color: #61afef; }    /* COUNT, SUM, etc */
+  .blog-content pre code .sql-string { color: #98c379; }      /* String literals */
+  .blog-content pre code .sql-number { color: #d19a66; }      /* Numbers */
+  .blog-content pre code .sql-comment { 
+    color: #5c6370 !important; 
+    font-style: italic !important; 
+  }
+  }
+  
+  /* ======================
+     Compatibility Fixes
+     ====================== */
+  
+  /* Remove any existing line numbers and background */
+  .blog-content pre code span[style*="white-space:pre"] {
+    display: none !important;
+  }
+  
+  /* Reset Prism.js styles */
+  .blog-content pre[class*="language-"],
+  .blog-content pre[class*="language-"] code,
+  .blog-content code[class*="language-"] {
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+  
+  /* Hide Prism.js line numbers */
+  .blog-content .line-numbers-rows,
+  .blog-content .line-numbers .line-numbers-rows {
+    display: none !important;
+  }
+  
+  /* Line number styling */
+  .blog-content pre code:before {
+    content: counter(line);
+    position: absolute;
+    left: -2.5rem;
+    width: 2rem;
+    text-align: right;
+    color: #6c757d;
+    font-size: 0.8em;
+    user-select: none;
+  }
+  
+  .copy-code.copied {
+    color: #4caf50;
+  }
+  
+  pre:hover .copy-code {
+    opacity: 1;
+  }
+  
+  /* Inline code */
+  .blog-content :not(pre) > code {
+    font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9em;
+    color: #e83e8c;
+    background-color: rgba(27, 31, 35, 0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    border: 1px solid rgba(27, 31, 35, 0.1);
   }
   
   /* Style tables */
@@ -293,36 +593,13 @@
   .blog-content blockquote {
     border-left: 4px solid #0d6efd;
     padding: 0.5rem 1rem;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     background-color: #f8f9fa;
-    font-style: italic;
+    border-radius: 0 4px 4px 0;
   }
   
-  /* Style images */
-  .blog-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-    margin: 1.5rem 0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .blog-content {
-      font-size: 1rem;
-    }
-    
-    .blog-content h1 { font-size: 1.75rem; }
-    .blog-content h2 { font-size: 1.5rem; }
-    .blog-content h3 { font-size: 1.25rem; }
-    
-    .blog-content pre {
-      border-radius: 0;
-      margin-left: -1rem;
-      margin-right: -1rem;
-      padding: 1rem;
-    }
-  }
+  .blog-content h1 { font-size: 1.75rem; }
+  .blog-content h2 { font-size: 1.5rem; }
+  .blog-content h3 { font-size: 1.25rem; }
 </style>
 {{ end }}
