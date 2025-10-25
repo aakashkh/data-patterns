@@ -1,15 +1,15 @@
 {{ if .Site.Taxonomies.tags }}
 <div class="taxonomy taxonomy-terms-cloud">
   <h5 class="taxonomy-title">
-    <a href="{{ "/tags/" | relURL }}" class="text-decoration-none">
+    <a href="{{ "tags/" | relLangURL }}" class="text-decoration-none">
       Tags <i class="fas fa-tags ms-1"></i>
     </a>
   </h5>
   <ul class="taxonomy-terms">
     {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-      {{ $path := printf "/tags/%s/" $name | urlize }}
+      {{ $url := printf "tags/%s/" $name | urlize | relLangURL }}
       <li class="taxonomy-term">
-        <a href="{{ $path | relURL }}" class="taxonomy-term-link">
+        <a href="{{ $url }}" class="taxonomy-term-link">
           {{ $name }}<span class="taxonomy-term-count">{{ $taxonomy.Count }}</span>
         </a>
       </li>
