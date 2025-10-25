@@ -1,18 +1,51 @@
 /* Project-level overrides loaded by Docsy after theme styles */
 
-/* Adjust blog sidebar width */
-.td-sidebar {
-  @media (min-width: 992px) {
-    flex: 0 0 16.666667%;
-    max-width: 16.666667%;
+/* Blog layout adjustments */
+.td-blog .td-outer {
+  max-width: 100%;
+  padding: 0 2rem;
+}
+
+.td-blog .td-main .row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/* Left Sidebar - 20% */
+.td-blog .td-main .row.flex-xl-nowrap > aside.td-sidebar.col-12.col-md-3.col-xl-2.d-print-none {
+  @media (min-width: 1200px) {
+    flex: 0 0 20% !important;
+    max-width: 20% !important;
+    padding-right: 10px !important;
+    padding-left: 0 !important;
   }
 }
 
-.td-main {
-  @media (min-width: 992px) {
-    flex: 0 0 83.333333%;
-    max-width: 83.333333%;
+/* Main Content - 70% */
+.td-blog .td-main .row.flex-xl-nowrap > main[role="main"].col-12.col-md-9.col-xl-8.px-md-4 {
+  @media (min-width: 1200px) {
+    flex: 0 0 70% !important;
+    max-width: 70% !important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
   }
+}
+
+/* Right Sidebar (Tags) - 10% */
+.td-blog .td-main .row.flex-xl-nowrap > aside.td-sidebar-toc.col-12.col-md-3.col-xl-2.d-none.d-xl-block {
+  @media (min-width: 1200px) {
+    flex: 0 0 10% !important;
+    max-width: 10% !important;
+    padding-right: 0 !important;
+    padding-left: 10px !important;
+    display: block !important;
+  }
+}
+
+/* Reduce container padding for more space utilization */
+.td-blog .td-outer {
+  max-width: 100%;
+  padding: 0 1rem !important;
 }
 
 /* Hide sidebar search block in all variants (online/offline) */
