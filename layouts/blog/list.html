@@ -11,35 +11,37 @@
       </header>
 
       {{ $paginator := .Paginator }}
-      <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="row row-cols-1 g-4">
         {{ range $paginator.Pages }}
         <div class="col">
           <div class="card h-100 shadow-sm border-0 blog-card-hover">
-            {{ with .Params.images }}
-              {{ $imageUrl := index . 0 | relURL }}
-              <a href="{{ .RelPermalink }}">
-                <img src="{{ $imageUrl }}" class="card-img-top" alt="{{ .Title }}" style="height: 220px; object-fit: cover;">
-              </a>
-            {{ else }}
-              <a href="{{ .RelPermalink }}">
-                <div class="bg-light" style="height: 220px; display: flex; align-items: center; justify-content: center;">
-                  <i class="fas fa-image fa-3x text-muted"></i>
-                </div>
-              </a>
-            {{ end }}
             <div class="card-body">
-              <h2 class="h5 card-title mb-2">
+              <div class="d-flex align-items-center mb-2">
+                <div class="me-3 text-primary">
+                  <i class="far fa-calendar-alt"></i>
+                </div>
+                <div class="small text-muted">
+                  {{ .Date.Format "January 2, 2006" }}
+                  <span class="mx-2">•</span>
+                  {{ .ReadingTime }} min read
+                </div>
+              </div>
+              <h2 class="h4 card-title mb-3">
                 <a href="{{ .RelPermalink }}" class="text-dark text-decoration-none">{{ .Title }}</a>
               </h2>
-              <div class="small text-muted mb-3">
-                <span>{{ .Date.Format "January 2, 2006" }}</span>
-                <span class="mx-1">&middot;</span>
-                <span>{{ .ReadingTime }} min read</span>
+              <div class="card-text text-muted mb-3">
+                {{ .Summary | plainify | truncate 250 }}
               </div>
-              <p class="card-text text-muted">{{ .Summary | plainify | truncate 150 }}</p>
-            </div>
-            <div class="card-footer bg-transparent border-0 pt-0">
-                <a href="{{ .RelPermalink }}" class="btn btn-sm btn-outline-primary">Read More</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <a href="{{ .RelPermalink }}" class="btn btn-sm btn-outline-primary">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                {{ with .Params.categories }}
+                <div class="small">
+                  {{ range . }}
+                    <a href="/data-patterns/categories/{{ . | urlize }}" class="badge bg-light text-dark text-decoration-none">{{ . }}</a>
+                  {{ end }}
+                </div>
+                {{ end }}
+              </div>
             </div>
           </div>
         </div>

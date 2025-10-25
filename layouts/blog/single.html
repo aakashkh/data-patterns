@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="td-content" style="max-width: 100%; padding: 0 15px;">
+<div class="td-content" style="max-width: 100%; padding: 2rem 0; background: transparent;">
   <div class="container-fluid px-0">
     <div class="row g-4 justify-content-center">
       <!-- Left Sidebar - Categories -->
@@ -21,7 +21,7 @@
 
       <!-- Main Content -->
       <div class="col-12 col-xl-8">
-        <article class="card shadow-sm border-0">
+        <article class="card shadow-sm border-0 bg-white">
           <div class="card-body p-4 p-md-5">
             <!-- Header -->
             <header class="mb-4">
@@ -347,6 +347,7 @@
 <style>
   /* Ensure proper spacing and typography */
   .blog-content {
+    background: transparent !important;
     font-size: 1.1rem;
     line-height: 1.8;
     color: #2d3748;
@@ -516,14 +517,62 @@
     display: none !important;
   }
   
-  /* Reset Prism.js styles */
-  .blog-content pre[class*="language-"],
-  .blog-content pre[class*="language-"] code,
-  .blog-content code[class*="language-"] {
+  /* Code block styling */
+  .blog-content pre {
+    background: #2d2d2d !important;
+    border-radius: 6px;
+    margin: 1.5rem 0 !important;
+    padding: 1.5rem !important;
+    overflow: auto;
+    position: relative;
+    color: #f8f8f2;
+    font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+  }
+  
+  /* Remove any highlight wrapper styles */
+  .blog-content .highlight {
     background: transparent !important;
     margin: 0 !important;
     padding: 0 !important;
+  }
+  
+  /* Make sure code inside pre doesn't add extra spacing */
+  .blog-content pre code {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
     border: none !important;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+  }
+  
+  /* Code content */
+  .blog-content pre[class*="language-"] code {
+    display: block;
+    padding: 1.5rem !important;
+    background: transparent !important;
+    color: #f8f8f2;
+    font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    overflow-x: auto;
+  }
+  
+  /* Inline code */
+  .blog-content code:not([class*="language-"]) {
+    background: rgba(175, 184, 193, 0.2) !important;
+    color: #e53935;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 85%;
+  }
+  
+  /* Remove background from nested elements */
+  .blog-content pre[class*="language-"] code * {
+    background: transparent !important;
   }
   
   /* Hide Prism.js line numbers */

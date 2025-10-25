@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container">
-    <a class="navbar-brand" href="{{ "/" | relURL }}">
-      {{ .Site.Title }}
+    <a class="navbar-brand fw-bold" href="/data-patterns/">
+      <i class="fas fa-database me-2"></i>{{ .Site.Title }}
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -9,15 +9,62 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ "/" | relURL }}">Home</a>
+          <a class="nav-link {{ if eq .RelPermalink "/" }}active{{ end }}" href="/data-patterns/">
+            <i class="fas fa-home me-1"></i> Home
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{ "docs/" | relURL }}">Documentation</a>
+          <a class="nav-link {{ if eq .RelPermalink "/docs/" }}active{{ end }}" href="/data-patterns/docs/">
+            <i class="fas fa-book me-1"></i> Documentation
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ "blog/" | relURL }}">Blog</a>
+          <a class="nav-link {{ if eq .RelPermalink "/blog/" }}active{{ end }}" href="/data-patterns/blog/">
+            <i class="fas fa-blog me-1"></i> Blog
+          </a>
         </li>
       </ul>
+      
+      <!-- Right-aligned navigation items -->
+      <div class="d-flex">
+        <a href="https://github.com/aakashkh/data-patterns" class="btn btn-outline-light btn-sm me-2" target="_blank" rel="noopener">
+          <i class="fab fa-github me-1"></i> GitHub
+        </a>
+        <a href="https://aakashkh.github.io/" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener">
+          <i class="fas fa-user me-1"></i> About
+        </a>
+      </div>
     </div>
   </div>
 </nav>
+
+<style>
+  .navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .navbar-brand {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .navbar-brand i {
+    font-size: 1.2em;
+  }
+  .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  .nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+  }
+  .nav-link.active {
+    background-color: var(--bs-primary);
+    color: white !important;
+  }
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
+  }
+</style>

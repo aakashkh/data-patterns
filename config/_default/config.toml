@@ -28,10 +28,25 @@ title = 'Data Patterns'
   section = ["HTML", "RSS"]
 
 [markup.highlight]
+  # Enable code fences and syntax guessing
   codeFences = true
   guessSyntax = true
-  lineNos = true
+  
+  # Disable line numbers (we'll handle them with CSS if needed)
+  lineNos = false
+  
+  # Disable default classes to prevent extra wrapper divs
+  noClasses = true
+  
+  # Use monokai theme for syntax highlighting
   style = "monokai"
+  
+  # Set tab width for code blocks
+  tabWidth = 4
+  
+  # Additional options
+  lineNumbersInTable = false
+  noHl = false
 
 [params]
   github_repo = "https://github.com/aakashkh/data-patterns"

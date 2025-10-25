@@ -9,6 +9,53 @@
       
       {{ .Content }}
       
+      <!-- Latest Blog Posts -->
+      <section class="my-5 py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="h4 mb-0">Latest Blog Posts</h2>
+          <a href="/data-patterns/blog/" class="btn btn-sm btn-outline-primary">View All Posts <i class="fas fa-arrow-right ms-1"></i></a>
+        </div>
+        
+        <div class="row g-4">
+          {{ range first 3 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
+          <div class="col-md-4">
+            <article class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <span class="badge bg-primary bg-opacity-10 text-primary me-2">
+                    {{ .ReadingTime }} min read
+                  </span>
+                  <small class="text-muted">{{ .Date.Format "Jan 2, 2006" }}</small>
+                </div>
+                <h3 class="h5 card-title mb-3">
+                  <a href="{{ .RelPermalink }}" class="text-dark text-decoration-none">{{ .Title }}</a>
+                </h3>
+                <p class="card-text text-muted small">
+                  {{ with .Description }}
+                    {{ . }}
+                  {{ else }}
+                    {{ .Summary | plainify | truncate 120 }}
+                  {{ end }}
+                </p>
+                {{ with .Params.categories }}
+                <div class="mt-3">
+                  {{ range . }}
+                    <a href="/data-patterns/categories/{{ . | urlize }}" class="badge bg-light text-dark text-decoration-none me-1">{{ . }}</a>
+                  {{ end }}
+                </div>
+                {{ end }}
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0">
+                <a href="{{ .RelPermalink }}" class="btn btn-sm btn-link text-primary p-0">
+                  Read more <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+          {{ end }}
+        </div>
+      </section>
+      
       <!-- Categories Section -->
       {{ if .Site.Taxonomies.categories }}
       <section class="mt-5">
