@@ -1,28 +1,119 @@
-<footer class="bg-dark text-white py-4 mt-5">
+<footer class="bg-dark text-white pt-5 pb-3">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h5>{{ .Site.Title }}</h5>
-        <p class="text-muted">Modern data engineering patterns and techniques</p>
+    <div class="row g-4">
+      <!-- Brand Column -->
+      <div class="col-lg-4 mb-4">
+        <div class="d-flex align-items-center mb-3">
+          <i class="fas fa-database fa-2x text-primary me-2"></i>
+          <h4 class="mb-0">{{ .Site.Title }}</h4>
+        </div>
+        <p class="text-muted mb-3">Modern data engineering patterns, tutorials, and best practices for building scalable data solutions.</p>
+        <div class="social-links">
+          <a href="https://github.com/aakashkh" class="text-white me-3" target="_blank" rel="noopener">
+            <i class="fab fa-github fa-lg"></i>
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" class="text-white me-3" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin fa-lg"></i>
+          </a>
+          <a href="https://twitter.com/yourhandle" class="text-white me-3" target="_blank" rel="noopener">
+            <i class="fab fa-twitter fa-lg"></i>
+          </a>
+          <a href="mailto:your.email@example.com" class="text-white">
+            <i class="fas fa-envelope fa-lg"></i>
+          </a>
+        </div>
       </div>
-      <div class="col-md-3">
-        <h5>Links</h5>
+
+      <!-- Quick Links -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <h5 class="text-uppercase fw-bold mb-4">Quick Links</h5>
         <ul class="list-unstyled">
-          <li><a href="{{ .Site.BaseURL }}" class="text-white">Home</a></li>
-          <li><a href="{{ "docs/" | relURL }}" class="text-white">Documentation</a></li>
-          <li><a href="{{ "blog/" | relURL }}" class="text-white">Blog</a></li>
+          <li class="mb-2"><a href="{{ .Site.BaseURL }}" class="text-white-50 text-decoration-none hover-text-primary">
+            <i class="fas fa-chevron-right me-2 small"></i>Home</a>
+          </li>
+          <li class="mb-2"><a href="{{ "blog/" | relURL }}" class="text-white-50 text-decoration-none hover-text-primary">
+            <i class="fas fa-chevron-right me-2 small"></i>Blog</a>
+          </li>
+          <li class="mb-2"><a href="{{ "docs/" | relURL }}" class="text-white-50 text-decoration-none hover-text-primary">
+            <i class="fas fa-chevron-right me-2 small"></i>Documentation</a>
+          </li>
+          <li class="mb-2"><a href="{{ "categories/" | relURL }}" class="text-white-50 text-decoration-none hover-text-primary">
+            <i class="fas fa-chevron-right me-2 small"></i>Categories</a>
+          </li>
+          <li class="mb-2"><a href="{{ "about/" | relURL }}" class="text-white-50 text-decoration-none hover-text-primary">
+            <i class="fas fa-chevron-right me-2 small"></i>About</a>
+          </li>
         </ul>
       </div>
-      <div class="col-md-3">
-        <h5>Connect</h5>
+
+      <!-- Categories -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <h5 class="text-uppercase fw-bold mb-4">Categories</h5>
         <ul class="list-unstyled">
-          <li><a href="https://github.com/aakashkh/data-patterns" class="text-white">GitHub</a></li>
+          {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+            {{ with $.Site.GetPage (printf "/categories/%s" $name) }}
+              <li class="mb-2">
+                <a href="{{ .RelPermalink }}" class="text-white-50 text-decoration-none hover-text-primary">
+                  <i class="fas fa-folder me-2 small"></i>{{ .LinkTitle | title }}
+                </a>
+              </li>
+            {{ end }}
+          {{ end }}
         </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-lg-4">
+        <h5 class="text-uppercase fw-bold mb-4">Subscribe</h5>
+        <p class="text-muted">Get the latest posts and updates delivered to your inbox.</p>
+        <form class="mb-3">
+          <div class="input-group">
+            <input type="email" class="form-control bg-dark text-white border-secondary" placeholder="Your email" aria-label="Your email">
+            <button class="btn btn-primary" type="submit">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+        <p class="small text-muted mb-0">We'll never share your email. Unsubscribe anytime.</p>
       </div>
     </div>
-    <hr class="mt-4 bg-secondary">
-    <div class="text-center text-muted">
-      <small>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</small>
+
+    <!-- Copyright -->
+    <hr class="my-4 border-secondary">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+        <small class="text-muted">&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</small>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <small class="text-muted">
+          Made with <i class="fas fa-heart text-danger"></i> and <a href="https://gohugo.io" target="_blank" class="text-muted">Hugo</a>
+        </small>
+      </div>
     </div>
   </div>
 </footer>
+
+<style>
+  .hover-text-primary:hover {
+    color: var(--bs-primary) !important;
+    transition: color 0.2s ease;
+  }
+  .social-links a {
+    color: #adb5bd;
+    transition: color 0.2s ease;
+  }
+  .social-links a:hover {
+    color: var(--bs-primary) !important;
+    text-decoration: none;
+  }
+  .form-control:focus {
+    background-color: #1e2125;
+    border-color: var(--bs-primary);
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+  .btn-primary {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+</style>

@@ -57,30 +57,142 @@
       </section>
       
       <!-- Categories Section -->
-      {{ if .Site.Taxonomies.categories }}
-      <section class="mt-5">
-        <h2 class="mb-4">Browse by Category</h2>
-        <div class="row g-4">
-          {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-            {{ with $.Site.GetPage (printf "/categories/%s" $name) }}
-            <div class="col-md-4">
-              <div class="card h-100 shadow-sm">
-                <div class="card-body text-center">
-                  <h3 class="h5 card-title mb-3">
-                    <a href="{{ .RelPermalink }}" class="text-decoration-none">
-                      <i class="fas fa-folder-open text-warning me-2"></i>
-                      {{ .LinkTitle | title }}
-                    </a>
-                  </h3>
-                  <p class="text-muted mb-0">{{ $taxonomy.Count }} {{ if eq $taxonomy.Count 1 }}post{{ else }}posts{{ end }}</p>
-                </div>
-              </div>
-            </div>
-            {{ end }}
-          {{ end }}
-        </div>
-      </section>
+<section class="mt-5">
+  <h2 class="mb-4">Browse by Category</h2>
+  <div class="row g-4">
+    {{ if .Site.Taxonomies.categories }}
+      {{ $categoryIcons := dict
+        "python" "python"
+        "pandas" "table"
+        "spark" "fire"
+        "pyspark" "fire"
+        "r" "r-project"
+        "rstudio" "r-project"
+        "Powerbi" "chart-line"
+        "power-bi" "chart-line"
+        "power-query" "filter"
+        "dax" "calculator"
+        "business-intelligence" "chart-bar"
+        "bi" "chart-bar"
+        "Tsql" "code"
+        "mssql" "database"
+        "sql-server" "server"
+        "sql" "database"
+        "data-science" "flask"
+        "machine-learning" "robot"
+        "ml" "brain"
+        "ai" "microchip"
+        "tutorial" "graduation-cap"
+        "development" "code-branch"
+        "azure" "microsoft"
+        "azure-data-factory" "sitemap"
+        "adf" "sitemap"
+        "aws" "aws"
+        "gcp" "google"
+        "docker" "docker"
+        "kubernetes" "dharmachakra"
+        "database" "database"
+        "nosql" "server"
+        "devops" "code-merge"
+        "ci-cd" "sync"
+        "automation" "robot"
+        "best-practices" "star"
+        "performance" "tachometer-alt"
+        "analytics" "chart-pie"
+        "data-engineering" "project-diagram"
+        "etl" "exchange-alt"
+        "jupyter" "book"
+        "notebook" "book-open"
+        "duckdb" "database"
+        "polars" "snowflake"
+        "git" "git-alt"
+        "github" "github"
+        "mlops" "cogs"
+        "fabric" "microsoft"
+        "data-pipeline" "stream"
+      }}
+      
+      {{ $sortedCategories := slice }}
+      {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+        {{ with $.Site.GetPage (printf "/categories/%s" $name) }}
+          {{ $sortedCategories = $sortedCategories | append (dict "page" . "count" $taxonomy.Count "name" $name) }}
+        {{ end }}
       {{ end }}
+
+      {{ range sort $sortedCategories "count" "desc" }}
+        {{ $icon := index $categoryIcons (lower .name) | default "folder" }}
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <div class="icon-wrapper mb-3">
+                <i class="fab fa-{{ $icon }} fa-2x text-primary"></i>
+              </div>
+              <h3 class="h5 card-title mb-2">
+                <a href="{{ .page.RelPermalink }}" class="text-decoration-none text-dark">
+                  {{ .page.LinkTitle | title }}
+                </a>
+              </h3>
+              <p class="text-muted mb-0">
+                {{ .count }} {{ if eq .count 1 }}post{{ else }}posts{{ end }}
+              </p>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    {{ else }}
+      <div class="col-12">
+        <div class="text-center py-5">
+          <i class="fas fa-folder-open fa-3x text-muted mb-3"></i>
+          <p class="text-muted">No categories found.</p>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Category Icons CSS -->
+<style>
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+    border-color: rgba(var(--bs-primary-rgb), 0.3);
+  }
+  
+  .card:hover .icon-wrapper {
+    background-color: rgba(var(--bs-primary-rgb), 0.2);
+    transform: scale(1.1);
+  }
+  
+  .card:hover .icon-wrapper i {
+    transform: rotate(5deg);
+  }
+  
+  .card-title a {
+    transition: color 0.2s ease;
+  }
+  
+  .card:hover .card-title a {
+    color: var(--bs-primary) !important;
+  }
+</style>
+
     </div>
   </div>
 </main>
