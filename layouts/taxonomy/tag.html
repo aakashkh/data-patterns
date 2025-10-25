@@ -1,0 +1,247 @@
+{{ define "main" }}
+<main class="flex-grow-1">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <!-- Tag Header -->
+        <header class="text-center mb-5">
+          <div class="d-inline-block p-3 mb-4 bg-light rounded-circle">
+            <i class="fas fa-tag fa-2x text-primary"></i>
+          </div>
+          <h1 class="display-4 fw-bold mb-3">#{{ .Title }}</h1>
+          <p class="lead text-muted">{{ .Data.Plural | title }}: {{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</p>
+        </header>
+
+        <!-- Posts Grid -->
+        <div class="row g-4">
+          {{ range .Pages.ByPublishDate.Reverse }}
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card h-100 border-0 shadow-sm hover-lift">
+              {{ if .Params.cover }}
+              <a href="{{ .RelPermalink }}" class="text-decoration-none">
+                <img src="{{ .Params.cover | relURL }}" class="card-img-top" alt="{{ .Title }}" style="height: 200px; object-fit: cover;">
+              </a>
+              {{ end }}
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <time class="text-muted small" datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{ .Date.Format "January 2, 2006" }}
+                  </time>
+                  <span class="text-muted mx-2">•</span>
+                  <span class="text-muted small">{{ .ReadingTime }} min read</span>
+                </div>
+                <h2 class="h5 card-title mb-3">
+                  <a href="{{ .RelPermalink }}" class="text-decoration-none text-dark">
+                    {{ .Title }}
+                  </a>
+                </h2>
+                <p class="card-text text-muted">{{ .Summary | plainify | truncate 120 }}</p>
+                {{ if .Params.categories }}
+                <div class="mt-auto">
+                  {{ range first 1 .Params.categories }}
+                  <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="badge bg-light text-dark text-decoration-none me-2">
+                    {{ . }}
+                  </a>
+                  {{ end }}
+                </div>
+                {{ end }}
+              </div>
+            </article>
+          </div>
+          {{ end }}
+        </div>
+
+        <!-- Back to Tags -->
+        <div class="text-center mt-5">
+          <a href="{{ "/tags/" | relLangURL }}" class="btn btn-outline-primary">
+            <i class="fas fa-arrow-left me-2"></i>Back to All Tags
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<style>
+  /* ====================
+     Base Styles
+     ==================== */
+  :root {
+    --primary-color: #4e73df;
+    --primary-hover: #2e59d9;
+    --text-color: #2d3748;
+    --text-muted: #718096;
+    --light-bg: #f8f9fc;
+    --border-radius: 0.5rem;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ====================
+     Typography
+     ==================== */
+  h1.display-4 {
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  h1.display-4::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+  }
+  
+  .lead {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+  }
+  
+  /* ====================
+     Card Styling
+     ==================== */
+  .card {
+    border: none;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .card-title {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  .card-title a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  .card-title a:hover {
+    color: var(--primary-color);
+  }
+  
+  .card-text {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+  
+  /* ====================
+     Badge & Tag Styling
+     ==================== */
+  .badge {
+    font-weight: 500;
+    padding: 0.35em 0.8em;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    transition: var(--transition);
+  }
+  
+  .badge:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  /* ====================
+     Button Styling
+     ==================== */
+  .btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    transition: var(--transition);
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+  }
+  
+  .btn i {
+    transition: transform 0.3s ease;
+  }
+  
+  .btn:hover i {
+    transform: translateX(-3px);
+  }
+  
+  /* ====================
+     Meta Information
+     ==================== */
+  .text-muted {
+    font-size: 0.85rem;
+    color: var(--text-muted) !important;
+  }
+  
+  /* ====================
+     Responsive Adjustments
+     ==================== */
+  @media (max-width: 991.98px) {
+    .display-4 {
+      font-size: 2.25rem;
+    }
+    
+    .lead {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 767.98px) {
+    .card {
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-img-top {
+      height: 200px;
+    }
+  }
+  
+  @media (max-width: 575.98px) {
+    .display-4 {
+      font-size: 1.75rem;
+    }
+    
+    .card-img-top {
+      height: 180px;
+    }
+  }
+</style>
+{{ end }}

@@ -1,0 +1,227 @@
+{{ define "main" }}
+<main class="flex-grow-1">
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+      <header class="text-center mb-5">
+        <h1 class="display-4 fw-bold mb-3">All Tags</h1>
+        <p class="lead text-muted">Browse posts by tags</p>
+      </header>
+
+      <div class="card shadow-sm border-0 mb-5">
+        <div class="card-body p-4">
+          <!-- Search Box -->
+          <div class="mb-4 position-relative">
+            <div class="input-group">
+              <span class="input-group-text bg-light border-end-0">
+                <i class="fas fa-search text-muted"></i>
+              </span>
+              <input 
+                type="text" 
+                id="tagSearch" 
+                class="form-control border-start-0 ps-0" 
+                placeholder="Search tags..." 
+                aria-label="Search tags"
+                style="padding-left: 0.5rem;"
+              >
+              <button id="clearSearch" class="btn btn-outline-secondary d-none" type="button" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="form-text text-muted mt-1 ms-1">Type to filter tags</div>
+          </div>
+          
+          <!-- Tags Grid -->
+          <div class="row g-4" id="tagsContainer">
+            {{ range .Data.Terms.ByCount }}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 tag-item" data-tag="{{ lower .Page.Title }}">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                  <a href="{{ .Page.RelPermalink }}" class="text-decoration-none">
+                    <span class="badge bg-primary bg-opacity-10 text-primary p-3 d-block fs-5 mb-2">
+                      #{{ .Page.Title }}
+                    </span>
+                    <span class="text-muted small">{{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+          
+          <!-- No Results Message -->
+          <div id="noResults" class="text-center py-5 d-none">
+            <i class="fas fa-tags fa-3x text-muted mb-3"></i>
+            <h4 class="text-muted">No tags found</h4>
+            <p class="text-muted">Try adjusting your search</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<style>
+  /* Card Styles */
+  .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    border-radius: 0.5rem;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08) !important;
+  }
+  .badge {
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  a:hover .badge {
+    background-color: var(--bs-primary) !important;
+    color: white !important;
+  }
+  
+  /* Search Styles */
+  #tagSearch {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    transition: all 0.2s ease;
+  }
+  #tagSearch:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+    border-color: var(--bs-primary);
+    position: relative;
+    z-index: 3; /* Ensure focus state is above other elements */
+  }
+  .input-group-text {
+    border-radius: 0.5rem 0 0 0.5rem !important;
+    background-color: #f8f9fa;
+    border-right: none;
+    padding: 0.75rem 1rem;
+  }
+  #clearSearch {
+    border-radius: 0 0.5rem 0.5rem 0 !important;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+  }
+  .input-group:focus-within .input-group-text {
+    border-color: var(--bs-primary);
+  }
+  
+  /* Animation for search results */
+  .tag-item {
+    transition: all 0.3s ease;
+    min-height: 1px; /* Prevent layout shift */
+  }
+  .tag-item.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  /* Main content area */
+  main {
+    flex: 1 0 auto;
+    width: 100%;
+  }
+  
+  /* Container spacing */
+  .container.py-5 {
+    padding-bottom: 4rem;
+    position: relative;
+  }
+  
+  /* Footer styling */
+  footer {
+    flex-shrink: 0;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Body layout */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  /* Fix for search box focus states */
+  .input-group:focus-within {
+    z-index: 3;
+  }
+  
+  /* Ensure form elements have proper stacking context */
+  .form-control, .input-group-text, .btn {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Fix for mobile view */
+  @media (max-width: 575.98px) {
+    .input-group > .form-control,
+    .input-group > .form-select {
+      padding: 0.75rem;
+    }
+    .input-group-text {
+      padding: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('tagSearch');
+  const clearButton = document.getElementById('clearSearch');
+  const tagItems = document.querySelectorAll('.tag-item');
+  const noResults = document.getElementById('noResults');
+  
+  // Function to filter tags
+  function filterTags() {
+    const searchTerm = searchInput.value.toLowerCase();
+    let hasVisibleItems = false;
+    
+    tagItems.forEach(item => {
+      const tagName = item.getAttribute('data-tag');
+      if (tagName.includes(searchTerm)) {
+        item.classList.remove('hidden');
+        hasVisibleItems = true;
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+    
+    // Show/hide no results message
+    noResults.classList.toggle('d-none', hasVisibleItems || searchTerm === '');
+    
+    // Show/hide clear button
+    clearButton.classList.toggle('d-none', searchTerm === '');
+  }
+  
+  // Event listeners
+  searchInput.addEventListener('input', filterTags);
+  
+  clearButton.addEventListener('click', function() {
+    searchInput.value = '';
+    filterTags();
+    searchInput.focus();
+  });
+  
+  // Allow clearing with Escape key
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      filterTags();
+    }
+  });
+});
+</script>
+{{ end }}

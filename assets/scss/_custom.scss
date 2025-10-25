@@ -1,3 +1,201 @@
+// Code Block Styling
+pre, code, kbd, samp {
+  font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.9em;
+  line-height: 1.6;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  tab-size: 4;
+  hyphens: none;
+  border-radius: 4px;
+}
+
+pre {
+  position: relative;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #2d2d2d;
+  color: #f8f8f2;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+  
+  code {
+    color: #f8f8f2;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+  
+  &[class*="language-"] {
+    padding: 1.5em;
+    margin: 1.5rem 0;
+  }
+  
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+}
+
+code {
+  padding: 0.2em 0.4em;
+  background: rgba(175, 184, 193, 0.2);
+  border-radius: 3px;
+  font-size: 85%;
+  color: #e53935;
+}
+
+// Copy button for code blocks
+.copy-code-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  color: #f8f8f2;
+  font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+pre:hover .copy-code-button {
+  opacity: 1;
+}
+
+// Code block title (if any)
+.code-title {
+  background: #3a3a3a;
+  color: #f8f8f2;
+  padding: 0.5rem 1rem;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  margin-bottom: 0;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Line numbers
+.line-numbers-rows {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding-right: 1em;
+  margin-right: 1em;
+  
+  > span:before {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+// Syntax highlighting colors
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6a9955;
+}
+
+.token.punctuation {
+  color: #d4d4d4;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f44747;
+}
+
+.token.boolean,
+.token.number {
+  color: #b5cea8;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #ce9178;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #d4d4d4;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: #dcdcaa;
+}
+
+.token.keyword {
+  color: #569cd6;
+}
+
+.token.regex,
+.token.important {
+  color: #d16969;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  pre {
+    padding: 1rem;
+    font-size: 0.9em;
+    
+    &[class*="language-"] {
+      padding: 1em;
+    }
+  }
+}
+
+// Original styles
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
