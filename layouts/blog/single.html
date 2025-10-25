@@ -1,8 +1,26 @@
 {{ define "main" }}
-<div class="td-content">
-  <div class="container py-4 py-md-5">
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-10 col-xl-8">
+<div class="td-content" style="max-width: 100%; padding: 0 15px;">
+  <div class="container-fluid px-0">
+    <div class="row g-4 justify-content-center">
+      <!-- Left Sidebar - Categories -->
+      <aside class="col-12 col-xl-2 d-none d-xl-block position-sticky" style="top: 1rem; align-self: flex-start;">
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-white border-0 py-3">
+            <h5 class="mb-0"><i class="fas fa-folder-open me-2"></i>Categories</h5>
+          </div>
+          <div class="card-body py-2">
+            {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+              <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" 
+                 class="d-block py-2 text-decoration-none text-muted hover-text-primary">
+                <i class="fas fa-folder me-2"></i>{{ $name | title }} ({{ $taxonomy.Count }})
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="col-12 col-xl-8">
         <article class="card shadow-sm border-0">
           <div class="card-body p-4 p-md-5">
             <!-- Header -->
@@ -33,20 +51,49 @@
             </div>
           </div>
 
-          <!-- Footer with navigation -->
+          <!-- Footer with navigation and tags -->
           <div class="card-footer bg-transparent border-top-0 py-3">
-            <div class="d-flex justify-content-between align-items-center">
+            <!-- Tags -->
+            {{ if .Params.tags }}
+            <div class="mb-4">
+              <h6 class="mb-2"><i class="fas fa-tags me-2"></i>Tags</h6>
+              <div class="d-flex flex-wrap gap-2">
+                {{ range .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" 
+                  class="badge bg-light text-dark text-decoration-none border">
+                  #{{ . }}
+                </a>
+                {{ end }}
+              </div>
+            </div>
+            {{ end }}
+
+            <!-- Author and date -->
+            <div class="d-flex justify-content-between align-items-center text-muted small mb-4">
+              <div>
+                {{ if .Site.Params.author }}
+                <span><i class="fas fa-user me-1"></i> {{ .Site.Params.author }}</span>
+                {{ end }}
+              </div>
+              <div>
+                <i class="far fa-calendar-alt me-1"></i>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+              </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
               <div>
                 {{ with .PrevInSection }}
-                <a href="{{ .RelPermalink }}" class="btn btn-outline-primary">
-                  <i class="fas fa-arrow-left me-2"></i> Previous Post
+                <a href="{{ .RelPermalink }}" class="btn btn-sm btn-outline-primary">
+                  <i class="fas fa-arrow-left me-2"></i> Previous
                 </a>
                 {{ end }}
               </div>
               <div>
                 {{ with .NextInSection }}
-                <a href="{{ .RelPermalink }}" class="btn btn-outline-primary">
-                  Next Post <i class="fas fa-arrow-right ms-2"></i>
+                <a href="{{ .RelPermalink }}" class="btn btn-sm btn-outline-primary">
+                  Next <i class="fas fa-arrow-right ms-2"></i>
                 </a>
                 {{ end }}
               </div>
@@ -54,9 +101,116 @@
           </div>
         </article>
       </div>
+
+      <!-- Right Sidebar - Tags and Recent Posts -->
+      <aside class="col-12 col-xl-2 d-none d-xl-block position-sticky" style="top: 1rem; align-self: flex-start;">
+        <!-- Popular Tags -->
+        <div class="card shadow-sm border-0 mb-4">
+          <div class="card-header bg-white border-0 py-3">
+            <h5 class="mb-0"><i class="fas fa-hashtag me-2"></i>Popular Tags</h5>
+          </div>
+          <div class="card-body py-3">
+            <div class="d-flex flex-wrap gap-2">
+              {{ range first 20 .Site.Taxonomies.tags.ByCount }}
+                <a href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}" 
+                  class="badge bg-light text-dark text-decoration-none border">
+                  #{{ .Name }} ({{ .Count }})
+                </a>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Posts -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-white border-0 py-3">
+            <h5 class="mb-0"><i class="far fa-clock me-2"></i>Recent Posts</h5>
+          </div>
+          <div class="card-body py-2">
+            {{ $recent := where .Site.RegularPages "Type" "blog" | first 5 }}
+            {{ range $recent }}
+              <a href="{{ .RelPermalink }}" class="d-block py-2 text-decoration-none text-muted hover-text-primary">
+                <div class="d-flex align-items-center">
+                  {{ if .Params.image }}
+                    <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="rounded me-2" style="width: 50px; height: 50px; object-fit: cover;">
+                  {{ end }}
+                  <div>
+                    <div class="fw-medium text-dark">{{ .Title }}</div>
+                    <small class="text-muted">{{ .Date.Format "Jan 2, 2006" }}</small>
+                  </div>
+                </div>
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  
+  <!-- Related Posts Section -->
+  <div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-xl-8">
+        <h3 class="mb-4">Related Posts</h3>
+        <div class="row g-4">
+          {{ $related := .Site.RegularPages.Related . | first 3 }}
+          {{ range $related }}
+          <div class="col-md-4">
+            <div class="card h-100">
+              {{ if .Params.image }}
+              <img src="{{ .Params.image | relURL }}" class="card-img-top" alt="{{ .Title }}" style="height: 180px; object-fit: cover;">
+              {{ end }}
+              <div class="card-body">
+                <h5 class="card-title">{{ .Title }}</h5>
+                <p class="card-text text-muted small">{{ .Date.Format "January 2, 2006" }}</p>
+                <a href="{{ .RelPermalink }}" class="btn btn-outline-primary btn-sm">Read More</a>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Custom CSS for the blog layout -->
+<style>
+  .position-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+  
+  .hover-text-primary:hover {
+    color: var(--bs-primary) !important;
+  }
+  .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 1.5rem;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05) !important;
+  }
+  .blog-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+  }
+  .blog-content h2, 
+  .blog-content h3, 
+  .blog-content h4, 
+  .blog-content h5, 
+  .blog-content h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .blog-content p {
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+  }
+</style>
 
 <!-- Custom Styles for Blog Content -->
 <style>
