@@ -1,0 +1,262 @@
+{{ define "head" }}
+  {{ $style := resources.Get "css/concepts.css" | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="concepts-page">
+  
+  <!-- Hero Section -->
+  <div class="concepts-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Data Engineering Concepts</h1>
+        <p class="hero-subtitle">Master essential concepts through comprehensive series on Python, SQL, and cloud data processing patterns</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="concepts-nav-container">
+    <div class="container">
+      <div class="nav-wrapper">
+        <div class="main-nav">
+          <button class="nav-btn active" data-filter="all">
+            <i class="fas fa-th-large"></i> All Concepts
+          </button>
+          <button class="nav-btn" data-filter="azure">
+            <i class="fas fa-cloud"></i> Azure
+          </button>
+          <button class="nav-btn" data-filter="python">
+            <i class="fab fa-python"></i> Python
+          </button>
+          <button class="nav-btn" data-filter="sql">
+            <i class="fas fa-database"></i> SQL
+          </button>
+        </div>
+        
+        <div class="sub-nav python-sub-nav hidden">
+          <div class="sub-nav-divider"></div>
+          <button class="sub-nav-btn active" data-subfilter="all">All Python</button>
+          <button class="sub-nav-btn" data-subfilter="polars">Polars</button>
+          <button class="sub-nav-btn" data-subfilter="pandas">Pandas</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="concepts-content">
+    <div class="container">
+      
+      {{ $pages := .Site.GetPage "section" "concepts" }}
+      {{ $grouped := $pages.Pages.GroupByParam "series" }}
+
+      {{ $series := dict 
+        "python" (dict "title" "Python Data Processing" "description" "Master data manipulation, analysis, and visualization with Python's powerful ecosystem" "icon" "fab fa-python")
+        "sql" (dict "title" "SQL & Database Patterns" "description" "Learn query patterns, optimization techniques, and database best practices" "icon" "fas fa-database")
+        "azure" (dict "title" "Azure & Cloud Data Engineering" "description" "Cloud data engineering patterns and Azure-specific implementations" "icon" "fas fa-cloud")
+      }}
+
+      {{ range $seriesKey, $seriesMeta := $series }}
+        <section class="concept-section" data-category="{{ $seriesKey }}">
+          <div class="section-header">
+            <div class="section-icon">
+              <i class="{{ $seriesMeta.icon }}"></i>
+            </div>
+            <div class="section-info">
+              <h2 class="section-title">{{ $seriesMeta.title }}</h2>
+              <p class="section-description">{{ $seriesMeta.description }}</p>
+            </div>
+          </div>
+
+          {{ if eq $seriesKey "python" }}
+            {{ $subSeries := dict
+              "polars" (dict "title" "From Pandas to Polars: Complete Migration Guide" "description" "Master the next-generation DataFrame library with expression-based programming, lazy evaluation, and blazing-fast performance." "badge" "🔥 Polars Series" "coming_soon" (slice "Joins & Data Reshaping" "Grouping & Aggregations" "Performance Optimization" "Production Workflows"))
+              "pandas" (dict "title" "Advanced Pandas Techniques & Optimization" "description" "Deep dive into advanced Pandas patterns, performance optimization, and complex data operations." "badge" "🐼 Pandas Series" "coming_soon" (slice "Advanced GroupBy Operations" "Performance Optimization" "Window Functions"))
+            }}
+
+            {{ range $subSeriesKey, $subSeriesMeta := $subSeries }}
+              <div class="series-container" data-subcategory="{{ $subSeriesKey }}">
+                <div class="series-header">
+                  <div class="series-badge {{ $subSeriesKey }}">{{ $subSeriesMeta.badge }}</div>
+                  <h3 class="series-title">{{ $subSeriesMeta.title }}</h3>
+                  <p class="series-description">{{ $subSeriesMeta.description }}</p>
+                </div>
+                
+                <div class="articles-grid">
+                  {{ range where ($grouped | default slice) "Key" $subSeriesKey }}
+                    {{ range .Pages.ByWeight }}
+                      <article class="article-card">
+                        <div class="article-number">{{ .Params.weight | printf "%02d" }}</div>
+                        <div class="article-content">
+                          <h4 class="article-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                          </h4>
+                          <p class="article-description">{{ .Description }}</p>
+                          <div class="article-tags">
+                            {{ range .Params.tags }}
+                              <span class="tag">{{ . }}</span>
+                            {{ end }}
+                          </div>
+                        </div>
+                      </article>
+                    {{ end }}
+                  {{ end }}
+                </div>
+                
+                <div class="coming-soon">
+                  <h5>Coming Soon in {{ $subSeriesKey | title }} Series:</h5>
+                  <ul>
+                    {{ range $subSeriesMeta.coming_soon }}
+                      <li><strong>{{ . }}</strong></li>
+                    {{ end }}
+                  </ul>
+                </div>
+              </div>
+            {{ end }}
+          {{ else }}
+            {{ range where ($grouped | default slice) "Key" $seriesKey }}
+              <div class="series-container">
+                <div class="series-header">
+                  <div class="series-badge {{ $seriesKey }}">{{ $seriesKey | title }} Series</div>
+                  <h3 class="series-title">{{ $seriesMeta.title }}</h3>
+                  <p class="series-description">{{ $seriesMeta.description }}</p>
+                </div>
+                
+                <div class="articles-grid">
+                  {{ range .Pages.ByWeight }}
+                    <article class="article-card">
+                      <div class="article-number">{{ .Params.weight | printf "%02d" }}</div>
+                      <div class="article-content">
+                        <h4 class="article-title">
+                          <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h4>
+                        <p class="article-description">{{ .Description }}</p>
+                        <div class="article-tags">
+                          {{ range .Params.tags }}
+                            <span class="tag">{{ . }}</span>
+                          {{ end }}
+                        </div>
+                      </div>
+                    </article>
+                  {{ end }}
+                </div>
+
+                <div class="coming-soon">
+                  <h5>Coming Soon in {{ $seriesKey | title }} Series:</h5>
+                  <ul>
+                    {{ if eq $seriesKey "sql" }}
+                      <li><strong>Advanced Query Patterns</strong></li>
+                      <li><strong>Performance Tuning</strong></li>
+                      <li><strong>Database Design</strong></li>
+                    {{ else if eq $seriesKey "azure" }}
+                      <li><strong>Azure Data Factory</strong></li>
+                      <li><strong>Azure Synapse Analytics</strong></li>
+                      <li><strong>Data Security & Governance</strong></li>
+                    {{ end }}
+                  </ul>
+                </div>
+              </div>
+            {{ end }}
+          {{ end }}
+        </section>
+      {{ end }}
+      
+      <!-- What You'll Master Section -->
+      <section class="mastery-section">
+        <h2 class="mastery-title">What You'll Master</h2>
+        <div class="mastery-grid">
+          <div class="mastery-item">
+            <div class="mastery-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Practical Examples</h3>
+            <p>Real-world code samples and use cases you can implement immediately</p>
+          </div>
+          <div class="mastery-item">
+            <div class="mastery-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h3>Performance Optimization</h3>
+            <p>Techniques to make your data processing faster and more efficient</p>
+          </div>
+          <div class="mastery-item">
+            <div class="mastery-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3>Best Practices</h3>
+            <p>Industry standards and patterns used by data engineering professionals</p>
+          </div>
+        </div>
+      </section>
+      
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const mainBtns = document.querySelectorAll('.nav-btn');
+  const subBtns = document.querySelectorAll('.sub-nav-btn');
+  const sections = document.querySelectorAll('.concept-section');
+  const subNav = document.querySelector('.python-sub-nav');
+  const pythonSubContainers = document.querySelectorAll('.series-container[data-subcategory]');
+
+  // Main Filter Logic
+  mainBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all main buttons
+      mainBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      // Handle Sub-nav visibility
+      if (filter === 'python') {
+        subNav.classList.remove('hidden');
+        // Reset sub-nav to "All Python" when switching back to Python
+        subBtns.forEach(b => b.classList.remove('active'));
+        subBtns[0].classList.add('active');
+        pythonSubContainers.forEach(el => el.style.display = 'block');
+      } else {
+        subNav.classList.add('hidden');
+      }
+
+      // Filter Sections
+      sections.forEach(section => {
+        if (filter === 'all' || section.dataset.category === filter) {
+          section.style.display = 'block';
+          // If showing python section, ensure all its children are visible initially
+          if (section.dataset.category === 'python') {
+             pythonSubContainers.forEach(el => el.style.display = 'block');
+          }
+        } else {
+          section.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Sub Filter Logic (for Python)
+  subBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      subBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const subFilter = btn.dataset.subfilter;
+
+      pythonSubContainers.forEach(container => {
+        if (subFilter === 'all' || container.dataset.subcategory === subFilter) {
+          container.style.display = 'block';
+        } else {
+          container.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
+{{ end }}

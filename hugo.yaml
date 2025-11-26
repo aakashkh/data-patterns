@@ -52,9 +52,13 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+    parser:
+      autoHeadingID: true
+      autoHeadingIDType: github
   highlight:
     # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
     style: "github"
+    lineNos: false
     # Uncomment if you want your chosen highlight style used for code blocks without a specified language
     # guessSyntax: "true"
 
@@ -95,6 +99,10 @@ outputs:
 
 menu:
   main:
+    - identifier: concepts
+      name: "Concepts"
+      url: "/concepts/"
+      weight: 10
     - identifier: blog
       name: "Blog"
       url: "/blog/"

@@ -7,6 +7,10 @@
 <link rel="stylesheet" href="{{ $customCSS.RelPermalink }}">
 {{ $docsCSS := resources.Get "css/docs.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $docsCSS.RelPermalink }}">
+{{ $seriesCSS := resources.Get "css/series-enhanced.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $seriesCSS.RelPermalink }}">
+{{ $conceptsCSS := resources.Get "css/concepts.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $conceptsCSS.RelPermalink }}">
 
 <style>
 /* Header/Navigation fixes */

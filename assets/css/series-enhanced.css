@@ -1,0 +1,194 @@
+/* assets/css/series-enhanced.css */
+
+/* =================================
+   SERIES LIST PAGE
+   ================================= */
+
+.series-list-container {
+    padding: 2rem 0;
+}
+
+.series-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.series-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.series-header .series-description {
+    font-size: 1.25rem;
+    color: #4a5568;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.series-toc {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+.series-toc h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.series-toc .list-group-item {
+    border: none;
+    padding: 1.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.series-toc .list-group-item:last-child {
+    border-bottom: none;
+}
+
+.series-toc .list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.series-toc .part-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0d6efd;
+    margin-right: 1.5rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.series-toc .part-info a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.series-toc .part-info a:hover {
+    color: #0d6efd;
+}
+
+.series-toc .part-info p {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 0;
+    margin-top: 0.25rem;
+}
+
+/* =================================
+   SERIES SINGLE PAGE
+   ================================= */
+
+.series-post-container {
+    padding: 2rem 0;
+}
+
+.series-post-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 2rem;
+}
+
+.series-post-header .series-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0d6efd;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.series-post-header .series-title a {
+    text-decoration: none;
+    color: #0d6efd;
+    transition: color 0.2s ease;
+}
+
+.series-post-header .series-title a:hover {
+    color: #0a58ca;
+}
+
+.series-post-header h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-top: 0.5rem;
+    line-height: 1.2;
+}
+
+.series-nav {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    margin: 3rem 0;
+}
+
+.series-nav h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.series-nav .nav-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.series-nav .nav-link {
+    flex: 1;
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #2c3e50;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.series-nav .nav-link:hover {
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: #0d6efd;
+}
+
+.series-nav .nav-link .direction {
+    font-size: 0.8rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.series-nav .nav-link .title {
+    font-weight: 600;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.series-nav .nav-link.prev {
+    text-align: left;
+}
+
+.series-nav .nav-link.next {
+    text-align: right;
+}

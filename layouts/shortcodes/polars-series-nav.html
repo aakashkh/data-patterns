@@ -1,0 +1,45 @@
+{{/* Polars Series Navigation Shortcode */}}
+{{ $currentWeight := .Page.Params.weight | default 0 }}
+{{ $currentSection := .Page.Section }}
+
+<div class="alert alert-info border-0 shadow-sm mb-4">
+  <div class="d-flex align-items-center mb-3">
+    <i class="fas fa-book-open me-2"></i>
+    <strong>Polars Mastery Series</strong>
+  </div>
+  
+  <div class="row g-2">
+    {{ range .Site.Pages }}
+      {{ if and (eq .Section $currentSection) (in .File.Path "polars-") }}
+        {{ $weight := .Params.weight | default 0 }}
+        {{ $isCurrent := eq $weight $currentWeight }}
+        
+        <div class="col-md-6">
+          <div class="d-flex align-items-center p-2 rounded {{ if $isCurrent }}bg-primary bg-opacity-10{{ else }}bg-light{{ end }}">
+            <div class="me-2">
+              {{ if $isCurrent }}
+                <i class="fas fa-arrow-right text-primary"></i>
+              {{ else if lt $weight $currentWeight }}
+                <i class="fas fa-check-circle text-success"></i>
+              {{ else }}
+                <i class="fas fa-circle text-muted"></i>
+              {{ end }}
+            </div>
+            <div class="flex-grow-1">
+              {{ if $isCurrent }}
+                <span class="fw-bold text-primary">{{ .Title }}</span>
+              {{ else }}
+                <a href="{{ .RelPermalink }}" class="text-decoration-none">{{ .Title }}</a>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+  
+  <div class="mt-3 small text-muted">
+    <i class="fas fa-info-circle me-1"></i>
+    Follow the series in order for the best learning experience.
+  </div>
+</div>

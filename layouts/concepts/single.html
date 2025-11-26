@@ -1,0 +1,183 @@
+{{ define "head" }}
+{{ $style := resources.Get "css/concepts.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="container py-5">
+  <div class="row g-5">
+    <!-- Main Content Column -->
+    <div class="col-lg-9">
+      <article class="concept-article">
+        <header class="article-header">
+          <div class="series-badge-small mb-3">
+            {{ if .Params.series }}
+            <span class="badge-text"><i class="fas fa-layer-group me-2"></i>{{ .Params.series | title }} Series</span>
+            {{ end }}
+          </div>
+          <h1 class="article-title">{{ .Title }}</h1>
+          <div class="article-meta">
+            <span class="meta-item"><i class="far fa-calendar me-2"></i>{{ .Date.Format "January 2, 2006" }}</span>
+            <span class="meta-item"><i class="far fa-clock me-2"></i>{{ .ReadingTime }} min read</span>
+          </div>
+          {{ if .Description }}
+          <p class="article-lead">{{ .Description }}</p>
+          {{ end }}
+        </header>
+
+        <div class="article-content">
+          {{ .Content }}
+        </div>
+
+        <footer class="article-footer">
+          {{ if .Params.tags }}
+          <div class="article-tags">
+            <span class="tags-label"><i class="fas fa-tags me-2"></i>Tags:</span>
+            {{ range .Params.tags }}
+            <a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+            {{ end }}
+          </div>
+          {{ end }}
+
+          <!-- Series Navigation (Bottom) -->
+          {{ if .Params.series }}
+          {{ $currentSeries := .Params.series }}
+          {{ $seriesPages := where .Site.RegularPages "Params.series" $currentSeries }}
+          {{ $seriesPages := $seriesPages.ByWeight }}
+
+          <div class="series-nav-bottom mt-5">
+            <h4 class="mb-3">More in {{ $currentSeries | title }} Series</h4>
+            <div class="row g-3">
+              {{ range $seriesPages }}
+              <div class="col-md-6">
+                <a href="{{ .Permalink }}" class="series-nav-card {{ if eq .Permalink $.Permalink }}active{{ end }}">
+                  <span class="nav-number">{{ .Params.weight | printf "%02d" }}</span>
+                  <span class="nav-title">{{ .Title }}</span>
+                  {{ if eq .Permalink $.Permalink }}
+                  <span class="current-indicator"><i class="fas fa-check-circle"></i></span>
+                  {{ end }}
+                </a>
+              </div>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+        </footer>
+      </article>
+    </div>
+
+    <!-- Sidebar Column -->
+    <div class="col-lg-3">
+      <div class="concepts-sidebar sticky-top" style="top: 2rem; z-index: 1;">
+
+        <!-- Table of Contents -->
+        {{ if .Params.toc }}
+        <div class="sidebar-widget toc-widget">
+          <h5 class="widget-title"><i class="fas fa-list-ul me-2"></i>Table of Contents</h5>
+          <div class="toc-content">
+            {{ .TableOfContents }}
+          </div>
+        </div>
+        {{ end }}
+
+        <!-- Series Widget -->
+        {{ if .Params.series }}
+        {{ $currentSeries := .Params.series }}
+        {{ $seriesPages := where .Site.RegularPages "Params.series" $currentSeries }}
+        {{ $seriesPages := $seriesPages.ByWeight }}
+
+        <div class="sidebar-widget series-widget">
+          <h5 class="widget-title">
+            <i class="fas fa-layer-group me-2"></i>{{ $currentSeries | title }} Series
+          </h5>
+          <div class="series-list">
+            {{ range $seriesPages }}
+            <a href="{{ .Permalink }}" class="series-item {{ if eq .Permalink $.Permalink }}active{{ end }}">
+              <span class="series-number">{{ .Params.weight | printf "%02d" }}</span>
+              <span class="series-link-title">{{ .Title }}</span>
+            </a>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 1. Wrap Tables for Responsiveness
+    const tables = document.querySelectorAll('.article-content table');
+    tables.forEach(table => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'table-responsive';
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    });
+
+    // 2. Enhance Code Blocks
+    const codeBlocks = document.querySelectorAll('.article-content pre');
+    codeBlocks.forEach(pre => {
+      // Create wrapper
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      // Add Header
+      const header = document.createElement('div');
+      header.className = 'code-header';
+
+      // Try to detect language
+      let lang = 'Code';
+      const code = pre.querySelector('code');
+      if (code) {
+        const classes = code.className.split(' ');
+        const langClass = classes.find(c => c.startsWith('language-'));
+        if (langClass) {
+          lang = langClass.replace('language-', '').toUpperCase();
+        }
+      }
+
+      header.innerHTML = `
+      <span class="code-lang">${lang}</span>
+      <button class="copy-btn" aria-label="Copy code">
+        <i class="far fa-copy"></i> Copy
+      </button>
+    `;
+      wrapper.insertBefore(header, pre);
+
+      // Copy Functionality
+      const copyBtn = header.querySelector('.copy-btn');
+      copyBtn.addEventListener('click', () => {
+        const text = code ? code.innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          setTimeout(() => {
+            copyBtn.innerHTML = '<i class="far fa-copy"></i> Copy';
+          }, 2000);
+        });
+      });
+
+      // Collapsible Logic for Long Blocks
+      if (pre.scrollHeight > 500) {
+        wrapper.classList.add('collapsed');
+        const expandBtn = document.createElement('button');
+        expandBtn.className = 'expand-btn';
+        expandBtn.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
+        wrapper.appendChild(expandBtn);
+
+        expandBtn.addEventListener('click', () => {
+          wrapper.classList.remove('collapsed');
+          expandBtn.remove();
+        });
+      }
+    });
+  });
+</script>
+{{ end }}

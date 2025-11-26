@@ -1,0 +1,82 @@
+{{ if .Params.series }}
+<div class="series-navigation">
+  <div class="series-info">
+    <div class="series-badge {{ .Params.series }}">
+      {{ if eq .Params.series "polars-mastery" }}🔥 Polars Series{{ end }}
+      {{ if eq .Params.series "pandas-mastery" }}🐼 Pandas Series{{ end }}
+      {{ if eq .Params.series "sql-fundamentals" }}🗄️ SQL Series{{ end }}
+      {{ if eq .Params.series "azure-data-services" }}☁️ Azure Series{{ end }}
+    </div>
+    <div class="series-title">
+      {{ if eq .Params.series "polars-mastery" }}From Pandas to Polars: Complete Migration Guide{{ end }}
+      {{ if eq .Params.series "pandas-mastery" }}Advanced Pandas Techniques & Optimization{{ end }}
+      {{ if eq .Params.series "sql-fundamentals" }}SQL Fundamentals & Advanced Patterns{{ end }}
+      {{ if eq .Params.series "azure-data-services" }}Azure Data Services & Patterns{{ end }}
+    </div>
+  </div>
+  
+  <div class="series-articles">
+    {{ $currentSeries := .Params.series }}
+    {{ $currentWeight := .Params.weight }}
+    {{ range .Site.Pages }}
+      {{ if and (eq .Params.series $currentSeries) (eq .Section "concepts") }}
+        <div class="series-article {{ if eq .Params.weight $currentWeight }}current{{ end }}">
+          <div class="article-number">
+            {{ if eq .Params.series "polars-mastery" }}
+              {{ if eq .Params.weight 10 }}01{{ end }}
+              {{ if eq .Params.weight 20 }}02{{ end }}
+            {{ else if eq .Params.series "pandas-mastery" }}
+              {{ if eq .Params.weight 30 }}01{{ end }}
+            {{ else if eq .Params.series "sql-fundamentals" }}
+              {{ if eq .Params.weight 40 }}01{{ end }}
+            {{ else if eq .Params.series "azure-data-services" }}
+              {{ if eq .Params.weight 50 }}01{{ end }}
+            {{ end }}
+          </div>
+          <div class="article-info">
+            {{ if eq .Params.weight $currentWeight }}
+              <span class="article-title current">{{ .Title }}</span>
+            {{ else }}
+              <a href="{{ .RelPermalink }}" class="article-title">{{ .Title }}</a>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+  
+  <div class="series-navigation-links">
+    {{ $currentSeries := .Params.series }}
+    {{ $currentWeight := .Params.weight }}
+    {{ $prevArticle := "" }}
+    {{ $nextArticle := "" }}
+    
+    {{ range .Site.Pages }}
+      {{ if and (eq .Params.series $currentSeries) (eq .Section "concepts") }}
+        {{ if lt .Params.weight $currentWeight }}
+          {{ $prevArticle = . }}
+        {{ end }}
+        {{ if and (gt .Params.weight $currentWeight) (eq $nextArticle "") }}
+          {{ $nextArticle = . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    
+    <div class="nav-links">
+      {{ if $prevArticle }}
+        <a href="{{ $prevArticle.RelPermalink }}" class="nav-link prev">
+          <i class="fas fa-chevron-left"></i>
+          <span>Previous: {{ $prevArticle.Title }}</span>
+        </a>
+      {{ end }}
+      
+      {{ if $nextArticle }}
+        <a href="{{ $nextArticle.RelPermalink }}" class="nav-link next">
+          <span>Next: {{ $nextArticle.Title }}</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
