@@ -7,7 +7,7 @@ tags: ["pandas", "dataframes", "filtering", "subset", "indexing"]
 toc: true
 draft: false
 series: "pandas"
-weight: 1
+weight: 2
 ---
 
 # Subsetting a DataFrame in Pandas
