@@ -4,7 +4,6 @@ description: "Working with Azure Data Lake Storage, blob storage, and data acces
 date: 2025-11-25T10:00:00+05:30
 categories: ["Azure", "Cloud", "Data Engineering"]
 tags: ["azure", "adls", "blob-storage", "data-access", "cloud", "storage"]
-weight: 50
 toc: true
 draft: false
 series: "azure"

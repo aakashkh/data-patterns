@@ -4,7 +4,6 @@ date: 2025-01-16T10:00:00+05:30
 description: "Master advanced Polars expressions including string manipulation, datetime operations, list columns, and complex data transformations."
 categories: ["Python", "Data Engineering"]
 tags: ["polars", "expressions", "strings", "datetime", "lists", "advanced"]
-weight: 20
 toc: true
 draft: false
 series: "polars"

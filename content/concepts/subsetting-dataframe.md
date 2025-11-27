@@ -4,7 +4,6 @@ description: "Learn different techniques to filter and subset pandas DataFrames 
 date: 2019-01-05T00:00:00+00:00
 categories: ["Python", "Data Engineering"]
 tags: ["pandas", "dataframes", "filtering", "subset", "indexing"]
-weight: 30
 toc: true
 draft: false
 series: "pandas"

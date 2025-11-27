@@ -4,7 +4,6 @@ description: "Essential SQL concepts, query structure, and fundamental patterns 
 date: 2025-11-25T10:00:00+05:30
 categories: ["SQL", "Database"]
 tags: ["sql", "database", "queries", "select", "joins", "aggregations"]
-weight: 40
 toc: true
 draft: false
 series: "sql"

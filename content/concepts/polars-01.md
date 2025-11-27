@@ -4,7 +4,6 @@ date: 2025-01-15T10:00:00+05:30
 description: "Learn the fundamental differences between Pandas and Polars, understand core concepts unique to Polars, and get productive with minimal friction."
 categories: ["Python", "Data Engineering"]
 tags: ["polars", "pandas", "dataframes", "performance", "rust", "lazy-evaluation"]
-weight: 10
 toc: true
 draft: false
 series: "polars"
