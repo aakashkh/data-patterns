@@ -1073,7 +1073,7 @@
 }
 
 /* Collapsible Code Blocks */
-.code-block-wrapper.collapsed .article-content pre {
+.code-block-wrapper.collapsed pre {
   max-height: 400px;
   overflow: hidden;
   mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
