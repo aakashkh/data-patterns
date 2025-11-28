@@ -7,7 +7,7 @@ tags: ["polars", "expressions", "strings", "datetime", "lists", "advanced"]
 toc: true
 draft: false
 series: "polars"
-weight: 2
+weight: 8
 ---
 
 # Advanced Polars Expressions: String Operations & Complex Data Types

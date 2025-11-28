@@ -1,6 +1,6 @@
 ---
 title: "Mastering Polars Data Types and Missing Values"
-date: 2025-01-16T10:00:00+05:30
+date: 2025-11-28T10:00:00+05:30
 description: "Understand Polars' strict type system, nested data structures like Arrays, Lists, and Structs, and learn the crucial differences between null and NaN for robust data pipelines."
 categories: ["Python", "Data Engineering"]
 tags: ["polars", "data-types", "nested-data", "null-handling", "arrays", "lists", "structs"]
