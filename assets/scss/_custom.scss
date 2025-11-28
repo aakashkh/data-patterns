@@ -1,5 +1,8 @@
 // Code Block Styling
-pre, code, kbd, samp {
+pre,
+code,
+kbd,
+samp {
   font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: 0.9em;
   line-height: 1.6;
@@ -22,29 +25,29 @@ pre {
   border-radius: 6px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: auto;
-  
+
   code {
     color: #f8f8f2;
     background: transparent;
     padding: 0;
     border-radius: 0;
   }
-  
+
   &[class*="language-"] {
     padding: 1.5em;
     margin: 1.5rem 0;
   }
-  
+
   &::-webkit-scrollbar {
     height: 8px;
     width: 8px;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
@@ -73,11 +76,11 @@ code {
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.2s ease;
-  
+
   &:hover {
     background: rgba(255, 255, 255, 0.2);
   }
-  
+
   &:active {
     transform: translateY(1px);
   }
@@ -105,8 +108,8 @@ pre:hover .copy-code-button {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   padding-right: 1em;
   margin-right: 1em;
-  
-  > span:before {
+
+  >span:before {
     color: rgba(255, 255, 255, 0.3);
   }
 }
@@ -188,7 +191,7 @@ pre:hover .copy-code-button {
   pre {
     padding: 1rem;
     font-size: 0.9em;
-    
+
     &[class*="language-"] {
       padding: 1em;
     }
@@ -237,6 +240,7 @@ pre:hover .copy-code-button {
   .categories-list {
     .nav-link {
       color: #333;
+
       &.active {
         font-weight: bold;
       }
@@ -245,6 +249,7 @@ pre:hover .copy-code-button {
 
   .tag-group {
     margin-bottom: 2rem;
+
     h3 {
       border-bottom: 1px solid #eee;
       padding-bottom: 0.5rem;
@@ -254,14 +259,17 @@ pre:hover .copy-code-button {
   .tags-list {
     list-style: none;
     padding: 0;
+
     li {
       display: inline-block;
       margin-right: 0.5rem;
+
       a {
         background-color: #f1f1f1;
         color: #333;
         padding: 0.25rem 0.75rem;
         border-radius: 0.25rem;
+
         &:hover {
           background-color: #ddd;
         }
