@@ -19,6 +19,7 @@ The "Concepts" section is organized by **Series**. The association between a pos
 - **Python**:
   - **Polars**: Set `series: "polars"`
   - **Pandas**: Set `series: "pandas"`
+  - **PySpark**: Set `series: "pyspark"`
 
 ## How to Add a New Post
 To add a new post, create a new Markdown file in `content/concepts/` (e.g., `my-new-post.md`) and use the following frontmatter template:

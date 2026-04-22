@@ -41,6 +41,7 @@
           <button class="sub-nav-btn active" data-subfilter="all">All Python</button>
           <button class="sub-nav-btn" data-subfilter="polars">Polars</button>
           <button class="sub-nav-btn" data-subfilter="pandas">Pandas</button>
+          <button class="sub-nav-btn" data-subfilter="pyspark">PySpark</button>
         </div>
       </div>
     </div>
@@ -74,6 +75,7 @@
             {{ $subSeries := dict
               "polars" (dict "title" "From Pandas to Polars: Complete Migration Guide" "description" "Master the next-generation DataFrame library with expression-based programming, lazy evaluation, and blazing-fast performance." "badge" "🔥 Polars Series" "coming_soon" (slice "Joins & Data Reshaping" "Grouping & Aggregations" "Performance Optimization" "Production Workflows"))
               "pandas" (dict "title" "Advanced Pandas Techniques & Optimization" "description" "Deep dive into advanced Pandas patterns, performance optimization, and complex data operations." "badge" "🐼 Pandas Series" "coming_soon" (slice "Advanced GroupBy Operations" "Performance Optimization" "Window Functions"))
+              "pyspark" (dict "title" "From Pandas to PySpark: Distributed Data Engineering" "description" "Learn PySpark from a Pandas perspective — covering Spark SQL, window functions, joins, datetime operations, schema handling, and performance optimization." "badge" "⚡ PySpark Series" "coming_soon" (slice "Structured Streaming" "Delta Lake Integration" "Spark on Databricks"))
             }}
 
             {{ range $subSeriesKey, $subSeriesMeta := $subSeries }}
@@ -163,33 +165,7 @@
         </section>
       {{ end }}
       
-      <!-- What You'll Master Section -->
-      <section class="mastery-section">
-        <h2 class="mastery-title">What You'll Master</h2>
-        <div class="mastery-grid">
-          <div class="mastery-item">
-            <div class="mastery-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <h3>Practical Examples</h3>
-            <p>Real-world code samples and use cases you can implement immediately</p>
-          </div>
-          <div class="mastery-item">
-            <div class="mastery-icon">
-              <i class="fas fa-tachometer-alt"></i>
-            </div>
-            <h3>Performance Optimization</h3>
-            <p>Techniques to make your data processing faster and more efficient</p>
-          </div>
-          <div class="mastery-item">
-            <div class="mastery-icon">
-              <i class="fas fa-cogs"></i>
-            </div>
-            <h3>Best Practices</h3>
-            <p>Industry standards and patterns used by data engineering professionals</p>
-          </div>
-        </div>
-      </section>
+
       
     </div>
   </div>
