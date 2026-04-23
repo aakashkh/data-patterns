@@ -35,7 +35,8 @@
           <div class="article-tags">
             <span class="tags-label"><i class="fas fa-tags me-2"></i>Tags:</span>
             {{ range .Params.tags }}
-            <a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+
             {{ end }}
           </div>
           {{ end }}
@@ -164,19 +165,7 @@
         });
       });
 
-      // Collapsible Logic for Long Blocks
-      if (pre.scrollHeight > 500) {
-        wrapper.classList.add('collapsed');
-        const expandBtn = document.createElement('button');
-        expandBtn.className = 'expand-btn';
-        expandBtn.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
-        wrapper.appendChild(expandBtn);
 
-        expandBtn.addEventListener('click', () => {
-          wrapper.classList.remove('collapsed');
-          expandBtn.remove();
-        });
-      }
     });
   });
 </script>

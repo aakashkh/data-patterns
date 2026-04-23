@@ -51,6 +51,22 @@
       </div>
     </div>
 
+    <!-- Popular Tags Section -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <h5 class="text-uppercase fw-bold mb-3 small">Popular Tags</h5>
+        <div class="footer-tags py-2 border-top border-secondary">
+          {{ range $index, $term := first 15 .Site.Taxonomies.tags.ByCount }}
+            {{ if $index }}, {{ end }}
+            <a href="{{ .Page.RelPermalink }}" class="text-white-50 text-decoration-none hover-text-primary small">
+              #{{ .Page.Title }}
+            </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+
     <!-- Copyright and Attribution -->
     <hr class="my-4 border-secondary">
     <div class="row align-items-center">

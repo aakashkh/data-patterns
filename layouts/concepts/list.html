@@ -73,9 +73,9 @@
 
           {{ if eq $seriesKey "python" }}
             {{ $subSeries := dict
-              "polars" (dict "title" "From Pandas to Polars: Complete Migration Guide" "description" "Master the next-generation DataFrame library with expression-based programming, lazy evaluation, and blazing-fast performance." "badge" "🔥 Polars Series" "coming_soon" (slice "Joins & Data Reshaping" "Grouping & Aggregations" "Performance Optimization" "Production Workflows"))
-              "pandas" (dict "title" "Advanced Pandas Techniques & Optimization" "description" "Deep dive into advanced Pandas patterns, performance optimization, and complex data operations." "badge" "🐼 Pandas Series" "coming_soon" (slice "Advanced GroupBy Operations" "Performance Optimization" "Window Functions"))
-              "pyspark" (dict "title" "From Pandas to PySpark: Distributed Data Engineering" "description" "Learn PySpark from a Pandas perspective — covering Spark SQL, window functions, joins, datetime operations, schema handling, and performance optimization." "badge" "⚡ PySpark Series" "coming_soon" (slice "Structured Streaming" "Delta Lake Integration" "Spark on Databricks"))
+              "polars" (dict "title" "From Pandas to Polars: Complete Migration Guide" "description" "Master the next-generation DataFrame library with expression-based programming, lazy evaluation, and blazing-fast performance." "badge" "🔥 Polars Series")
+              "pandas" (dict "title" "Advanced Pandas Techniques & Optimization" "description" "Deep dive into advanced Pandas patterns, performance optimization, and complex data operations." "badge" "🐼 Pandas Series")
+              "pyspark" (dict "title" "From Pandas to PySpark: Distributed Data Engineering" "description" "Learn PySpark from a Pandas perspective — covering Spark SQL, window functions, joins, datetime operations, schema handling, and performance optimization." "badge" "⚡ PySpark Series")
             }}
 
             {{ range $subSeriesKey, $subSeriesMeta := $subSeries }}
@@ -86,35 +86,22 @@
                   <p class="series-description">{{ $subSeriesMeta.description }}</p>
                 </div>
                 
-                <div class="articles-grid">
+                <div class="articles-list">
                   {{ range where ($grouped | default slice) "Key" $subSeriesKey }}
                     {{ range .Pages.ByWeight }}
-                      <article class="article-card">
-                        <div class="article-number">{{ .Params.weight | printf "%02d" }}</div>
-                        <div class="article-content">
-                          <h4 class="article-title">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                          </h4>
-                          <p class="article-description">{{ .Description }}</p>
-                          <div class="article-tags">
-                            {{ range .Params.tags }}
-                              <span class="tag">{{ . }}</span>
-                            {{ end }}
-                          </div>
-                        </div>
-                      </article>
+                      <a href="{{ .Permalink }}" class="article-list-item">
+                        <span class="article-list-number">{{ .Params.weight | printf "%02d" }}</span>
+                        <span class="article-list-title">{{ .Title }}</span>
+                        <span class="article-list-meta">
+                          <i class="far fa-clock"></i> {{ .ReadingTime }} min read
+                        </span>
+                      </a>
                     {{ end }}
                   {{ end }}
                 </div>
+
                 
-                <div class="coming-soon">
-                  <h5>Coming Soon in {{ $subSeriesKey | title }} Series:</h5>
-                  <ul>
-                    {{ range $subSeriesMeta.coming_soon }}
-                      <li><strong>{{ . }}</strong></li>
-                    {{ end }}
-                  </ul>
-                </div>
+
               </div>
             {{ end }}
           {{ else }}
@@ -126,39 +113,20 @@
                   <p class="series-description">{{ $seriesMeta.description }}</p>
                 </div>
                 
-                <div class="articles-grid">
+                <div class="articles-list">
                   {{ range .Pages.ByWeight }}
-                    <article class="article-card">
-                      <div class="article-number">{{ .Params.weight | printf "%02d" }}</div>
-                      <div class="article-content">
-                        <h4 class="article-title">
-                          <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </h4>
-                        <p class="article-description">{{ .Description }}</p>
-                        <div class="article-tags">
-                          {{ range .Params.tags }}
-                            <span class="tag">{{ . }}</span>
-                          {{ end }}
-                        </div>
-                      </div>
-                    </article>
+                    <a href="{{ .Permalink }}" class="article-list-item">
+                      <span class="article-list-number">{{ .Params.weight | printf "%02d" }}</span>
+                      <span class="article-list-title">{{ .Title }}</span>
+                      <span class="article-list-meta">
+                        <i class="far fa-clock"></i> {{ .ReadingTime }} min read
+                      </span>
+                    </a>
                   {{ end }}
                 </div>
 
-                <div class="coming-soon">
-                  <h5>Coming Soon in {{ $seriesKey | title }} Series:</h5>
-                  <ul>
-                    {{ if eq $seriesKey "sql" }}
-                      <li><strong>Advanced Query Patterns</strong></li>
-                      <li><strong>Performance Tuning</strong></li>
-                      <li><strong>Database Design</strong></li>
-                    {{ else if eq $seriesKey "azure" }}
-                      <li><strong>Azure Data Factory</strong></li>
-                      <li><strong>Azure Synapse Analytics</strong></li>
-                      <li><strong>Data Security & Governance</strong></li>
-                    {{ end }}
-                  </ul>
-                </div>
+
+
               </div>
             {{ end }}
           {{ end }}

@@ -26,39 +26,19 @@
         <div class="row">
           <div class="col-lg-8">
             {{ if .Pages }}
+            <div class="articles-list">
               {{ range .Pages }}
-              <article class="card post-card mb-4 shadow-sm">
-                <div class="card-body">
-                  <div class="post-meta d-flex align-items-center mb-2">
-                    <time datetime="{{ .Date.Format "2006-01-02" }}" class="text-muted small">
-                      <i class="far fa-calendar-alt me-1"></i> {{ .Date.Format "January 2, 2006" }}
-                    </time>
-                    {{ if .Params.categories }}
-                    <span class="ms-3 text-muted small">
-                      <i class="fas fa-folder me-1"></i>
-                      {{ range $index, $category := .Params.categories }}
-                        {{ if $index }}, {{ end }}
-                        <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/" class="text-muted">{{ . | title }}</a>
-                      {{ end }}
-                    </span>
-                    {{ end }}
-                  </div>
-                  <h2 class="h4 card-title mb-3">
-                    <a href="{{ .RelPermalink }}" class="text-decoration-none text-dark">
-                      {{ .Title }}
-                    </a>
-                  </h2>
-                  <p class="card-text text-muted">
-                    {{ .Summary | truncate 200 }}
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <a href="{{ .RelPermalink }}" class="btn btn-sm btn-outline-primary">
-                      Read more <i class="fas fa-arrow-right ms-1"></i>
-                    </a>
-                  </div>
-                </div>
-              </article>
+                <a href="{{ .RelPermalink }}" class="article-list-item">
+                  <span class="article-list-title">{{ .Title }}</span>
+                  <span class="article-list-meta">
+                    <i class="far fa-calendar-alt"></i> {{ .Date.Format "Jan 2, 2006" }}
+                    <span class="mx-1">•</span>
+                    <i class="far fa-clock"></i> {{ .ReadingTime }} min read
+                  </span>
+                </a>
               {{ end }}
+            </div>
+
             {{ else }}
               <div class="alert alert-info">
                 <i class="fas fa-info-circle me-2"></i> No posts found in this category yet.

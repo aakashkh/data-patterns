@@ -12,22 +12,22 @@
         <div class="card-body p-4">
           <!-- Search Box -->
           <div class="mb-4 position-relative">
-            <div class="input-group">
-              <span class="input-group-text bg-light border-end-0">
-                <i class="fas fa-search text-muted"></i>
-              </span>
+            <div class="input-group shadow-sm rounded-pill overflow-hidden">
               <input 
                 type="text" 
                 id="tagSearch" 
-                class="form-control border-start-0 ps-0" 
+                class="form-control border-0 ps-4 py-3" 
                 placeholder="Search tags..." 
                 aria-label="Search tags"
-                style="padding-left: 0.5rem;"
               >
-              <button id="clearSearch" class="btn btn-outline-secondary d-none" type="button" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
-                <i class="fas fa-times"></i>
+              <button id="clearSearch" class="btn btn-white border-0 d-none pe-4" type="button">
+                <i class="fas fa-times text-muted"></i>
               </button>
+              <span class="input-group-text bg-white border-0 pe-4">
+                <i class="fas fa-search text-primary opacity-50"></i>
+              </span>
             </div>
+
             <div class="form-text text-muted mt-1 ms-1">Type to filter tags</div>
           </div>
           
@@ -76,40 +76,36 @@
     border-radius: 0.5rem;
     font-weight: 500;
     transition: all 0.2s ease;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    display: inline-block;
+    max-width: 100%;
   }
+
   a:hover .badge {
     background-color: var(--bs-primary) !important;
     color: white !important;
   }
   
   /* Search Styles */
+  .input-group {
+    background: white;
+    transition: all 0.3s ease;
+  }
+  .input-group:focus-within {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05) !important;
+  }
   #tagSearch {
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem !important;
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    transition: all 0.2s ease;
+    box-shadow: none;
+    border: none;
   }
   #tagSearch:focus {
-    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
-    border-color: var(--bs-primary);
-    position: relative;
-    z-index: 3; /* Ensure focus state is above other elements */
+    box-shadow: none;
   }
-  .input-group-text {
-    border-radius: 0.5rem 0 0 0.5rem !important;
-    background-color: #f8f9fa;
-    border-right: none;
-    padding: 0.75rem 1rem;
+  #clearSearch:hover i {
+    color: var(--bs-danger) !important;
   }
-  #clearSearch {
-    border-radius: 0 0.5rem 0.5rem 0 !important;
-    padding: 0.75rem 1rem;
-    transition: all 0.2s ease;
-  }
-  .input-group:focus-within .input-group-text {
-    border-color: var(--bs-primary);
-  }
+
   
   /* Animation for search results */
   .tag-item {
@@ -117,14 +113,9 @@
     min-height: 1px; /* Prevent layout shift */
   }
   .tag-item.hidden {
-    opacity: 0;
-    transform: scale(0.9);
-    height: 0;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    pointer-events: none;
+    display: none !important;
   }
+
   
   /* Main content area */
   main {
