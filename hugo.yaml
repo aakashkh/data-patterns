@@ -23,7 +23,7 @@ disableKinds: []
 pygmentsCodeFences: true
 pygmentsUseClasses: false
 pygmentsUseClassic: false
-pygmentsStyle: "tango"
+pygmentsStyle: "github"
 
 # Configure how URLs look like per section.
 permalinks:

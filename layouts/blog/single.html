@@ -259,7 +259,8 @@
       if (!header) {
         header = document.createElement('div');
         header.className = 'code-header d-flex justify-content-between align-items-center px-3 py-2';
-        header.style.background = '#2d2d2d';
+        header.style.background = '#f1f3f5';
+        header.style.borderBottom = '1px solid #e1e4e8';
         header.style.borderRadius = '6px 6px 0 0';
         container.insertBefore(header, container.firstChild);
       }
@@ -268,7 +269,7 @@
       if (language && language !== 'code') {
         const langLabel = document.createElement('span');
         langLabel.textContent = language;
-        langLabel.className = 'text-muted small';
+        langLabel.className = 'text-muted small fw-bold';
         header.appendChild(langLabel);
       } else {
         header.appendChild(document.createElement('span')); // Empty span for flex spacing
@@ -277,7 +278,7 @@
       // Add copy button if it doesn't exist
       if (!header.querySelector('.copy-code')) {
         const copyBtn = document.createElement('button');
-        copyBtn.className = 'btn btn-sm btn-outline-light copy-code';
+        copyBtn.className = 'btn btn-sm btn-outline-secondary copy-code';
         copyBtn.innerHTML = '<i class="far fa-copy me-1"></i> Copy';
         copyBtn.style.fontSize = '0.75rem';
         copyBtn.style.padding = '0.25rem 0.5rem';
@@ -398,22 +399,22 @@
   .code-block-container {
     margin: 1.5rem 0;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    background: #1e1e1e;
-    border: 1px solid #333;
+    background: #f8f9fa;
+    border: 1px solid #e1e4e8;
     transition: all 0.3s ease;
   }
   
   .code-block-container:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     transform: translateY(-1px);
   }
   
   /* Code header with language and copy button */
   .code-header {
-    background: #2d2d2d;
-    border-bottom: 1px solid #444;
+    background: #f1f3f5;
+    border-bottom: 1px solid #e1e4e8;
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
@@ -421,18 +422,18 @@
   }
   
   .code-header .language-label {
-    color: #e0e0e0;
+    color: #586069;
     font-family: 'Fira Code', monospace;
     font-size: 0.8em;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
   
   .code-header .copy-code {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e0e0e0;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #586069;
     padding: 0.25rem 0.75rem;
     border-radius: 4px;
     font-size: 0.75em;
@@ -444,8 +445,8 @@
   }
   
   .code-header .copy-code:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-1px);
+    background: rgba(0, 0, 0, 0.1);
+    color: #24292e;
   }
   
   .code-header .copy-code:active {
@@ -457,9 +458,6 @@
   }
   
   /* Make sure pre and code elements don't have backgrounds */
-  .blog-content pre,
-  .blog-content pre code {
-  
   .blog-content pre {
     margin: 0 !important;
     padding: 0 !important;
@@ -473,9 +471,9 @@
     font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
     font-size: 0.9em !important;
     line-height: 1.6 !important;
-    color: #e0e0e0 !important;
+    color: #24292e !important;
     background: transparent !important;
-    padding: 1rem !important;
+    padding: 1.25rem !important;
     border: none !important;
     display: block;
     overflow-x: auto;
@@ -492,39 +490,6 @@
   }
   
   /* ======================
-     Syntax Highlighting
-     ====================== */
-  
-  /* Base syntax colors */
-  .blog-content pre code .keyword { color: #c678dd; }      /* function, if, else */
-  .blog-content pre code .function { color: #61afef; }     /* Function names */
-  .blog-content pre code .string { color: #98c379; }       /* Strings */
-  .blog-content pre code .comment { 
-    color: #5c6370 !important; 
-    font-style: italic !important;
-  }
-  .blog-content pre code .operator { color: #56b6c2; }     /* +, -, =, <-, etc */
-  .blog-content pre code .number { color: #d19a66; }       /* Numbers */
-  .blog-content pre code .boolean { color: #d19a66; }      /* TRUE, FALSE */
-  .blog-content pre code .symbol { color: #e5c07b; }       /* Variables */
-  .blog-content pre code .function-call { color: #61afef; } /* Function calls */
-  
-  /* Python specific */
-  .blog-content pre code .python-keyword { color: #c678dd; }  /* def, class, import */
-  .blog-content pre code .python-builtin { color: #56b6c2; }  /* print, len, etc */
-  
-  /* SQL specific */
-  .blog-content pre code .sql-keyword { color: #c678dd; }     /* SELECT, FROM, WHERE */
-  .blog-content pre code .sql-function { color: #61afef; }    /* COUNT, SUM, etc */
-  .blog-content pre code .sql-string { color: #98c379; }      /* String literals */
-  .blog-content pre code .sql-number { color: #d19a66; }      /* Numbers */
-  .blog-content pre code .sql-comment { 
-    color: #5c6370 !important; 
-    font-style: italic !important; 
-  }
-  }
-  
-  /* ======================
      Compatibility Fixes
      ====================== */
   
@@ -535,13 +500,13 @@
   
   /* Code block styling */
   .blog-content pre {
-    background: #2d2d2d !important;
+    background: transparent !important;
     border-radius: 6px;
     margin: 1.5rem 0 !important;
-    padding: 1.5rem !important;
+    padding: 0 !important;
     overflow: auto;
     position: relative;
-    color: #f8f8f2;
+    color: #24292e;
     font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
     font-size: 0.9em;
     line-height: 1.6;
@@ -557,7 +522,7 @@
   /* Make sure code inside pre doesn't add extra spacing */
   .blog-content pre code {
     background: transparent !important;
-    padding: 0 !important;
+    padding: 1.25rem !important;
     margin: 0 !important;
     border: none !important;
     font-size: inherit;
@@ -565,22 +530,10 @@
     line-height: inherit;
   }
   
-  /* Code content */
-  .blog-content pre[class*="language-"] code {
-    display: block;
-    padding: 1.5rem !important;
-    background: transparent !important;
-    color: #f8f8f2;
-    font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    font-size: 0.9em;
-    line-height: 1.6;
-    overflow-x: auto;
-  }
-  
   /* Inline code */
   .blog-content code:not([class*="language-"]) {
     background: rgba(175, 184, 193, 0.2) !important;
-    color: #e53935;
+    color: #d73a49;
     padding: 0.2em 0.4em;
     border-radius: 3px;
     font-size: 85%;
@@ -604,7 +557,7 @@
     left: -2.5rem;
     width: 2rem;
     text-align: right;
-    color: #6c757d;
+    color: #6a737d;
     font-size: 0.8em;
     user-select: none;
   }

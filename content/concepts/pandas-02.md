@@ -263,3 +263,159 @@ This subsetting technique is fundamental to many other pandas operations:
 - **Groupby Operations** - Subset data before grouping for targeted analysis
 
 Master these filtering patterns and you'll handle 90% of data subsetting challenges efficiently!
+
+---
+
+## Combining and Reshaping DataFrames
+
+### Sample Data
+
+```python
+import pandas as pd
+import numpy as np
+
+students = pd.DataFrame({
+    "StudentID": [1, 2, 3, 4],
+    "Name":      ["Alice", "Bob", "Charlie", "David"],
+    "Age":       [20, 22, 19, 21]
+})
+
+scores = pd.DataFrame({
+    "StudentID": [1, 2, 3, 5],
+    "Subject":   ["Math", "Science", "Math", "History"],
+    "Score":     [85, 90, 78, 92]
+})
+```
+
+### merge — Joining DataFrames
+
+```python
+# Inner join — only matching StudentIDs
+merged_inner = pd.merge(students, scores, on="StudentID", how="inner")
+
+# Left join — keep all students, NaN where no score exists
+merged_left = pd.merge(students, scores, on="StudentID", how="left",
+                       suffixes=("_stu", "_scr"))
+```
+
+| `how` | Keeps |
+|---|---|
+| `inner` | Only matching rows on both sides |
+| `left` | All rows from left, NaN for unmatched right |
+| `right` | All rows from right, NaN for unmatched left |
+| `outer` | All rows from both, NaN where no match |
+
+```python
+# Join on different column names
+pd.merge(students, scores, left_on="StudentID", right_on="StudentID")
+```
+
+### concat — Stacking DataFrames
+
+```python
+# Vertical stack (axis=0) — append rows
+concat_vertical = pd.concat([students, students], axis=0, ignore_index=True)
+
+# Horizontal stack (axis=1) — append columns
+concat_horizontal = pd.concat([students, scores], axis=1)
+
+# With keys to identify source
+concat_keyed = pd.concat({"Set1": students, "Set2": scores}, axis=1, join="inner")
+```
+
+**`merge` vs `concat`:** use `merge` when joining on a key column; use `concat` when stacking rows or columns directly.
+
+### melt — Wide to Long
+
+```python
+wide_df = pd.DataFrame({
+    "StudentID": [1, 2],
+    "Math":      [85, 90],
+    "Science":   [88, 92]
+})
+
+melted = pd.melt(
+    wide_df,
+    id_vars=["StudentID"],       # columns to keep as-is
+    value_vars=["Math", "Science"],  # columns to unpivot
+    var_name="Subject",
+    value_name="Score"
+)
+```
+
+Output:
+```
+   StudentID  Subject  Score
+0          1     Math     85
+1          2     Math     90
+2          1  Science     88
+3          2  Science     92
+```
+
+### pivot — Long to Wide
+
+```python
+long_df = pd.DataFrame({
+    "StudentID": [1, 1, 2, 2],
+    "Subject":   ["Math", "Science", "Math", "Science"],
+    "Score":     [85, 88, 90, 92]
+})
+
+pivoted = long_df.pivot(index="StudentID", columns="Subject", values="Score")
+```
+
+Output:
+```
+Subject    Math  Science
+StudentID               
+1            85       88
+2            90       92
+```
+
+> `pivot` raises `ValueError` if there are duplicate `(index, columns)` combinations. Use `pivot_table` instead.
+
+### pivot_table — pivot with Aggregation
+
+```python
+# Handles duplicates by aggregating
+pivot_table = pd.pivot_table(
+    long_df,
+    index="StudentID",
+    columns="Subject",
+    values="Score",
+    aggfunc="mean",
+    fill_value=0
+)
+```
+
+### Common Exceptions
+
+```python
+# merge: mismatched key names raises KeyError
+try:
+    pd.merge(students, scores, left_on="Name", right_on="Subject")
+except KeyError as e:
+    print("KeyError:", e)
+
+# pivot: duplicate entries raises ValueError
+long_df_dup = pd.DataFrame({
+    "StudentID": [1, 1, 1],
+    "Subject":   ["Math", "Math", "Science"],
+    "Score":     [85, 87, 88]
+})
+try:
+    long_df_dup.pivot(index="StudentID", columns="Subject", values="Score")
+except ValueError as e:
+    print("ValueError:", e)  # use pivot_table with aggfunc instead
+```
+
+### Quick Reference
+
+| Operation | Function | Direction |
+|---|---|---|
+| Join on key | `pd.merge(df1, df2, on=key)` | Side by side |
+| Stack rows | `pd.concat([df1, df2], axis=0)` | Vertical |
+| Stack columns | `pd.concat([df1, df2], axis=1)` | Horizontal |
+| Wide → Long | `pd.melt(df, id_vars=..., value_vars=...)` | Unpivot |
+| Long → Wide | `df.pivot(index=..., columns=..., values=...)` | Pivot |
+| Long → Wide + agg | `pd.pivot_table(df, aggfunc=...)` | Pivot with duplicates |

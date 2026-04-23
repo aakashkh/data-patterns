@@ -1036,8 +1036,9 @@
   margin: 2.5rem 0;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  background: #282c34;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
   position: relative;
 }
 
@@ -1046,35 +1047,35 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1.25rem;
-  background: #21252b;
-  border-bottom: 1px solid #3e4451;
-  color: #abb2bf;
+  background: #e9ecef;
+  border-bottom: 1px solid #dee2e6;
+  color: #495057;
   font-family: 'Fira Code', monospace;
   font-size: 0.85rem;
 }
 
 .code-lang {
   font-weight: 700;
-  color: #61afef;
+  color: #0d6efd;
 }
 
 .copy-btn {
   background: transparent;
   border: none;
-  color: #abb2bf;
+  color: #6c757d;
   cursor: pointer;
   font-size: 0.85rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: color 0.2s;
+  transition: all 0.2s;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }
 
 .copy-btn:hover {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
+  color: #212529;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .article-content pre {
@@ -1083,7 +1084,12 @@
   box-shadow: none;
   padding: 1.5rem;
   max-height: none;
-  /* Reset default if any */
+  background: transparent !important;
+  color: #24292e !important;
+}
+
+.article-content pre code {
+  color: inherit !important;
 }
 
 /* =========================================

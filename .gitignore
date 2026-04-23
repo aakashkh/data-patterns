@@ -67,3 +67,6 @@ Thumbs.db
 .vscode/
 *.sublime-*
 temp/
+
+# Draft content (raw notes, scripts, unformatted files)
+content/concepts/draft/

@@ -40,8 +40,8 @@ title = 'Data Patterns'
     # Disable default classes to prevent extra wrapper divs
     noClasses = true
     
-    # Use monokai theme for syntax highlighting
-    style = "monokai"
+    # Use github theme for syntax highlighting
+    style = "github"
     
     # Set tab width for code blocks
     tabWidth = 4
