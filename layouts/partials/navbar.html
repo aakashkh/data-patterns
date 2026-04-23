@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="/data-patterns/">
+    <a class="navbar-brand fw-bold" href="{{ "/" | relURL }}">
       <i class="fas fa-database me-2"></i>{{ .Site.Title }}
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -9,27 +9,27 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link {{ if eq .RelPermalink "/" }}active{{ end }}" href="/data-patterns/">
+          <a class="nav-link {{ if eq .RelPermalink "/" }}active{{ end }}" href="{{ "/" | relURL }}">
             <i class="fas fa-home me-1"></i> Home
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ if eq .RelPermalink "/concepts/" }}active{{ end }}" href="/data-patterns/concepts/">
+          <a class="nav-link {{ if (strings.HasPrefix .RelPermalink "/concepts/") }}active{{ end }}" href="{{ "concepts/" | relURL }}">
             <i class="fas fa-lightbulb me-1"></i> Concepts
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ if eq .RelPermalink "/categories/" }}active{{ end }}" href="/data-patterns/categories/">
+          <a class="nav-link {{ if (strings.HasPrefix .RelPermalink "/categories/") }}active{{ end }}" href="{{ "categories/" | relURL }}">
             <i class="fas fa-folder me-1"></i> Categories
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ if eq .RelPermalink "/tags/" }}active{{ end }}" href="/data-patterns/tags/">
+          <a class="nav-link {{ if (strings.HasPrefix .RelPermalink "/tags/") }}active{{ end }}" href="{{ "tags/" | relURL }}">
             <i class="fas fa-tags me-1"></i> Tags
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ if eq .RelPermalink "/blog/" }}active{{ end }}" href="/data-patterns/blog/">
+          <a class="nav-link {{ if (strings.HasPrefix .RelPermalink "/blog/") }}active{{ end }}" href="{{ "blog/" | relURL }}">
             <i class="fas fa-blog me-1"></i> Blog
           </a>
         </li>

@@ -34,9 +34,8 @@
           {{ if .Params.tags }}
           <div class="article-tags">
             <span class="tags-label"><i class="fas fa-tags me-2"></i>Tags:</span>
-            {{ range .Params.tags }}
-            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
-
+            {{ range .GetTerms "tags" }}
+            <a href="{{ .RelPermalink }}" class="tag">{{ .LinkTitle }}</a>
             {{ end }}
           </div>
           {{ end }}

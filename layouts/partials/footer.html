@@ -3,39 +3,36 @@
     <div class="container">
     <div class="row g-4">
       <!-- Brand Column -->
-      <div class="col-lg-5 mb-4">
+      <div class="col-lg-4 col-md-12 mb-4">
         <div class="d-flex align-items-center mb-3">
           <i class="fas fa-database fa-2x text-primary me-2"></i>
           <h4 class="mb-0">{{ .Site.Title }}</h4>
         </div>
-        <p class="footer-text-muted mb-3">Modern data engineering patterns, tutorials, and best practices for building scalable data solutions. Explore data processing, ETL/ELT pipelines, and analytics workflows.</p>
-        <p class="footer-text-muted">Learn data modeling, optimization techniques, and cloud data solutions with practical examples and real-world use cases.</p>
+        <p class="footer-text-muted mb-3">Modern data engineering patterns, tutorials, and best practices for building scalable data solutions.</p>
+        <p class="footer-text-muted">Learn data modeling, optimization techniques, and cloud data solutions with practical examples.</p>
       </div>
 
       <!-- Quick Links -->
-      <div class="col-6 col-md-3">
+      <div class="col-6 col-md-2 mb-4">
         <h5 class="text-uppercase fw-bold mb-4">Quick Links</h5>
         <ul class="list-unstyled">
-          <li class="mb-2"><a href="{{ .Site.BaseURL }}" class="footer-text-light text-decoration-none hover-text-primary">
+          <li class="mb-2"><a href="{{ "/" | relURL }}" class="footer-text-light text-decoration-none hover-text-primary">
             <i class="fas fa-chevron-right me-2 small"></i>Home</a>
           </li>
           <li class="mb-2"><a href="{{ "blog/" | relURL }}" class="footer-text-light text-decoration-none hover-text-primary">
             <i class="fas fa-chevron-right me-2 small"></i>Blog</a>
           </li>
           <li class="mb-2"><a href="{{ "docs/" | relURL }}" class="footer-text-light text-decoration-none hover-text-primary">
-            <i class="fas fa-chevron-right me-2 small"></i>Documentation</a>
+            <i class="fas fa-chevron-right me-2 small"></i>Docs</a>
           </li>
           <li class="mb-2"><a href="{{ "categories/" | relURL }}" class="footer-text-light text-decoration-none hover-text-primary">
             <i class="fas fa-chevron-right me-2 small"></i>Categories</a>
-          </li>
-          <li class="mb-2"><a href="https://aakashkh.github.io/" class="footer-text-light text-decoration-none hover-text-primary" target="_blank" rel="noopener">
-            <i class="fas fa-chevron-right me-2 small"></i>About</a>
           </li>
         </ul>
       </div>
 
       <!-- Categories -->
-      <div class="col-6 col-md-4">
+      <div class="col-6 col-md-3 mb-4">
         <h5 class="text-uppercase fw-bold mb-4">Categories</h5>
         <ul class="list-unstyled">
           {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
@@ -49,22 +46,21 @@
           {{ end }}
         </ul>
       </div>
-    </div>
 
-    <!-- Popular Tags Section -->
-    <div class="row mt-4">
-      <div class="col-12">
-        <h5 class="text-uppercase fw-bold mb-3 small">Popular Tags</h5>
-        <div class="footer-tags py-2 border-top border-secondary">
-          {{ range $index, $term := first 15 .Site.Taxonomies.tags.ByCount }}
-            {{ if $index }}, {{ end }}
-            <a href="{{ .Page.RelPermalink }}" class="text-white-50 text-decoration-none hover-text-primary small">
+      <!-- Popular Tags -->
+      <div class="col-12 col-md-3 mb-4">
+        <h5 class="text-uppercase fw-bold mb-4">Popular Tags</h5>
+        <div class="footer-tags d-flex flex-wrap gap-2">
+          {{ range first 15 .Site.Taxonomies.tags.ByCount }}
+            <a href="{{ .Page.RelPermalink }}" class="badge bg-secondary bg-opacity-25 text-white-50 text-decoration-none hover-text-primary small fw-normal">
               #{{ .Page.Title }}
             </a>
           {{ end }}
         </div>
       </div>
     </div>
+
+
 
 
     <!-- Copyright and Attribution -->

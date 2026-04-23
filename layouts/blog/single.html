@@ -10,10 +10,12 @@
           </div>
           <div class="card-body py-2">
             {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-              <a href="/data-patterns{{ "/categories/" | relLangURL }}{{ $name | urlize }}" 
-                 class="d-block py-2 text-decoration-none text-muted hover-text-primary">
-                <i class="fas fa-folder me-2"></i>{{ $name | title }} ({{ $taxonomy.Count }})
-              </a>
+              {{ with $.Site.GetPage (printf "/categories/%s" $name) }}
+                <a href="{{ .RelPermalink }}" 
+                   class="d-block py-2 text-decoration-none text-muted hover-text-primary">
+                  <i class="fas fa-folder me-2"></i>{{ .LinkTitle | title }} ({{ $taxonomy.Count }})
+                </a>
+              {{ end }}
             {{ end }}
           </div>
         </div>
@@ -31,13 +33,13 @@
                   <i class="far fa-calendar-alt me-2"></i>
                   <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
                 </div>
-                {{ with .Params.categories }}
+                {{ if .Params.categories }}
                 <div class="d-flex flex-wrap align-items-center">
                   <i class="fas fa-tags me-2"></i>
-                  {{ range $index, $category := . }}
-                  <a href="/data-patterns{{ "/categories/" | relURL }}{{ $category | urlize }}" 
+                  {{ range .GetTerms "categories" }}
+                  <a href="{{ .RelPermalink }}" 
                     class="badge bg-primary bg-opacity-10 text-primary text-decoration-none me-2 mb-2">
-                    {{ $category }}
+                    {{ .LinkTitle }}
                   </a>
                   {{ end }}
                 </div>
@@ -72,10 +74,10 @@
             <div class="mb-4">
               <h6 class="mb-2"><i class="fas fa-tags me-2"></i>Tags</h6>
               <div class="d-flex flex-wrap gap-2">
-                {{ range .Params.tags }}
-                <a href="/data-patterns{{ "/tags/" | relLangURL }}{{ . | urlize }}" 
+                {{ range .GetTerms "tags" }}
+                <a href="{{ .RelPermalink }}" 
                   class="badge bg-light text-dark text-decoration-none border">
-                  #{{ . }}
+                  #{{ .LinkTitle }}
                 </a>
                 {{ end }}
               </div>
@@ -126,9 +128,9 @@
           <div class="card-body py-3">
             <div class="d-flex flex-wrap gap-2">
               {{ range first 20 .Site.Taxonomies.tags.ByCount }}
-                <a href="/data-patterns{{ "/tags/" | relLangURL }}{{ .Name | urlize }}" 
+                <a href="{{ .Page.RelPermalink }}" 
                   class="badge bg-light text-dark text-decoration-none border">
-                  #{{ .Name }} ({{ .Count }})
+                  #{{ .Page.Title }} ({{ .Count }})
                 </a>
               {{ end }}
             </div>
